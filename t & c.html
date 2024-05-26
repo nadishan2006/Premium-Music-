@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms and Policies - Premium Music</title>
+    <script src="https://kit.fontawesome.com/e7e1ed9392.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #000;
+            margin: 0;
+            padding: 0;
+        }
+  
+        /* Hide content if the orientation is landscape */
+        @media (orientation: landscape) {
+            body {
+                display: none;
+            }
+        }
+  
+        .nav {
+            background-color: rgba(0, 0, 0, 0.8); /* Transparent black (50% opacity) */
+            color: #fff; /* White color */
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 10%;
+            z-index: 9999; /* Ensure the footer is above other content */
+        }
+  
+        .footer-icons {
+            display: flex;
+            justify-content: space-around;
+            font-size: 25px;
+            padding: 10px 0;
+            color: #fff;
+        }
+  
+        .icon {
+            text-align: center;
+            margin-top: -5px;
+        }
+  
+        .icon-name {
+            font-size: 10px;
+            margin-top: -5px;
+        }
+  
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+  
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+  
+        h2 {
+            color: #666;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+        }
+  
+        h3 {
+            color: #444;
+        }
+  
+        p {
+            color: #555;
+            margin-bottom: 10px;
+        }
+  
+        section {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function handleOrientationChange() {
+            if (window.matchMedia("(orientation: landscape)").matches) {
+                alert("Please rotate your device to portrait mode for the best experience.");
+            }
+        }
+    
+        // Check orientation on load
+        handleOrientationChange();
+    
+        // Add an event listener for orientation change
+        window.addEventListener("orientationchange", handleOrientationChange);
+    </script>
+
+    <div class="container">
+        <h1>Terms and Policies</h1>
+        
+        <section class="terms">
+            <h2>Terms of Service</h2>
+            <p>Welcome to Premium Music. By using our app, you agree to comply with and be bound by the following terms and conditions of use, which together with our privacy policy govern Premium Music's relationship with you in relation to this app.</p>
+            <h3>Usage</h3>
+            <p>You agree to use the app only for lawful purposes and in a way that does not infringe the rights of, restrict, or inhibit anyone else's use and enjoyment of the app.</p>
+            <h3>Account</h3>
+            <p>To use certain features of the app, you may need to create an account. You are responsible for maintaining the confidentiality of your account information and are fully responsible for all activities that occur under your account.</p>
+        </section>
+        
+        <section class="privacy">
+            <h2>Privacy Policy</h2>
+            <p>Your privacy is important to us. This privacy policy explains what personal data we collect from you and how we use it.</p>
+            <h3>Information Collection</h3>
+            <p>We may collect the following information: Name, Contact information including email address, Demographic information such as postcode, preferences, and interests.</p>
+            <h3>Use of Information</h3>
+            <p>We use the information to understand your needs and provide you with a better service, and in particular for the following reasons: Internal record keeping, improving our products and services, sending promotional emails, etc.</p>
+            <br>
+            <b>Updated on: 20th May 2024</b>
+        </section>
+    </div>
+    
+    <div class="nav">
+        <div class="footer-icons">
+            <div class="icon">
+                <a href="Music.html"><i class="fa-solid fa-music" style="color: rgb(0, 270, 100)"></i></a>
+                <div class="icon-name">Music</div>
+            </div>
+            <div class="icon">
+                <a href="Search.html"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></a>
+                <div class="icon-name">Search</div>
+            </div>
+            <div class="icon">
+                <a href="Trending.html"><i class="fa-solid fa-fire-flame-curved" style="color: #ffffff;"></i></a>
+                <div class="icon-name">Trending</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

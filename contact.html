@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, orientation=portrait">
+    <title>Contact-us</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://kit.fontawesome.com/e7e1ed9392.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" type="image/jpg" href="https://i.ibb.co/kSQN5ZW/Screenshot-2024-0414-204428.jpg">
+    </head>
+<style>
+ body {
+ font-family: 'Arial', sans-serif;
+ margin: 0;
+ padding: 0;
+ background-color: #000;
+ color: #333;
+ }
+ 
+ .nav {
+ background-color: rgba(0, 0, 0, 0.8); /* Transparent black (50% opacity) */
+ color: rgb(0, 0, 0); /* Black color */
+ text-align: center;
+ position: fixed;
+ bottom: 0;
+ left: 0;
+ width: 100%;
+ height: 10%;
+ z-index: 9999; /* Ensure the footer is above other content */
+ }
+ 
+ .footer-icons {
+ display: flex;
+ justify-content: space-around;
+ font-size: 25px;
+ padding: 20px 0;
+ color: #fff;
+ }
+ 
+ .icon {
+ text-align: center;
+ margin-top: -5px;
+ }
+ 
+ .icon-name {
+ font-size: 10px;
+ margin-top: 0px;
+ }
+ 
+ form {
+ display: flex;
+ flex-direction: column;
+ width: 300px;
+ max-width: 500px; /* Set a maximum width for the form */
+ margin: 0 auto; /* Center the form horizontally */
+ padding: 20px; /* Add padding around the form */
+ background-color: #000; /* Light background color for the form */
+ border: none; /* Add a border */
+ border-radius: 10px; /* Round the corners */
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.0); /* Add a subtle shadow */
+ }
+ 
+ form label {
+ margin-top: 15px; /* Increase the margin-top */
+ font-weight: bold;
+ }
+ 
+ form input, form textarea {
+ padding: 10px;
+ margin-top: 5px;
+ border: none;
+ border-radius: 5px;
+ font-size: 1em; /* Increase the font size */
+ outline: none; /* Remove the yellow border */
+ }
+ 
+ form textarea {
+ resize: vertical; /* Allow vertical resizing */
+ }
+ 
+ form button {
+ background-color: #4CAF50;
+ color: white;
+ border: none;
+ padding: 15px;
+ margin-top: 20px;
+ cursor: pointer;
+ font-size: 1.2em; /* Increase the font size */
+ border-radius: 5px;
+ transition: background-color 0.3s ease; /* Add a transition effect */
+ }
+ 
+ form button:hover {
+ background-color: #45a049;
+ }
+ 
+ /* Add some basic responsiveness */
+ @media (max-width: 600px) {
+ form {
+ padding: 10px; /* Reduce padding on smaller screens */
+ }
+ 
+ form button {
+ font-size: 1em; /* Adjust button font size */
+ }
+ }
+ 
+ 
+ .h-t1 {
+  color: #fff;
+  font-size: 35px;
+  padding-left: 20px;
+ }
+ 
+ #h-t2 {
+ color: #fff;
+ font-size: 11px;
+ padding-left: 15px;
+ padding-right: 15px;
+ }
+ 
+ #hr-1 {
+ width: 90%;
+ border: 1px solid #fff;
+ }
+ 
+ .ht-3 {
+  color: #fff;
+  font-size: 23px;
+  padding-left: 15px;
+ }
+ 
+ 
+ 
+ .but-1 {
+ background-color: rgb(0, 255, 100);
+ font-size: 17px;
+ width: 80%; /* Button width as a percentage of the container width */
+ height: 40px;
+ border: none;
+ border-radius: 7px;
+ box-sizing: border-box; /* Include padding and border in the width */
+ }
+ 
+ #contact {
+ color: #fff;
+ }
+ 
+ .hide {
+  display: none;
+ }
+ 
+ #paddi {
+ margin-top: 20px;
+ padding-left: 30px;
+ }
+</style>
+<body>
+    <br>
+     <p>
+      
+
+   
+        <div class="h-t1"><b>Welcome to the Help Center</b></div>
+        <br>
+        <hr id="hr-1">
+        <div id="h-t2"><p>Find answers to your questions and get support for using Premium Music.</p></div>
+    </section>
+
+    <section id="faq">
+        <div class="ht-3"><b>Frequently Asked Questions.</b></div>
+        <br>
+       
+      
+        
+        <center>
+         
+         <a href="create your page.html">
+         <button class="but-1">How can I create a page?</button>
+         </a>
+         <p>
+         
+         
+        
+         
+         
+          <a href="#contact">
+            <button class="but-1">How can I contact support?</button>
+            <div class="hide">
+                <p>You can contact our support team by clicking on the "Contact Us" section and filling out the form. We'll get back to you as soon as possible.</p>
+            </div></a>
+        </div>
+        <!-- Add more FAQs as needed -->
+</center>
+
+<br>
+    <section id="contact">
+    <h2 id="paddi">Contact Us</h2>
+    <form id="form">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" required></textarea>
+    
+    <button type="submit">Submit</button>
+    </form>
+    </section>
+
+   
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+    
+    <div class="nav">
+    <div class="footer-icons">
+    <div class="icon">
+    <a href="Music.html"><i class="fa-solid fa-music" style="color: rgb(0, 270, 100)"></i>
+    </a><div class="icon-name">Music</div>
+    </div>
+    <div class="icon">
+    <a href="Search.html"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
+    </a><div class="icon-name">Search</div>
+    </div>
+    <div class="icon">
+    <a href="Trending.html"><i class="fa-solid fa-fire-flame-curved" style="color: #ffffff;"></i>
+    </a><div class="icon-name">Trending</div>
+    </div>
+    </div>
+    </div>
+    <br>
+    <p>
+      <br>
+    </p>
+</body>
+</html>

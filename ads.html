@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, orientation=portrait">
+    <title>Watch-ads</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://kit.fontawesome.com/e7e1ed9392.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" type="image/jpg" href="https://i.ibb.co/kSQN5ZW/Screenshot-2024-0414-204428.jpg">
+</head>
+<style>
+ body {
+ font-family: 'Arial', sans-serif;
+ margin: 0;
+ padding: 0;
+ background-color: #000;
+ color: #333;
+ }
+ 
+ .nav {
+ background-color: rgba(0, 0, 0, 0.8); /* Transparent black (50% opacity) */
+ color: rgb(0, 0, 0); /* Black color */
+ text-align: center;
+ position: fixed;
+ bottom: 0;
+ left: 0;
+ width: 100%;
+ height: 10%;
+ z-index: 9999; /* Ensure the footer is above other content */
+ }
+ 
+ .footer-icons {
+ display: flex;
+ justify-content: space-around;
+ font-size: 25px;
+ padding: 20px 0;
+ color: #fff;
+ }
+ 
+ .icon {
+ text-align: center;
+ margin-top: -5px;
+ }
+ 
+ .icon-name {
+ font-size: 10px;
+ margin-top: 0px;
+ }
+ 
+@import url('https://fonts.googleapis.com/css?family=Exo:400,700');
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    font-family: 'Exo', sans-serif;
+   background-color: #000;
+}
+
+.t-1 {
+ color: #fff;
+ font-size: 50px;
+ padding-left: 20px;
+}
+
+
+
+#if1, #if2 {
+    width: 80%;
+    height: 40%;
+    margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+    position: relative;
+}
+ 
+.vertical-line {
+            position: absolute;
+            width: 2px; /* Thickness of the vertical line */
+            height: 100vh; /* Height of the vertical line */
+            top: -10%;
+            left: 3%; /* Center the line horizontally */
+            z-index: -1; /* Bring the line to the back */
+            background-color: #fff; /* Base color of the vertical line */
+        }
+
+        .vertical-line::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, #00ff00 99%, rgb(0, 270, 100) 1%);
+            animation: moveDown 5s linear infinite;
+        }
+
+        @keyframes moveDown {
+            0% {
+                top: -100%;
+            }
+            100% {
+                top: 100%;
+            }
+        }
+ /* Hide content if the orientation is landscape */
+ @media (orientation: landscape) {
+ body {
+ display: none;
+ }
+ }
+ 
+</style>
+<body>
+
+<script>
+  function handleOrientationChange() {
+    if (window.matchMedia("(orientation: landscape)").matches) {
+      alert("Please rotate your device to portrait mode for the best experience.");
+    }
+  }
+
+  // Check orientation on load
+  handleOrientationChange();
+
+  // Add an event listener for orientation change
+  window.addEventListener("orientationchange", handleOrientationChange);
+</script>
+
+    <br>
+    <div class="vertical-line"></div>
+    <div class="t-1"><b>Watch Ads</b></div>
+    <center>
+    <iframe id="if1" src="https://www.youtube.com/embed/ZfNgr67f4yA?si=cqzGZCBNvb6-Mvcr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe id="if2" src="https://drive.google.com/file/d/11VDse0xF7Z5ACcjak9oYew6NzLyAJj0a/preview?autoplay=1" allow="autoplay" onclick="alert('NSI & Premium Music')"></iframe>
+    </center>
+    
+    
+    <div class="nav">
+    <div class="footer-icons">
+    <div class="icon">
+    <a href="Music.html"><i class="fa-solid fa-music" style="color: rgb(0, 270, 100)"></i>
+    </a><div class="icon-name">Music</div>
+    </div>
+    <div class="icon">
+    <a href="Search.html"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
+    </a><div class="icon-name">Search</div>
+    </div>
+    <div class="icon">
+    <a href="Trending.html"><i class="fa-solid fa-fire-flame-curved" style="color: #ffffff;"></i>
+    </a><div class="icon-name">Trending</div>
+    </div>
+    </div>
+    </div>
+</body>
+</html>

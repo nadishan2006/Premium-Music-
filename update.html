@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update app</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://kit.fontawesome.com/e7e1ed9392.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" type="image/jpg" href="https://i.ibb.co/kSQN5ZW/Screenshot-2024-0414-204428.jpg">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #000;
+            margin: 0;
+            padding: 0;
+        }
+  
+        /* Hide content if the orientation is landscape */
+        @media (orientation: landscape) {
+            body {
+                display: none;
+            }
+        }
+  
+        .nav {
+            background-color: rgba(0, 0, 0, 0.8); /* Transparent black (50% opacity) */
+            color: #fff; /* White color */
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 10%;
+            z-index: 9999; /* Ensure the footer is above other content */
+        }
+  
+        .footer-icons {
+            display: flex;
+            justify-content: space-around;
+            font-size: 25px;
+            padding: 10px 0;
+            color: #fff;
+        }
+  
+        .icon {
+            text-align: center;
+            margin-top: -5px;
+        }
+  
+        .icon-name {
+            font-size: 10px;
+            margin-top: -5px;
+        }
+  
+       .h-t {
+        color: #fff;
+        font-size: 40px;
+        padding-left: 20px;
+       }
+       
+       .t-1 {
+       color: #fff;
+       font-size: 30px;
+       padding-left: 20px;
+       margin-bottom: 30px;
+       }
+       
+       #hr-1 {
+        border: 1px solid rgb(0, 270, 100);
+        width: 90%;
+       }
+       
+       .i-up img{
+        width: 20%;
+        height: 18%;
+        border-radius: 50%;
+        margin-left: 30px;
+       }
+       
+       .t-2 {
+       color: #fff;
+       font-size: 20px;
+       padding-left: 37%;
+       margin-top: -22.5%;
+       }
+       
+       .t-3 {
+       color: #fff;
+       font-size: 8px;
+       margin-top: -20%;
+       margin-left: 37%;
+       }
+       
+       .b-down button{
+       background-color: rgb(0, 270, 100);
+       width: 80px;
+       height: 40px;
+       border: none;
+       border-radius: 50px;
+       margin-bottom: 35px;
+       margin-left: 70%;
+       }
+       .ab {
+       color: #fff;
+       font-size: 17px;
+       padding-left: 20px;
+       margin-top: 20%;
+       }
+       
+       #lb {
+       width: 90%;
+       border: 1px solid #D2D2D2;
+       }
+       
+       .ab-data {
+       color: #fff;
+       }
+       
+    </style>
+</head>
+<body>
+<br>
+    <script>
+        function handleOrientationChange() {
+            if (window.matchMedia("(orientation: landscape)").matches) {
+                alert("Please rotate your device to portrait mode for the best experience.");
+            }
+        }
+    
+        // Check orientation on load
+        handleOrientationChange();
+    
+        // Add an event listener for orientation change
+        window.addEventListener("orientationchange", handleOrientationChange);
+    </script>
+
+    <div class="h-t">
+      <b> Update Available</b>
+    </div>
+   <div class="t-1">
+    V 1.1
+   </div>
+   <hr id="hr-1">
+   <br>
+    <div class="i-up">
+    <img src="https://i.ibb.co/kSQN5ZW/Screenshot-2024-0414-204428.jpg">
+    </div>
+      <div class="t-2"> <b>Premium Music </b></div>
+      <div class="b-down">
+        <button id="download-button"><b>Download</b></button>
+        
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const button = document.getElementById('download-button');
+        const imageUrl = 'https://www.mediafire.com/file/j3a5bwu23bbw49u/Screenshot_20240520_234010.jpg/file?dkey=xjec0d5zlmf&r=581'; // Set your image download link here
+        
+        if (imageUrl) {
+        button.addEventListener('click', function() {
+        const a = document.createElement('a');
+        a.href = imageUrl;
+        a.download = 'Screenshot_20240520_234010.jpg'; // Set the filename for the downloaded image
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        });
+        } else {
+        console.error('Image URL is not provided.');
+        }
+        });
+        </script>
+      </div>
+    <div class="t-3"> 20/May/2024</div>
+    
+    
+    <div class="ab"><b>What's New in V 1.1</b></div>
+     <hr id="lb">
+     
+  <div class="ab-data">
+    <ul>Bug Fixes: We've squashed several bugs to enhance your listening experience.</ul>
+    <ul>Performance Improvements: Enjoy a smoother and faster app performance.</ul>
+   <b> <ul>New Features:
+      <li>Enhanced Audio Quality: Experience higher quality sound for all your favorite tracks.</li> <p>
+      <li>Custom Playlists: Create and manage your own playlists with ease.</li> <p>
+      <li>Improved Search Functionality: Find your favorite songs and artists more quickly.</li> <p>
+      <li>User Interface Enhancements: A more intuitive and visually appealing interface for better navigation.</li> <p>
+    </b>
+    Thank you for using Premium Music! We're constantly working to provide you with the best music experience possible. If you have any feedback or suggestions, please let us know!</ul>
+    </div>
+    <br>
+      <br>
+    <div class="nav">
+    <div class="footer-icons">
+    <div class="icon">
+    <a href="Music.html"><i class="fa-solid fa-music" style="color: rgb(0, 270, 100)"></i>
+    </a><div class="icon-name">Music</div>
+    </div>
+    <div class="icon">
+    <a href="Search.html"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
+    </a><div class="icon-name">Search</div>
+    </div>
+    <div class="icon">
+    <a href="Trending.html"><i class="fa-solid fa-fire-flame-curved" style="color: #ffffff;"></i>
+    </a><div class="icon-name">Trending</div>
+    </div>
+    </div>
+    </div>
+    
+</body>
+</html>

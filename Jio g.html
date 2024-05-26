@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <titleJIO G</title></title></title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://kit.fontawesome.com/e7e1ed9392.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" type="image/jpg" href="https://i.ibb.co/kSQN5ZW/Screenshot-2024-0414-204428.jpg">
+    <style>
+      body{
+        background-color: #000;
+      }
+      
+      .footer-icons {
+    display: flex;
+    justify-content: space-around;
+    font-size: 25px;
+    padding: 20px 0;
+    color: #fff;
+    }
+    
+    .icon {
+    text-align: center;
+    margin-top: -5px;
+    }
+    
+    .icon-name {
+    font-size: 10px;
+    margin-top: 0px;
+    }
+    
+      
+      .box {
+      background-color: #27272a;
+      width: auto; /* Adjust width as needed */
+      border: #fff solid 0.5px;
+      border-radius: 10px;
+      overflow: hidden; /* Ensure video doesn't overflow */
+      }
+      
+      .box iframe {
+      width: 100%;
+      height: 15%; /* Adjust height as needed */
+      border: none; /* Remove border */
+      }
+      
+      .box1 img{
+      background-color: red;
+      width: 110px;
+      height: 110px;
+      border: #9BA090 solid 1px;
+      border-radius: 50%;
+      margin-top: -15%;
+      margin-left: 30px;
+      }
+      
+      .image-1{
+      
+      }
+      
+      .text-1 {
+        color: #fff;
+        font-size: 25px;
+        margin-top: -15%;
+        margin-left: 45%;
+      }
+      
+      
+      /* music */
+      
+      .m-con {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      }
+      
+      .m-box {
+      background-color: #27272a;
+      width: 90%;
+      height: 200px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* Ensures equal spacing around the green box */
+      position: relative; /* Enable positioning */
+      }
+      
+      .up-box {
+      background-color: #636060;
+      width: 94%;
+      height: 40%;
+      border-radius: 10px; /* Sets the top-left and top-right corners to be circular */
+      position: absolute;
+      bottom: 10px; /* Position the green box to the bottom of the black box */
+      left: 50%; /* Adjusted to center the box horizontally */
+      transform: translateX(-50%); /* Move the box back by half of its own width to center it */
+      }
+      
+      .img {
+      width: 75px;
+      height: 75px;
+      margin-top: -33%;
+      margin-left: 6px;
+      }
+      
+      .img img {
+      width: 100%;
+      height: 100%;
+      margin-right: -80px;
+      border-radius: 10px;
+      }
+      
+      .text {
+      color: white;
+      font-size: 20px;
+      margin-top: -20%;
+      margin-left: 37%;
+      flex: 1; 
+      }
+      
+      .text2 {
+      color: white;
+      font-size: 10px;
+      margin-top: 5px;
+      margin-right: 10px; /* Added a semicolon here */
+      flex: 1; 
+      }
+      
+      .controls {
+      color: #22c55e;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      }
+      
+      .time-1 {
+      color: white;
+      font-size: 14px;
+      margin-top: -20%;
+      margin-left: 10px;
+      position: absolute;
+      left: 0;
+      }
+      
+      .time-2 {
+      color: white;
+      font-size: 14px;
+      margin-top: -20%;
+      margin-left: 87%;
+      position: absolute;
+      left: 0;
+      }
+      
+      
+      .timeline {
+      width: 80%;
+      height: 3px; /* Adjusted height */
+      margin-top: -30%;
+      margin-right: 0px;
+      -webkit-appearance: none; /* Remove the default appearance */
+      appearance: none;
+      background-color: #22c55e; /* Green track color */
+      border-radius: 5px; /* Rounded track */
+      }
+      
+      .timeline::-webkit-slider-thumb {
+      -webkit-appearance: none; /* Remove the default appearance */
+      appearance: none;
+      width: 10px;
+      height: 10px;
+      background-color: #22c55e; /* Green thumb color */
+      border-radius: 50%; /* Rounded thumb */
+      cursor: pointer;
+      }
+      
+      
+      
+      .dropdown {
+      display: none;
+      position: absolute;
+      background-color: #636060;
+      padding: 10px;
+      border-radius: 5px;
+      bottom: 30px;
+      right: 10px;
+      }
+      
+      .dropdown a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 5px;
+      }
+      
+      .dropdown a:hover {
+      text-decoration: underline;
+      }
+      
+      .icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 80px;
+      margin-left: 0px;
+      }
+      
+      .icon-m {
+      color: white;
+      font-size: 24px;
+      margin: 0 25px; /* Adjusted margin to create gap between icons */
+      cursor: pointer;
+      }
+      
+      .heart {
+      color: white;
+      font-size: 18px;
+      margin: 0 10px; /* Adjusted margin to create gap between icons */
+      cursor: pointer;
+      }
+      
+      .dots{
+      color: white;
+      font-size: 18px;
+      margin: 0 10px; /* Adjusted margin to create gap between icons */
+      cursor: pointer;
+      }
+      
+      .li-n {
+       color: #fff;
+       width: 90%;
+      }
+     .back-box {
+       width: 100%;
+       height: 20px;
+     }
+     
+     #b-i {
+       font-size: 20px;
+       padding-left: 10px;
+     }
+     
+    </style>
+    </head>
+    <body>
+    <div class="back-box">
+      <a href="Music.html">
+      <i id="b-i" class="fa-solid fa-angle-left" style="color: #ffffff;"></i> </a>
+    </div>
+     <br>
+     <div class="box">
+     <iframe width="560" height="315" src="https://www.youtube.com/embed/MZA2gtEC7B8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+     </div>
+     <div class="box1"><img src="https://i.ibb.co/0JMbvX0/IMG-20240521-190054.jpg" alt="Hidden Image" onclick="revealImage()"></div>
+        <script>
+        function revealImage() {
+        var img = document.getElementById('hiddenImage');
+        img.style.display = 'inline'; // Temporarily reveal the image
+        setTimeout(function() {
+        var path = img.src;
+        console.log("Image path:", path);
+        // You can initiate a download here or use the path for any other purpose
+        img.style.display = 'none'; // Hide the image again
+        }, 2000); // 2000 milliseconds (2 seconds)
+        }
+        </script>
+        <div class="text-1">
+           <b>JIO G</b>
+        </div>
+     </div>
+    <p>
+   <br>
+   <!-- #1 -->
+   <hr class="li-n">
+   <br>
+   <div class="m-con">
+   <div class="m-box">
+   <div class="up-box">
+   <div class="img">
+   <img src="https://i.ibb.co/9YmLf7L/IMG-20240521-190103.jpg">
+   </div>
+   <div class="text"><b><font size="2.5px">NONASENA | නොනැසෙන</font></b> <p class="text2">Released on: no provide</p></div>
+   <div class="controls">
+   <input type="range" class="timeline" min="0" max="100" step="1">
+   <div class="time-1" id="t1">0:00</div>
+   <div class="time-2" id="t2">3:00</div>
+   </div>
+   
+   <audio id="audioPlayer1" src="https://www.cjoint.com/doc/24_05/NEvn4xkwmQN_nonasena-jio-g-ft-d-zesar.mp3"></audio>
+   
+   <script>
+   function setupAudioControls(playBtnId, pauseBtnId, audioPlayerId, timeId) {
+   const audioPlayer = document.getElementById(audioPlayerId);
+   const timeline = document.querySelector('.timeline');
+   const time1 = document.getElementById(timeId);
+   const time2 = document.querySelector('.time-2');
+   
+   audioPlayer.addEventListener('timeupdate', function() {
+   const currentTime = audioPlayer.currentTime;
+   const duration = audioPlayer.duration;
+   const progress = (currentTime / duration) * 100;
+   timeline.value = progress;
+   
+   // Update time display
+   const minutes = Math.floor(currentTime / 60);
+   const seconds = Math.floor(currentTime % 60);
+   const endMinutes = Math.floor(duration / 60);
+   const endSeconds = Math.floor(duration % 60);
+   time1.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+   time2.textContent = `${endMinutes}:${endSeconds.toString().padStart(2, '0')}`;
+   });
+   
+   timeline.addEventListener('input', function() {
+   const seekTime = (timeline.value / 100) * audioPlayer.duration;
+   audioPlayer.currentTime = seekTime;
+   });
+   }
+   
+   setupAudioControls('playBtn1', 'pauseBtn1', 'audioPlayer1', 't1');
+   </script>
+   <div class="icon">
+   <div class="heart" onclick="toggleHeart1()">
+   <i id="heartIcon1" class="fa-regular fa-heart" style="color: #ffffff;"></i>
+   </div>
+   <script>
+   function toggleHeart1() {
+   const heartIcon = document.getElementById('heartIcon1');
+   if (heartIcon.classList.contains('fa-regular')) {
+   heartIcon.classList.remove('fa-regular');
+   heartIcon.classList.add('fa-solid');
+   heartIcon.style.color = '#ff1f80';
+   } else {
+   heartIcon.classList.remove('fa-solid');
+   heartIcon.classList.add('fa-regular');
+   heartIcon.style.color = '#ffffff';
+   }
+   }
+   
+   </script>
+   <i id="playBtn1" class="icon-m fas fa-play" style="color: #22c55e;"></i>
+   <i id="pauseBtn1" class="icon-m fas fa-pause" style="display: none; color: #22c55e;"></i>
+   <div class="dots" id="dow1"><i class="fa-solid fa-cloud-arrow-down" style="color: #ffffff;"></i></div>
+   <script>
+   document.querySelector('#dow1').addEventListener('click', function() {
+   const link = 'https://drive.google.com/file/d/12xXL2Lzwaj6BfCRBYN_76GDwwJaZ633Q/view';
+   const a = document.createElement('a');
+   a.href = link;
+   a.setAttribute('target', '_blank');
+   a.style.display = 'none';
+   document.body.appendChild(a);
+   a.click();
+   document.body.removeChild(a);
+   });
+   </script>
+   
+   </div>
+    </div>
+   </div>
+   </div>
+   </div>
+   
+   <br>
+   <!-- #2 -->
+      <!-- 
+    <hr class="li-n">
+   <br>
+   <div class="m-con">
+   <div class="m-box">
+   <div class="up-box">
+   <div class="img">
+   <img src="https://i.ibb.co/w4s2Wby/279912798-554688012687989-7371472378482916394-n-e1651905549299-696x522.jpg">
+   </div>
+   <div class="text"><b>නොනැසෙන</b> <p class="text2">Released on 21 March 2019</p></div>
+   <div class="controls">
+   <input type="range" class="timeline" min="0" max="100" step="1">
+   <div class="time-1" id="t-3">0:00</div>
+   <div class="time-2" id="t-4">3:00</div>
+   </div>
+   
+   <audio id="audioPlayer2" src="https://www.cjoint.com/doc/24_05/NEchFcWY1cj_Alan-Walker-Sabrina-Carpenter-Farruko---On-My-Way.mp3"></audio>
+   
+   <script>
+   function setupAudioControls(playBtnId, pauseBtnId, audioPlayerId, timeId) {
+   const audioPlayer = document.getElementById(audioPlayerId);
+   const timeline = audioPlayer.parentElement.querySelector('.timeline');
+   const time3 = audioPlayer.parentElement.querySelector('.time-1');
+   const time4 = audioPlayer.parentElement.querySelector('.time-2');
+   
+   audioPlayer.addEventListener('timeupdate', function() {
+   const currentTime = audioPlayer.currentTime;
+   const duration = audioPlayer.duration;
+   const progress = (currentTime / duration) * 100;
+   timeline.value = progress;
+   
+   // Update time display
+   const minutes = Math.floor(currentTime / 60);
+   const seconds = Math.floor(currentTime % 60);
+   const endMinutes = Math.floor(duration / 60);
+   const endSeconds = Math.floor(duration % 60);
+   time3.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+   time4.textContent = `${endMinutes}:${endSeconds.toString().padStart(2, '0')}`;
+   });
+   
+   timeline.addEventListener('input', function() {
+   const seekTime = (timeline.value / 100) * audioPlayer.duration;
+   audioPlayer.currentTime = seekTime;
+   });
+   }
+   
+   setupAudioControls('playBtn1', 'pauseBtn1', 'audioPlayer1', 't-1');
+   setupAudioControls('playBtn2', 'pauseBtn2', 'audioPlayer2', 't-3'); // Change 't-3' to 't-4' if you want to use the second time display for the second audio player
+   setupAudioControls('playBtn3', 'pauseBtn3', 'audioPlayer3', 't-5');
+   setupAudioControls('playBtn4', 'pauseBtn4', 'audioPlayer4', 't-7');
+   setupAudioControls('playBtn5', 'pauseBtn5', 'audioPlayer5', 't-9');
+   setupAudioControls('playBtn6', 'pauseBtn6', 'audioPlayer6', 't-11');
+   </script>
+   <div class="icon">
+   <div class="heart" onclick="toggleHeart2()">
+   <i id="heartIcon2" class="fa-regular fa-heart" style="color: #ffffff;"></i>
+   </div>
+   <script>
+   function toggleHeart2() {
+   const heartIcon = document.getElementById('heartIcon2');
+   if (heartIcon.classList.contains('fa-regular')) {
+   heartIcon.classList.remove('fa-regular');
+   heartIcon.classList.add('fa-solid');
+   heartIcon.style.color = '#ff1f80';
+   } else {
+   heartIcon.classList.remove('fa-solid');
+   heartIcon.classList.add('fa-regular');
+   heartIcon.style.color = '#ffffff';
+   }
+   }
+   
+   </script>
+   <i id="playBtn2" class="icon-m fas fa-play" style="color: #22c55e;"></i>
+   <i id="pauseBtn2" class="icon-m fas fa-pause" style="display: none; color: #22c55e;"></i>
+   <div class="dots" id="dow2"><i class="fa-solid fa-cloud-arrow-down" style="color: #ffffff;"></i></div>
+   <script>
+   document.querySelector('dow2').addEventListener('click', function() {
+   const link = 'https://drive.google.com/uc?export=download&id=1vx_VMvEyCTAuaqUiHUSX-hnJjBBelnO0';
+   const a = document.createElement('a');
+   a.href = link;
+   a.setAttribute('download', '');
+   a.click();
+   });
+   </script>
+   
+   </div>
+  
+   </div>
+   </div>
+   </div>
+   </div>
+   <br>        -->
+   
+   <!-- #3 -->
+     <!-- 
+   <hr class="li-n">
+   <br>
+   <div class="m-con">
+   <div class="m-box">
+   <div class="up-box">
+   <div class="img">
+   <img src="https://i.ibb.co/FbmMmsM/unity.jpg">
+   </div>
+   <div class="text"><b>Unity</b> <p class="text2">Released on 15 July 2019</p></div>
+   <div class="controls">
+   <input type="range" class="timeline" min="0" max="100" step="1">
+   <div class="time-1" id="t-5">0:00</div>
+   <div class="time-2" id="t-6">3:00</div>
+   </div>
+   
+   <audio id="audioPlayer3" src="https://www.cjoint.com/doc/24_05/NEdlvoym16T_Alan-x-Walkers---Unity.mp3"></audio>
+   
+   <script>
+   function setupAudioControls(playBtnId, pauseBtnId, audioPlayerId, timeId) {
+   const audioPlayer = document.getElementById(audioPlayerId);
+   const timeline = audioPlayer.parentElement.querySelector('.timeline');
+   const time5 = audioPlayer.parentElement.querySelector('.time-1');
+   const time6 = audioPlayer.parentElement.querySelector('.time-2');
+   
+   audioPlayer.addEventListener('timeupdate', function() {
+   const currentTime = audioPlayer.currentTime;
+   const duration = audioPlayer.duration;
+   const progress = (currentTime / duration) * 100;
+   timeline.value = progress;
+   
+   // Update time display
+   const minutes = Math.floor(currentTime / 60);
+   const seconds = Math.floor(currentTime % 60);
+   const endMinutes = Math.floor(duration / 60);
+   const endSeconds = Math.floor(duration % 60);
+   time5.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+   time6.textContent = `${endMinutes}:${endSeconds.toString().padStart(2, '0')}`;
+   });
+   
+   timeline.addEventListener('input', function() {
+   const seekTime = (timeline.value / 100) * audioPlayer.duration;
+   audioPlayer.currentTime = seekTime;
+   });
+   }
+   
+   setupAudioControls('playBtn1', 'pauseBtn1', 'audioPlayer1', 't-1');
+   setupAudioControls('playBtn2', 'pauseBtn2', 'audioPlayer2', 't-3'); // Change 't-3' to 't-4' if you want to use the second time display for the second audio player
+   setupAudioControls('playBtn3', 'pauseBtn3', 'audioPlayer3', 't-5');
+   setupAudioControls('playBtn4', 'pauseBtn4', 'audioPlayer4', 't-7');
+   setupAudioControls('playBtn5', 'pauseBtn5', 'audioPlayer5', 't-9');
+   setupAudioControls('playBtn6', 'pauseBtn6', 'audioPlayer6', 't-11');
+   
+   </script>
+   <div class="icon">
+   <div class="heart" onclick="toggleHeart3()">
+   <i id="heartIcon3" class="fa-regular fa-heart" style="color: #ffffff;"></i>
+   </div>
+   <script>
+   function toggleHeart3() {
+   const heartIcon = document.getElementById('heartIcon3');
+   if (heartIcon.classList.contains('fa-regular')) {
+   heartIcon.classList.remove('fa-regular');
+   heartIcon.classList.add('fa-solid');
+   heartIcon.style.color = '#ff1f80';
+   } else {
+   heartIcon.classList.remove('fa-solid');
+   heartIcon.classList.add('fa-regular');
+   heartIcon.style.color = '#ffffff';
+   }
+   }
+   
+   </script>
+   <i id="playBtn3" class="icon-m fas fa-play" style="color: #22c55e;"></i>
+   <i id="pauseBtn3" class="icon-m fas fa-pause" style="display: none; color: #22c55e;"></i>
+   <div class="dots" id="dow3"><i class="fa-solid fa-cloud-arrow-down" style="color: #ffffff;"></i></div>
+   <script>
+   document.querySelector('#dow3').addEventListener('click', function() {
+   const link = 'https://drive.google.com/uc?export=download&id=1vx_VMvEyCTAuaqUiHUSX-hnJjBBelnO0';
+   const a = document.createElement('a');
+   a.href = link;
+   a.setAttribute('download', '');
+   a.click();
+   });
+   </script>
+   
+   </div>
+   
+   </div>
+   </div>
+   </div>
+   </div> 
+   
+   
+   
+   <br>
+   <!-- #4 -->
+      <!-- 
+   <hr class="li-n">
+   <br>
+   <div class="m-con">
+   <div class="m-box">
+   <div class="up-box">
+   <div class="img">
+   <img src="https://i.ibb.co/HHp4Mvb/IMG-20240502-052949.jpg">
+   </div>
+   <div class="text"><b>The Spectre</b> <p class="text2">Released on 15 September 2017</p></div>
+   <div class="controls">
+   <input type="range" class="timeline" min="0" max="100" step="1">
+   <div class="time-1" id="t-7">0:00</div>
+   <div class="time-2" id="t-8">3:00</div>
+   </div>
+   
+   <audio id="audioPlayer4" src="https://www.cjoint.com/doc/24_05/NEdlK0vGPhj_Alan-Walker---The-Spectre.mp3"></audio>
+   
+   <script>
+   function setupAudioControls(playBtnId, pauseBtnId, audioPlayerId, timeId) {
+   const audioPlayer = document.getElementById(audioPlayerId);
+   const timeline = audioPlayer.parentElement.querySelector('.timeline');
+   const time7 = audioPlayer.parentElement.querySelector('.time-1');
+   const time8 = audioPlayer.parentElement.querySelector('.time-2');
+   
+   audioPlayer.addEventListener('timeupdate', function() {
+   const currentTime = audioPlayer.currentTime;
+   const duration = audioPlayer.duration;
+   const progress = (currentTime / duration) * 100;
+   timeline.value = progress;
+   
+   // Update time display
+   const minutes = Math.floor(currentTime / 60);
+   const seconds = Math.floor(currentTime % 60);
+   const endMinutes = Math.floor(duration / 60);
+   const endSeconds = Math.floor(duration % 60);
+   time7.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+   time8.textContent = `${endMinutes}:${endSeconds.toString().padStart(2, '0')}`;
+   });
+   
+   timeline.addEventListener('input', function() {
+   const seekTime = (timeline.value / 100) * audioPlayer.duration;
+   audioPlayer.currentTime = seekTime;
+   });
+   }
+   
+   setupAudioControls('playBtn1', 'pauseBtn1', 'audioPlayer1', 't-1');
+   setupAudioControls('playBtn2', 'pauseBtn2', 'audioPlayer2', 't-3'); // Change 't-3' to 't-4' if you want to use the second time display for the second audio player
+   setupAudioControls('playBtn3', 'pauseBtn3', 'audioPlayer3', 't-5');
+   setupAudioControls('playBtn4', 'pauseBtn4', 'audioPlayer4', 't-7');
+   setupAudioControls('playBtn5', 'pauseBtn5', 'audioPlayer5', 't-9');
+   setupAudioControls('playBtn6', 'pauseBtn6', 'audioPlayer6', 't-11');
+   
+   </script>
+   <div class="icon">
+   <div class="heart" onclick="toggleHeart4()">
+   <i id="heartIcon4" class="fa-regular fa-heart" style="color: #ffffff;"></i>
+   </div>
+   <script>
+   function toggleHeart4() {
+   const heartIcon = document.getElementById('heartIcon4');
+   if (heartIcon.classList.contains('fa-regular')) {
+   heartIcon.classList.remove('fa-regular');
+   heartIcon.classList.add('fa-solid');
+   heartIcon.style.color = '#ff1f80';
+   } else {
+   heartIcon.classList.remove('fa-solid');
+   heartIcon.classList.add('fa-regular');
+   heartIcon.style.color = '#ffffff';
+   }
+   }
+   
+   </script>
+   <i id="playBtn4" class="icon-m fas fa-play" style="color: #22c55e;"></i>
+   <i id="pauseBtn4" class="icon-m fas fa-pause" style="display: none; color: #22c55e;"></i>
+   <div class="dots" id="dow4"><i class="fa-solid fa-cloud-arrow-down" style="color: #ffffff;"></i></div>
+   <script>
+   document.querySelector('#dow4').addEventListener('click', function() {
+   const link = 'https://drive.google.com/uc?export=download&id=1vx_VMvEyCTAuaqUiHUSX-hnJjBBelnO0';
+   const a = document.createElement('a');
+   a.href = link;
+   a.setAttribute('download', '');
+   a.click();
+   });
+   </script>
+   
+   </div>
+   
+   </div>
+   </div>
+   </div>
+   </div>
+   
+   
+   
+   
+   
+   <br>
+   <!-- #5 -->
+      <!--  
+   <hr class="li-n">
+   <br>
+   <div class="m-con">
+   <div class="m-box">
+   <div class="up-box">
+   <div class="img">
+   <img src="https://i.ibb.co/yNw9p2q/faded.jpg">
+   </div>
+   <div class="text"><b>Faded</b> <p class="text2">Released on 17 August 2015</p></div>
+   <div class="controls">
+   <input type="range" class="timeline" min="0" max="100" step="1">
+   <div class="time-1" id="t-9">0:00</div>
+   <div class="time-2" id="t-10">3:00</div>
+   </div>
+   
+   <audio id="audioPlayer5" src="https://www.cjoint.com/doc/24_05/NEdmcEayu6T_Alan-Walker---Faded.mp3"></audio>
+   
+   <script>
+   function setupAudioControls(playBtnId, pauseBtnId, audioPlayerId, timeId) {
+   const audioPlayer = document.getElementById(audioPlayerId);
+   const timeline = audioPlayer.parentElement.querySelector('.timeline');
+   const time9 = audioPlayer.parentElement.querySelector('.time-1');
+   const time10 = audioPlayer.parentElement.querySelector('.time-2');
+   
+   audioPlayer.addEventListener('timeupdate', function() {
+   const currentTime = audioPlayer.currentTime;
+   const duration = audioPlayer.duration;
+   const progress = (currentTime / duration) * 100;
+   timeline.value = progress;
+   
+   // Update time display
+   const minutes = Math.floor(currentTime / 60);
+   const seconds = Math.floor(currentTime % 60);
+   const endMinutes = Math.floor(duration / 60);
+   const endSeconds = Math.floor(duration % 60);
+   time9.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+   time10.textContent = `${endMinutes}:${endSeconds.toString().padStart(2, '0')}`;
+   });
+   
+   timeline.addEventListener('input', function() {
+   const seekTime = (timeline.value / 100) * audioPlayer.duration;
+   audioPlayer.currentTime = seekTime;
+   });
+   }
+   
+   setupAudioControls('playBtn1', 'pauseBtn1', 'audioPlayer1', 't-1');
+   setupAudioControls('playBtn2', 'pauseBtn2', 'audioPlayer2', 't-3'); // Change 't-3' to 't-4' if you want to use the second time display for the second audio player
+   setupAudioControls('playBtn3', 'pauseBtn3', 'audioPlayer3', 't-5');
+   setupAudioControls('playBtn4', 'pauseBtn4', 'audioPlayer4', 't-7');
+   setupAudioControls('playBtn5', 'pauseBtn5', 'audioPlayer5', 't-9');
+   setupAudioControls('playBtn6', 'pauseBtn6', 'audioPlayer6', 't-11');
+   
+   </script>
+   <div class="icon">
+   <div class="heart" onclick="toggleHeart5()">
+   <i id="heartIcon5" class="fa-regular fa-heart" style="color: #ffffff;"></i>
+   </div>
+   <script>
+   function toggleHeart5() {
+   const heartIcon = document.getElementById('heartIcon5');
+   if (heartIcon.classList.contains('fa-regular')) {
+   heartIcon.classList.remove('fa-regular');
+   heartIcon.classList.add('fa-solid');
+   heartIcon.style.color = '#ff1f80';
+   } else {
+   heartIcon.classList.remove('fa-solid');
+   heartIcon.classList.add('fa-regular');
+   heartIcon.style.color = '#ffffff';
+   }
+   }
+   
+   </script>
+   <i id="playBtn5" class="icon-m fas fa-play" style="color: #22c55e;"></i>
+   <i id="pauseBtn5" class="icon-m fas fa-pause" style="display: none; color: #22c55e;"></i>
+   <div class="dots" id="dow5"><i class="fa-solid fa-cloud-arrow-down" style="color: #ffffff;"></i></div>
+   <script>
+   document.querySelector('#dow5').addEventListener('click', function() {
+   const link = 'https://drive.google.com/uc?export=download&id=1vx_VMvEyCTAuaqUiHUSX-hnJjBBelnO0';
+   const a = document.createElement('a');
+   a.href = link;
+   a.setAttribute('download', '');
+   a.click();
+   });
+   </script>
+   
+   </div>
+   
+   </div>
+   </div>
+   </div>
+   </div>
+   
+   
+   
+   
+   
+   <br>
+   <!-- #6 -->  
+   <!--  
+   <hr class="li-n">
+   <br>
+   <div class="m-con">
+   <div class="m-box">
+   <div class="up-box">
+   <div class="img">
+   <img src="https://i.ibb.co/SmKCmbp/sing-me-to-sleep.jpg">
+   </div>
+   <div class="text"><b>Sing Me to Sleep</b> <p class="text2">Released on 03 June 2016</p></div>
+   <div class="controls">
+   <input type="range" class="timeline" min="0" max="100" step="1">
+   <div class="time-1" id="t-11">0:00</div>
+   <div class="time-2" id="t-12">3:00</div>
+   </div>
+   
+   <audio id="audioPlayer6" src="https://www.cjoint.com/doc/24_05/NEdmbSjdhFT_Alan-Walker---Sing-Me-To-Sleep.mp3"></audio>
+   
+   <script>
+   function setupAudioControls(playBtnId, pauseBtnId, audioPlayerId, timeId) {
+   const audioPlayer = document.getElementById(audioPlayerId);
+   const timeline = audioPlayer.parentElement.querySelector('.timeline');
+   const time11 = audioPlayer.parentElement.querySelector('.time-1');
+   const time12 = audioPlayer.parentElement.querySelector('.time-2');
+   
+   audioPlayer.addEventListener('timeupdate', function() {
+   const currentTime = audioPlayer.currentTime;
+   const duration = audioPlayer.duration;
+   const progress = (currentTime / duration) * 100;
+   timeline.value = progress;
+   
+   // Update time display
+   const minutes = Math.floor(currentTime / 60);
+   const seconds = Math.floor(currentTime % 60);
+   const endMinutes = Math.floor(duration / 60);
+   const endSeconds = Math.floor(duration % 60);
+   time11.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+   time12.textContent = `${endMinutes}:${endSeconds.toString().padStart(2, '0')}`;
+   });
+   
+   timeline.addEventListener('input', function() {
+   const seekTime = (timeline.value / 100) * audioPlayer.duration;
+   audioPlayer.currentTime = seekTime;
+   });
+   }
+   
+   setupAudioControls('playBtn1', 'pauseBtn1', 'audioPlayer1', 't-1');
+   setupAudioControls('playBtn2', 'pauseBtn2', 'audioPlayer2', 't-3'); // Change 't-3' to 't-4' if you want to use the second time display for the second audio player
+   setupAudioControls('playBtn3', 'pauseBtn3', 'audioPlayer3', 't-5');
+   setupAudioControls('playBtn4', 'pauseBtn4', 'audioPlayer4', 't-7');
+   setupAudioControls('playBtn5', 'pauseBtn5', 'audioPlayer5', 't-9');
+   setupAudioControls('playBtn6', 'pauseBtn6', 'audioPlayer6', 't-11');
+   
+   </script>
+   <div class="icon">
+   <div class="heart" onclick="toggleHeart6()">
+   <i id="heartIcon6" class="fa-regular fa-heart" style="color: #ffffff;"></i>
+   </div>
+   <script>
+   function toggleHeart6() {
+   const heartIcon = document.getElementById('heartIcon6');
+   if (heartIcon.classList.contains('fa-regular')) {
+   heartIcon.classList.remove('fa-regular');
+   heartIcon.classList.add('fa-solid');
+   heartIcon.style.color = '#ff1f80';
+   } else {
+   heartIcon.classList.remove('fa-solid');
+   heartIcon.classList.add('fa-regular');
+   heartIcon.style.color = '#ffffff';
+   }
+   }
+   
+   </script>
+   <i id="playBtn6" class="icon-m fas fa-play" style="color: #22c55e;"></i>
+   <i id="pauseBtn6" class="icon-m fas fa-pause" style="display: none; color: #22c55e;"></i>
+   <div class="dots" id="dow6"><i class="fa-solid fa-cloud-arrow-down" style="color: #ffffff;"></i></div>
+   <script>
+   document.querySelector('#dow6').addEventListener('click', function() {
+   const link = 'https://drive.google.com/uc?export=download&id=1vx_VMvEyCTAuaqUiHUSX-hnJjBBelnO0';
+   const a = document.createElement('a');
+   a.href = link;
+   a.setAttribute('download', '');
+   a.click();
+   });
+   </script>
+   
+   </div>
+   
+   </div>
+   </div>
+   </div>
+   </div>
+   -->
+   
+   <script>
+   function setupAudioControls(playBtnId, pauseBtnId, audioPlayerId) {
+   const playBtn = document.getElementById(playBtnId);
+   const pauseBtn = document.getElementById(pauseBtnId);
+   const audioPlayer = document.getElementById(audioPlayerId);
+   
+   playBtn.addEventListener('click', function() {
+   if (currentAudio && currentAudio !== audioPlayer) {
+   currentAudio.pause();
+   const currentPlayBtn = document.querySelector('.icons-m .fas.fa-play');
+   const currentPauseBtn = document.querySelector('.icons-m .fas.fa-pause');
+   currentPlayBtn.style.display = 'inline-block';
+   currentPauseBtn.style.display = 'none';
+   }
+   
+   if (audioPlayer.paused) {
+   audioPlayer.play();
+   playBtn.style.display = 'none';
+   pauseBtn.style.display = 'inline-block';
+   currentAudio = audioPlayer;
+   } else {
+   audioPlayer.pause();
+   playBtn.style.display = 'inline-block';
+   pauseBtn.style.display = 'none';
+   currentAudio = null;
+   }
+   });
+   
+   pauseBtn.addEventListener('click', function() {
+   audioPlayer.pause();
+   playBtn.style.display = 'inline-block';
+   pauseBtn.style.display = 'none';
+   currentAudio = null;
+   });
+   
+   audioPlayer.addEventListener('ended', function() {
+   playBtn.style.display = 'inline-block';
+   pauseBtn.style.display = 'none';
+   currentAudio = null;
+   });
+   }
+   
+   let currentAudio = null;
+   
+   setupAudioControls('playBtn1', 'pauseBtn1', 'audioPlayer1');
+   setupAudioControls('playBtn2', 'pauseBtn2', 'audioPlayer2');
+   setupAudioControls('playBtn3', 'pauseBtn3', 'audioPlayer3');
+   setupAudioControls('playBtn4', 'pauseBtn4', 'audioPlayer4');
+   setupAudioControls('playBtn5', 'pauseBtn5', 'audioPlayer5');
+   setupAudioControls('playBtn6', 'pauseBtn6', 'audioPlayer6');
+   
+   </script>
+    
+
+    </body>
+    </html>
