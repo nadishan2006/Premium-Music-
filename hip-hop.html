@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiful Audio Player</title>
+        <script src="https://kit.fontawesome.com/e7e1ed9392.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        #player-container {
+            margin-top: 20px;
+        }
+        #track-list {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .track-item {
+            cursor: pointer;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .track-item:hover {
+            background-color: #f9f9f9;
+        }
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 10px 20px;
+            box-shadow: 0 -1px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        footer img {
+            height: 40px;
+        }
+        .footer-controls {
+            display: flex;
+            align-items: center;
+        }
+        .footer-controls button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Audio Player</h1>
+        <div id="player-container">
+            <audio id="audio-player" controls>
+                Your browser does not support the audio element.
+            </audio>
+            <div id="track-info">
+                <h2 id="track-title">Select a track</h2>
+                <p id="track-release-date"></p>
+            </div>
+        </div>
+        <div id="track-list"></div>
+    </div>
+    <footer>
+        <img src="logo.png" alt="Logo">
+        <div class="footer-controls">
+            <button id="prev">< Previous</button>
+            <button id="play-pause">   <i id="playBtn2" class="icon-m fas fa-play" style="color: #22c55e;"></i></button>
+            <button id="next">Next ></button>
+            <a id="download" href="#" download>Download</a>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const audioPlayer = document.getElementById('audio-player');
+            const trackTitle = document.getElementById('track-title');
+            const trackReleaseDate = document.getElementById('track-release-date');
+            const trackList = document.getElementById('track-list');
+            const prevButton = document.getElementById('prev');
+            const playPauseButton = document.getElementById('play-pause');
+            const nextButton = document.getElementById('next');
+            const downloadLink = document.getElementById('download');
+
+            const data = {
+                "tracks": [
+                    {
+                        "title": "Track One",
+                        "release_date": "2023-01-01",
+                        "url": "https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3",
+                        "download": "https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3",
+                        "image": "https://i.ibb.co/VSnMZ6q/IMG-20240523-204317.jpg"
+                    },
+                    {
+                        "title": "Song Two",
+                        "release_date": "2023-02-01",
+                        "url": "path/to/song2.mp3",
+                        "download": "path/to/song2.mp3",
+                        "image": "https://via.placeholder.com/150"
+                    },
+                    {
+                        "title": "Song Three",
+                        "release_date": "2023-03-01",
+                        "url": "path/to/song3.mp3",
+                        "download": "path/to/song3.mp3",
+                        "image": "https://via.placeholder.com/150"
+                    }
+                ]
+            };
+
+            let currentTrackIndex = 0;
+
+            const loadTrack = (index) => {
+                const track = data.tracks[index];
+                audioPlayer.src = track.url;
+                trackTitle.textContent = track.title;
+                trackReleaseDate.textContent = `Release Date: ${track.release_date}`;
+                downloadLink.href = track.download;
+            };
+
+            data.tracks.forEach((track, index) => {
+                const trackItem = document.createElement('div');
+                trackItem.classList.add('track-item');
+                trackItem.textContent = track.title;
+                trackItem.addEventListener('click', () => {
+                    currentTrackIndex = index;
+                    loadTrack(index);
+                    audioPlayer.play();
+                });
+                trackList.appendChild(trackItem);
+            });
+
+            prevButton.addEventListener('click', () => {
+                if (currentTrackIndex > 0) {
+                    currentTrackIndex--;
+                } else {
+                    currentTrackIndex = data.tracks.length - 1;
+                }
+                loadTrack(currentTrackIndex);
+                audioPlayer.play();
+            });
+
+            playPauseButton.addEventListener('click', () => {
+                if (audioPlayer.paused) {
+                    audioPlayer.play();
+                    playPauseButton.textContent = 'Pause';
+                } else {
+                    audioPlayer.pause();
+                    playPauseButton.textContent = '   <i id="playBtn2" class="icon-m fas fa-play" style="color: #22c55e;"></i>';
+                }
+            });
+
+            nextButton.addEventListener('click', () => {
+                if (currentTrackIndex < data.tracks.length - 1) {
+                    currentTrackIndex++;
+                } else {
+                    currentTrackIndex = 0;
+                }
+                loadTrack(currentTrackIndex);
+                audioPlayer.play();
+            });
+
+            loadTrack(currentTrackIndex);
+        });
+    </script>
+</body>
+</html>
