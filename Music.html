@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(function(OneSignal) {
+    OneSignal.init({
+      appId: "3d17ebdf-a46e-4756-b066-e0ea0b1cf4a3",
+      safari_web_id: "web.onesignal.auto.4bf73218-3550-4659-982d-970270d14d2d",
+      notifyButton: {
+        enable: true,
+      },
+    });
+  });
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, orientation=portrait">
 <title>Premium Music</title>
 <link rel="stylesheet" href="styles.css">
@@ -271,23 +284,24 @@
   margin-left: -15%;
 }
     
+    /* 
     
     @media screen and (orientation: landscape) {
   body {
-    display: none; /* Hide content 
-    landscape mode */
+    display: none;
     color: rgb(21,21,21);
   }
   .rotate-message {
-    display: block; /* Show a message prompting the user to rotate back to portrait */
+    display: block; 
   }
 }
 
 @media screen and (orientation: portrait) {
   .rotate-message {
-    display: none; /* Hide the rotate message in portrait mode */
+    display: none; 
   }
-}
+}  
+*/
 
 #link {
   display: inline; /* or another display value that suits your layout */
@@ -406,7 +420,7 @@
     <p>
     <br>   
     <hr>
-    <a href="alen.html">
+    <a id="link" href="alen.html">
     <div class="box">
     <div class="item">
     <img src="https://i.ibb.co/GnN8LYy/IMG-20240413-070924.jpg">
@@ -414,30 +428,36 @@
     </div>
     </a>
     
+    <a id="link" href="chamara.html">
     <div class="item">
     <img src="https://i.ibb.co/ZcrNKVT/chamara.jpg">
     <div class="text-overlay"><b>Chamara<br>Weerasinghe</b></div>
-    </div>
+    </div> </a>
+    
+    <a id="link" href="shihan.html">
     <div class="item">
     <img src="https://i.ibb.co/7tpFKWn/shehanjpeg.jpg">
     <div class="text-overlay"><b>Shihan Mihiranga</b></div>
-    </div>
+    </div></a>
+    
+    <a id="link" href="amal.html">
     <div class="item">
     <img src="https://i.ibb.co/fYfNCz0/amal.jpg">
     <div class="text-overlay"><b>Amal Perera</b></div>
-    </div>
+    </div></a>
    
+   <a id="link" href="yohani.html">
     <div class="item">
     <img src="https://i.ibb.co/bbB60cN/IMG-20240415-085619.jpg">
     <div class="text-overlay"><b>Yohani</b></div>
-    </div>
+    </div></a>
     
-   <a href="Jio g.html">
+   <a id="link" href="Jio g.html">
    <div class="item">
     <img src="https://i.ibb.co/0JMbvX0/IMG-20240521-190054.jpg">
     <div class="text-overlay"><b>JIO G</b></div>
     </div>
-    <a href="#" class="show-more">Show More</a>
+    <a href="#" class="show-more"><b>Show More</b></a>
     
     </div>
     </a>
@@ -456,18 +476,25 @@
     <hr>
     
     <div class="box">
+      <a id="link" href="pop.html">
     <div class="item">
     <img src="https://i.ibb.co/dtwvR85/IMG-20240413-095145.jpg">
     <div class="text-overlay"><b>Pop</b></div>
-    </div>
+    </div> </a>
+    
+    
     <div class="item">
+       <a id="link" href="rock.html">
     <img src="https://i.ibb.co/7vPNSnM/download-2.png">
-    <div class="text-overlay"><b>Rock</b></div>
+    <div class="text-overlay"><b>Rock</b></div> </a>
     </div>
+    
     <div class="item">
+       <a id="link" href="hip-hop.html">
     <img src="https://i.ibb.co/6H38V16/images-2.jpg">
-    <div class="text-overlay"><b>Hip Hop</b></div>
+    <div class="text-overlay"><b>Hip Hop</b></div></a>
     </div>
+    
     <div class="item">
     <img src="https://i.ibb.co/mFfVVPz/images-3.jpg">
     <div class="text-overlay"><b>Classical</b></div>
