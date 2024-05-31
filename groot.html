@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Picasso AI</title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="google-translate-customization" content="9f841e7780177523-3214ceb76f765f38-gc38c6fe6f9d06436-c"></meta>
+  
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="../assets/img/logo_32px_icon.png" />
+  <link rel="shortcut icon" type="image/jpg" href="https://i.ibb.co/ZY8LdbX/OIG1.jpg">
+  
+   <!-- Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com/" />
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/normalize.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala&display=swap" rel="stylesheet">
+  <script src="https://cdn.lordicon.com/lordicon.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.3.0/math.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+  
+  <style>
+  
+  body {
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+  background-color: #000;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+input:focus,
+button:focus,
+a:focus,
+textarea:focus {
+  outline: 0;
+}
+
+:root {
+  --max-input-height: 20vh;
+}
+
+/* Hide scrollbar for the magic-input textarea */
+.magic-input {
+  height: auto;
+  min-height: 50px;
+  max-height: 200px;
+  overflow-y: auto;
+  border: none;
+  border-radius: 10px;
+  background-color: #000;
+  color: #fff;
+  padding: 15px;
+  line-height: 1.4em;
+  box-sizing: border-box;
+}
+
+.magic-input::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
+
+@media (min-width: 768px) {
+  .magic-input {
+    width: 100%;
+  }
+}
+
+/* Hide scrollbar for the chat-bottom div */
+.chat-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 90%;
+  height: auto;
+  background-color: #000;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid #fff;
+}
+
+.chat-bottom::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
+
+.footer {
+  text-align: center;
+  color: #fff;
+  font-size: 9px;
+  padding: -30px;
+  position: fixed;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+}
+
+.icon {
+  color: #fff;
+  margin-right: auto;
+}
+
+#send-btn {
+  background: transparent;
+  border: none;
+  color: #787878;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 9px;
+  padding: 5px 20px;
+  background-color: rgba(0, 0, 0);
+  color: #fff;
+}
+
+.icon1 {
+  font-size: 25px;
+  margin-left: 10px;
+}
+
+.h1 {
+  font-size: 35px;
+  margin-top: 10px;
+  margin-right: 20px;
+}
+
+.icon2 {
+  position: relative;
+  font-size: 25px;
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fa-solid.fa-plus {
+  color: #fff;
+}
+
+.circular-iframe-container {
+  width: 45px;
+  height: 45px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.circular-iframe-container iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 113%;
+  height: 113%;
+  border-radius: 50%;
+}
+
+.chat-body {
+  padding-left: 20px;
+  margin-top: 5px;
+  height: 60vh;
+  overflow-y: scroll;
+}
+
+.user-name, .bot-name {
+  font-weight: bold;
+}
+
+.user-message {
+  margin-bottom: 10px;
+}
+
+.bot-message {
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+
+.up {
+  background-color: #16F529;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: fixed;
+  top: 120px;
+  right: 20px;
+  border: none;
+  z-index: 999;
+}
+
+.down {
+  background-color: #16F529;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 120px;
+  right: 20px;
+  border: none;
+  z-index: 999;
+}
+
+.bot-generating {
+  display: inline-block;
+}
+
+.typing-dots {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  animation: typing-dots 1.4s infinite;
+}
+
+@keyframes typing-dots {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+hr {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+.progress {
+  background: rgba(1, 15, 30, 0.1);
+  height: 1px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress::before {
+  animation-duration: 2s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+  animation-name: progress;
+  background: #111;
+  content: "";
+  display: block;
+  height: 1px;
+  position: absolute;
+  width: 80px;
+}
+
+@keyframes progress {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(1440px);
+  }
+}
+
+.img {
+  position: fixed;
+  bottom: 160px;
+  right: 20px;
+  z-index: 999; 
+  background-color: #000;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+}
+
+/* CSS for desktop screens */
+.chat-body img {
+  width: 50%; /* Adjust width as needed */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px; /* Adjust border radius as needed */
+}
+
+#message {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: fadeInOut 3s ease-in-out;
+  z-index: 1000;
+}
+
+/* Show the message when button is clicked */
+.img:active + #message {
+  display: block;
+}
+
+/* Animation */
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.b1 {
+  width: 90%;
+  max-width: 400px;
+  height: 35px;
+  background-color: rgba(60, 65, 85, 1);
+  color: white;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  position: relative;
+  z-index: 1;
+  cursor: pointer; /* Added to show pointer cursor on hover */
+}
+
+.text {
+  font-size: 15px;
+  margin: 0 auto; /* Center the text horizontally */
+  line-height: 35px; /* Center the text vertically */
+}
+
+.cir img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+  
+  
+  </style>
+</head>
+<body>
+  <header>
+  <div class="tt">
+  <div class="cir">
+  <img src="https://i.ibb.co/G39DVH4/m-ai.jpg">
+  </div>
+  </div>
+  
+  <h1 class="h1"><b>Groot</b></h1>
+  
+  <div class="icon2" id="refreshButton">
+  <i class="fa fa-refresh" aria-hidden="true" style="color:#fff;"></i>
+  </div>
+  
+  </header>
+  
+  <p>
+
+    <hr class="progress">
+    
+    
+    
+    
+    <p>
+     
+    
+    <div class="col-xl-10 col-lg-9">
+      <div class="chat-wrapper">
+        <div class="chat-body form" id="chatBody">
+          
+        </div>
+        
+        
+        
+        <!--
+        <button class="up"><i class="fa-solid fa-arrow-down-long fa-flip-vertical" style="color: #ffffff;"></i></button>
+        <button class="down"><i class="fa-solid fa-arrow-down-long" style="color: #ffffff;"></i></button>
+        -->
+        
+        <button class="img"><i class="fa-regular fa-image" style="color: #ffffff;" font-size="15px"></i>
+        </button>
+        <div id="message">Coming soon âœ¨</div>
+       
+        
+        
+        
+        
+        <div class="chat-bottom">
+        <textarea id="userInput" class="magic-input" placeholder="Type Your Prompt here..." rows="1" oninput="handleTyping(event)"></textarea>
+        <button type="submit" id="send-btn" onclick="sendUserMessage()">
+        <div class="icon"><i class="fa-solid fa-angles-up fa-bounce"></i></div>
+        </button>
+        </div>
+        
+       
+        
+        
+        <p>
+          
+          <br>
+          </p>
+         
+            
+         <script>
+         document.getElementById("refreshButton").addEventListener("click", function() {
+         location.reload();
+         });
+            
+            
+            
+         let pdfText = "";
+         function sendUserMessage() {
+         var userInput = document.getElementById("userInput").value;
+         displayUserMessage(userInput);
+         displayBotGeneratingMessage(); // Display generating message
+         setTimeout(function () {
+         var botResponse = getBotResponse(userInput);
+         hideBotGeneratingMessage(); // Hide generating message
+         displayBotMessage(botResponse);
+         // Scroll to the bottom of the chat window
+         var chatBody = document.getElementById("chatBody");
+         chatBody.scrollTop = chatBody.scrollHeight;
+         }, getRandomDelay()); // Get a random delay between 2 and 4 seconds
+         document.getElementById("userInput").value = "";
+         adjustTextareaHeight(); // Adjust the height of the message input box
+         }
+         
+         function displayUserMessage(message) {
+         var chatBody = document.getElementById("chatBody");
+         var userMessageElement = document.createElement("div");
+         userMessageElement.className = "user-message";
+         userMessageElement.innerHTML = "<span class='user-name'>You:</span> " + message;
+         userMessageElement.style.maxWidth = "calc(100vw - 30px)"; // Set maximum width
+         chatBody.appendChild(userMessageElement);
+         // Scroll to the bottom of the chat window
+         chatBody.scrollTop = chatBody.scrollHeight;
+         }
+         
+         function adjustTextareaHeight() {
+         var textarea = document.getElementById("userInput");
+         textarea.style.height = "auto";
+         textarea.style.height = (textarea.scrollHeight) + "px";
+         }
+         
+         function displayBotGeneratingMessage() {
+         var chatBody = document.getElementById("chatBody");
+         var botGeneratingElement = document.createElement("div");
+         botGeneratingElement.className = "bot-message bot-generating";
+         botGeneratingElement.innerHTML = "<span class='bot-name'>Groot:</span> Generating<span class='typing-dots'>...</span>";
+         chatBody.appendChild(botGeneratingElement);
+         // Scroll to the bottom of the chat window
+         chatBody.scrollTop = chatBody.scrollHeight;
+         }
+         
+         function hideBotGeneratingMessage() {
+         var chatBody = document.getElementById("chatBody");
+         var botGeneratingElement = chatBody.querySelector(".bot-generating");
+         if (botGeneratingElement) {
+         chatBody.removeChild(botGeneratingElement);
+         }
+         }
+         
+         function displayBotMessage(message) {
+         var chatBody = document.getElementById("chatBody");
+         var botMessageElement = document.createElement("div");
+         botMessageElement.className = "bot-message";
+         botMessageElement.innerHTML = "<span class='bot-name'>Groot:</span> " + message;
+         chatBody.appendChild(botMessageElement);
+         // Scroll to the bottom of the chat window
+         chatBody.scrollTop = chatBody.scrollHeight;
+         }
+         
+         function getBotResponse(userInput) {
+         // Check if the user input is a number
+         if (!isNaN(userInput)) {
+         const numberResponse = "You sent " + userInput + ".";
+         return numberResponse;
+         }
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         // Default response for other inputs
+         return "I am not sure what you mean. Can you please clarify?";
+         }
+         
+         function getRandomDelay() {
+         return Math.floor(Math.random() * (4000 - 2000 + 1)) + 2000; // Random delay between 2 and 4 seconds
+         }
+         
+         document.addEventListener("input", function (e) {
+         if (e.target.tagName.toLowerCase() === "textarea") {
+         e.target.style.height = "auto";
+         e.target.style.height = (e.target.scrollHeight) + "px";
+         }
+         });
+         </script>
+         </body>
+         </html>
+         

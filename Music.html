@@ -283,7 +283,7 @@
   margin-top: 45px;
   margin-left: -15%;
 }
-    
+
     /* 
     
     @media screen and (orientation: landscape) {
@@ -308,28 +308,14 @@
   text-decoration: none; /* removes the underline */
   color: inherit; /* sets the color to the parent element's color */
 }
+
+ #groot {
+   width: 10%;
+   height: 10%;
+ }
     </style>
     <body>
-      <div class="rotate-message" style="display: none;">
-  <p>Please rotate your device back to portrait mode for the best experience.</p>
-</div>
-<script>
-  function checkOrientation() {
-    if (window.innerHeight < window.innerWidth) {
-      document.body.style.display = 'none';
-      document.querySelector('.rotate-message').style.display = 'block';
-    } else {
-      document.body.style.display = 'block';
-      document.querySelector('.rotate-message').style.display = 'none';
-    }
-  }
-
-  window.addEventListener('resize', checkOrientation);
-  window.addEventListener('orientationchange', checkOrientation);
-
-  // Initial check
-  checkOrientation();
-</script>
+      
       <div id="menu-wap">
    <div id="side-Menu">
    <div class="menu-itm">
@@ -365,6 +351,12 @@
          <a id="link" href="t & c.html">
  <i class="fa-solid fa-fingerprint" style="color: #ffffff;"></i> Teams & police</b></a>
         </div>
+    
+        <div class="new">
+         <a id="link" href="groot.html">
+ <img id="groot" src="https://i.ibb.co/G39DVH4/m-ai.jpg"><b>Groot AI</b></a>
+        </div>
+        </div>
         <div class="fullow">
           
         </div>
@@ -372,6 +364,11 @@
    </div>
    </div>
    </div>
+   <script>
+     document.querySelector('.menu-wap').addEventListener('click', function() {
+  document.getElementById('side-Menu').classList.toggle('active');
+});
+   </script>
    <script>
    let startX = null;
    let currentX = null;

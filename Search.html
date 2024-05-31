@@ -302,7 +302,7 @@
   // Add an event listener for orientation change
   window.addEventListener("orientationchange", handleOrientationChange);
 </script>
-<div id="menu-wap">
+ <div id="menu-wap">
    <div id="side-Menu">
    <div class="menu-itm">
     <img src="https://i.ibb.co/kSQN5ZW/Screenshot-2024-0414-204428.jpg">
@@ -334,8 +334,14 @@
         <i class="fa-regular fa-circle-question" style="color: #ffffff;"></i> Help Center </a>
         </div>
         <div class="new">
-          <a id="link" href="t & c.html">
+         <a id="link" href="t & c.html">
  <i class="fa-solid fa-fingerprint" style="color: #ffffff;"></i> Teams & police</b></a>
+        </div>
+    
+        <div class="new">
+         <a id="link" href="groot.html">
+ <img id="groot" src="https://i.ibb.co/G39DVH4/m-ai.jpg"><b>Groot AI</b></a>
+        </div>
         </div>
         <div class="fullow">
           
@@ -382,7 +388,12 @@
   <i class='fa fa-search'></i>
  </button>
  </div>
-
+ <script>
+document.getElementById('myForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission behavior
+    document.querySelector('.hide-c').classList.add('hidden');
+});
+</script>
  </center>
  <div id="search-results"></div>
  <script>
@@ -434,12 +445,13 @@
     </script>
 </head>
 <body>
+  <div class="hide-c">
     <div class="hi-text">
         <b>Search Your Favorite Song</b>
     </div>
     <h1>User Location</h1>
     <p id="location">Fetching location...</p>
-
+</div>
 <script>
     const clientId = '8ea7c1f85d9f45068ed331fc0c4fecde';
     const clientSecret = 'c2ef746610344160bccea552a81f7c85';
