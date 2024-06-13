@@ -94,11 +94,11 @@ body {
             color: #fff;
         }
         
-        
+        /*
         .track-item:hover {
             background-color: rgb(0, 227, 100);
             border-radius: 10px;
-        }
+        } */
         
         footer {
             display: flex;
@@ -248,6 +248,29 @@ body {
    }
    }
    
+   .custom-audio-player {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .custom-audio-player button {
+            background-color: rgb(0, 227, 100);
+            border: none;
+            color: #fff;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .custom-audio-player input[type="range"] {
+            flex: 1;
+            margin: 0 10px;
+        }
+   #download {
+     display: none;
+   }
 </style>
 <body>
     <br>
@@ -278,9 +301,10 @@ body {
         </script>
        </div></div>
         <br>
+    <div class="up-con">
         <div id="player-container">
             <div id="track-info">
-                <img id="track-image" src="" alt="Track Image" style="max-width: 50%; border-radius: 10px; margin-top: 10px;">
+                <img id="track-image" src="" alt="Track Image" style="max-width: 60%; border: 1px solid #fff; border-radius: 50%; margin-top: 10px;">
                 <h2 id="track-title">Select a track</h2>
                 <p id="track-release-date"></p>
                 <audio id="audio-player" controls>
@@ -288,11 +312,12 @@ body {
                 </audio>
             </div>
         </div>
+       </div>
         <br>
         <center>
         <div class="search-co">
         <div id="search-form">
-        <input id="search-query" type="text" placeholder="Search here" required>
+        <input id="search-query" type="text" placeholder="Search Your Favorite pop songs" required>
         <button type="submit" onclick="displaySearchResults()">
         <i class='fa fa-search'></i>
         </button>
@@ -326,199 +351,198 @@ body {
     const downloadLink = document.getElementById('download');
     const footerTrackName = document.getElementById('footer-track-name');
     const footerLogo = document.getElementById('footer-logo');
-    
+
     const data = {
     "tracks": [
     {
     "title": "As It Was - Harry Styles",
     "release_date": "April 1, 2022",
-    "url": "https://www.cjoint.com/doc/24_05/NEsmXXrLz4W_Salaar.mp3",
-    "download": "https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3",
-    "image": "https://i.ibb.co/VSnMZ6q/IMG-20240523-204317.jpg"
+    "url": "https://www.cjoint.com/doc/24_06/NFfbQhuFvMq_Harry-Styles---As-It-Was-Official-Video-.mp3",
+    "download": "",
+    "image": "https://i.ibb.co/R3SjGyt/Harry-Styles-As-It-Was.png"
     },
     {
     "title": "Heat Waves - Glass Animals",
     "release_date": "June 29, 2020",
-    "url": "https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3",
+    "url": "https://www.cjoint.com/doc/24_06/NFfbRyTPsKq_Glass-Animals---Heat-Waves-Official-Video-.mp3",
     "download": "path/t.mp3",
-    "image": "https://i.ibb.co/9YmLf7L/IMG-20240521-190103.jpg"
+    "image": "https://i.ibb.co/Fq84p6H/Heat-Waves-Glass-Animals.jpg"
     },
     {
     "title": "Stay (with Justin Bieber) - The Kid Laroi",
     "release_date": "July 9, 2021",
-    "url": "path/to/song3.mp3",
-    "download": "path/to/song3.mp3",
-    "image": "https://via.placeholder.com/150"
+    "url": "https://www.cjoint.com/doc/24_06/NFfbCxhXPUq_The-Kid-LAROI-Justin-Bieber---STAY-Official-Video-.mp3",
+    "download": "",
+    "image": "https://i.ibb.co/y46Hn6Y/Stay-with-Justin-Bieber-The-Kid-Laroi.jpg"
     },
     {
     "title": "Shivers - Ed Sheeran",
     "release_date": "September 10, 2021",
-    "url": "path/to/song3.mp3",
-    "download": "path/to/song3.mp3",
-    "image": "https://via.placeholder.com/150"
+    "url": "https://www.cjoint.com/doc/24_06/NFfbF6leAjq_Shivers---Ed-Sheeran.mp3",
+    "download": "",
+    "image": "https://i.ibb.co/y666tx9/Ed-Sheeran-Shivers.png"
     },
     {
     "title": "Levitating - Dua Lipa",
     "release_date": "October 1, 2020",
-    "url": "path/to/song3.mp3",
-    "download": "path/to/song3.mp3",
-    "image": "https://via.placeholder.com/150"
+    "url": "https://www.cjoint.com/doc/24_06/NFfbTaOFZyq_Dua-Lipa---Levitating-Featuring-DaBaby-Official-Music-Video-.mp3",
+    "download": "",
+    "image": "https://i.ibb.co/jR5xrT0/Levitating-Dua-Lipa.jpg"
     },
     {
     "title": "Good 4 U - Olivia Rodrigo",
     "release_date": "May 14, 2021",
-    "url": "path/to/song3.mp3",
-    "download": "path/to/song3.mp3",
-    "image": "https://via.placeholder.com/150"
+    "url": "https://www.cjoint.com/doc/24_06/NFfbJe4WZ1q_Olivia-Rodrigo---good-4-u-Official-Video-.mp3",
+    "download": "",
+    "image": "https://i.ibb.co/hgR3kzF/Good-4-U-Olivia-Rodrigo.jpg"
     },
     {
     "title": "Manike Mage Hithe - Yohani",
     "release_date": "May 22, 2020",
-    "url": "path/to/song3.mp3",
-    "download": "path/to/song3.mp3",
-    "image": "https://via.placeholder.com/150"
+    "url": "https://www.cjoint.com/doc/24_06/NFfbLHRotdq_Manike-Mage-Hithe-Cover-Yohani-Ft-Satheeshan-Rathnayake-www.song.lk.mp3",
+    "download": "",
+    "image": "https://i.ibb.co/zPKFHv2/Manike-Mage-Hithe.jpg"
     },
-    {
-    "title": "Me Pea - Hashan Rathnayake",
-    "release_date": "Could not be found",
-    "url": "path/to/song3.mp3",
-    "download": "path/to/song3.mp3",
-    "image": "https://via.placeholder.com/150"
-    },
+   
     {
     "title": "Udanwatha Kelin - Uresha Ravihari",
     "release_date": "Could not be found",
-    "url": "path/to/song3.mp3",
-    "download": "path/to/song3.mp3",
-    "image": "https://via.placeholder.com/150"
+    "url": "https://www.cjoint.com/doc/24_06/NFfbyjz1NIq_Uresha-Ravihari---Oba-Kothanada-ඔබ-කොතැනද-Official-Music-Video.mp3",
+    "download": "",
+    "image": "https://i.ibb.co/9gDQVPh/Uresha.jpg"
     },
     {
     "title": "残響 (Zankyo) - YOASOBI",
     "release_date": "November 18, 2021",
-    "url": "path/to/song3.mp3",
-    "download": "path/to/song3.mp3",
-    "image": "https://via.placeholder.com/150"
+    "url": "https://www.cjoint.com/doc/24_06/NFfbsq4WYqq_%E6%AE%8B%E9%9F%BF-Zankyo---YOASOBI.mp3",
+    "download": "",
+    "image": "https://i.ibb.co/zPXT9db/Demon-slayer.jpg"
     },
     {
-    "title": "ドライフラワー (Dry Flower) - ドライフラワー (Dry Flower)",
+    "title": "ドライフラワー (Dry Flower)",
     "release_date": "October 25, 2020",
-    "url": "path/to/song3.mp3",
-    "download": "path/to/song3.mp3",
-    "image": "https://via.placeholder.com/150"
+    "url": "https://www.cjoint.com/doc/24_06/NFfbu7OEFXq_優里『ドライフラワー』Official-Music-Video--ディレクターズカットver.-.mp3",
+    "download": "",
+    "image": "https://i.ibb.co/tDLbrMv/Dry-Flower.jpg"
     },
     {
     "title": "Lemon - 米津玄師 (Yonezu Kenshi)",
     "release_date": "March 14, 2018",
-    "url": "path/to/song3.mp3",
-    "download": "path/to/song3.mp3",
-    "image": "https://via.placeholder.com/150"
-    },
-    {
-    "title": "Stay (with Justin Bieber) - The Kid",
-    "release_date": "July 9, 2021",
-    "url": "path/to/song3.mp3",
-    "download": "path/to/song3.mp3",
-    "image": "https://via.placeholder.com/150"
+    "url": "https://www.cjoint.com/doc/24_06/NFfbn2nNn2q_%E7%B1%B3%E6%B4%A5%E7%8E%84%E5%B8%AB-Kenshi-Yonezu---Lemon.mp3",
+    "download": "",
+    "image": "https://i.ibb.co/xjKz19h/Lemon.jpg"
     },
     {
     "title": "Fearless (거침없이) - LE SERAFIM",
     "release_date": "May 2, 2022",
-    "url": "path/to/song3.mp3",
-    "download": "path/to/song3.mp3",
-    "image": "https://via.placeholder.com/150"
+    "url": "https://www.cjoint.com/doc/24_06/NFfbXGzZ4xq_-HOT-DEBUT-클래스가-다른-LE-SSERAFIM-의-FEARLESS-무대.mp3",
+    "download": "",
+    "image": "https://i.ibb.co/rdyVxY5/le-sserafim-fearless.jpg"
     },
     {
     "title": "Butter - BTS",
     "release_date": "May 21, 2021",
-    "url": "path/to/song3.mp3",
-    "download": "path/to/song3.mp3",
-    "image": "https://via.placeholder.com/150"
+    "url": "https://www.cjoint.com/doc/24_06/NFfbUgkNR5q_BTS-%EB%B0%A9%ED%83%84%EC%86%8C%EB%85%84%EB%8B%A8-Butter-Official-MV.mp3",
+    "download": "",
+    "image": "https://i.ibb.co/2nBqP1S/BTS.jpg"
     },
     {
     "title": "BOOMBAYAH - BLACKPINK",
     "release_date": "August 8, 2016",
-    "url": "path/to/song3.mp3",
-    "download": "path/to/song3.mp3",
-    "image": "https://via.placeholder.com/150"
+    "url": "https://www.cjoint.com/doc/24_06/NFfbWnN8MBq_BLACKPINK---%EB%B6%90%EB%B0%94%EC%95%BC-BOOMBAYAH-MV.mp3",
+    "download": "",
+    "image": "https://i.ibb.co/X7DR3Zk/BOOMBAYAH.jpg"
     }
     ]
     };
-    
-    
+
     let currentTrackIndex = 0;
-    
+
     const loadTrack = (index) => {
-    const track = data.tracks[index];
-    audioPlayer.src = track.url;
-    trackTitle.textContent = track.title;
-    trackReleaseDate.textContent = `Release Date: ${track.release_date}`;
-    trackImage.src = track.image;
-    downloadLink.href = track.download;
-    footerTrackName.textContent = track.title;
-    footerLogo.src = track.image;
+        const track = data.tracks[index];
+        audioPlayer.src = track.url;
+        trackTitle.textContent = track.title;
+        trackReleaseDate.textContent = `Release Date: ${track.release_date}`;
+        trackImage.src = track.image;
+        downloadLink.href = track.download;
+        footerTrackName.textContent = track.title;
+        footerLogo.src = track.image;
+
+        // Update track items background color
+        document.querySelectorAll('.track-item').forEach((item, idx) => {
+            item.style.backgroundColor = idx === index ? 'rgb(0, 227, 100)' : '';
+        });
     };
-    
+
     const renderTrackList = (tracks) => {
-    trackList.innerHTML = '';
-    tracks.forEach((track, index) => {
-    const trackItem = document.createElement('div');
-    trackItem.classList.add('track-item');
-    trackItem.textContent = track.title;
-    trackItem.addEventListener('click', () => {
-    currentTrackIndex = data.tracks.indexOf(track);
-    loadTrack(currentTrackIndex);
-    audioPlayer.play();
-    });
-    trackList.appendChild(trackItem);
-    });
+        trackList.innerHTML = '';
+        tracks.forEach((track, index) => {
+            const trackItem = document.createElement('div');
+            trackItem.classList.add('track-item');
+            trackItem.textContent = track.title;
+            trackItem.addEventListener('click', () => {
+                currentTrackIndex = data.tracks.indexOf(track);
+                loadTrack(currentTrackIndex);
+                audioPlayer.play();
+            });
+            trackList.appendChild(trackItem);
+        });
     };
-    
+
     prevButton.addEventListener('click', () => {
-    if (currentTrackIndex > 0) {
-    currentTrackIndex--;
-    } else {
-    currentTrackIndex = data.tracks.length - 1;
-    }
-    loadTrack(currentTrackIndex);
-    audioPlayer.play();
+        if (currentTrackIndex > 0) {
+            currentTrackIndex--;
+        } else {
+            currentTrackIndex = data.tracks.length - 1;
+        }
+        loadTrack(currentTrackIndex);
+        audioPlayer.play();
     });
-    
+
     playPauseButton.addEventListener('click', () => {
-    if (audioPlayer.paused) {
-    audioPlayer.play();
-    playIcon.className = 'fas fa-pause';
-    } else {
-    audioPlayer.pause();
-    playIcon.className = 'fas fa-play';
-    }
+        if (audioPlayer.paused) {
+            audioPlayer.play();
+            playIcon.className = 'fas fa-pause';
+        } else {
+            audioPlayer.pause();
+            playIcon.className = 'fas fa-play';
+        }
     });
-    
+
     nextButton.addEventListener('click', () => {
-    if (currentTrackIndex < data.tracks.length - 1) {
-    currentTrackIndex++;
-    } else {
-    currentTrackIndex = 0;
-    }
-    loadTrack(currentTrackIndex);
-    audioPlayer.play();
+        if (currentTrackIndex < data.tracks.length - 1) {
+            currentTrackIndex++;
+        } else {
+            currentTrackIndex = 0;
+        }
+        loadTrack(currentTrackIndex);
+        audioPlayer.play();
     });
-    
+
+    audioPlayer.addEventListener('ended', () => {
+        if (currentTrackIndex < data.tracks.length - 1) {
+            currentTrackIndex++;
+            loadTrack(currentTrackIndex);
+            audioPlayer.play();
+        }
+    });
+
     loadTrack(currentTrackIndex);
     renderTrackList(data.tracks);
-    
+
     window.displaySearchResults = () => {
-    const query = document.getElementById('search-query').value.toLowerCase();
-    const results = data.tracks.filter(track => track.title.toLowerCase().includes(query));
-    renderTrackList(results.length > 0 ? results : [{title: 'No results found'}]);
+        const query = document.getElementById('search-query').value.toLowerCase();
+        const results = data.tracks.filter(track => track.title.toLowerCase().includes(query));
+        renderTrackList(results.length > 0 ? results : [{title: 'No results found'}]);
     };
-    
+
     document.getElementById('search-query').addEventListener('input', () => {
-    const query = document.getElementById('search-query').value;
-    if (query === '') {
-    renderTrackList(data.tracks);
-    }
+        const query = document.getElementById('search-query').value;
+        if (query === '') {
+            renderTrackList(data.tracks);
+        }
     });
-    });
+});
     </script>
 </body>
 </html>

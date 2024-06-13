@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinhala songs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://kit.fontawesome.com/e7e1ed9392.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" type="image/jpg" href="https://i.ibb.co/kSQN5ZW/Screenshot-2024-0414-204428.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<style>
+       body {
+       margin: 0;
+       padding: 0;
+       background: #423246;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       font-family: sans-serif;
+       flex-direction: column;
+       overflow-y: auto; /* Add this line */
+       }
+        
+        .arrow {
+    font-size: 1.5rem;
+    padding-top: 10px;
+    padding-left: 20px;
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+        #logo-container {
+            width: 300px;
+            border-radius: 20px;
+            margin-top: 10%;
+            background: none;
+            overflow: hidden;
+            text-align: center;
+            min-height: 10vh;
+        }
+        #logo {
+            border-radius: 10px;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .t1 {
+            color: #fff;
+            font-size: 30px;
+            font-family: Impact;
+            margin-top: 10%;
+        }
+        
+        .t2 {
+            color: #fff;
+            font-size: 15px;
+            font-family: Monospace;
+            margin-top: 5px;
+        }
+        
+        .icon {
+            font-size: 25px;
+            color: #fff;
+            margin-top: -40px;
+        }
+        /* Add beautiful click effect */
+        .icon i {
+            transition: transform 0.2s;
+        }
+        .icon i:hover {
+            transform: scale(1.1);
+        }
+        
+        .circle {
+        background-color: rgb(10, 200, 110);
+        width: 50px; /* Set the width of the circle */
+        height: 50px; /* Set the height of the circle */
+        border-radius: 50%; /* Make it a circle */
+        display: flex; /* Use flexbox for centering */
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+        margin-left: 85%;
+        cursor: pointer; /* Change cursor to pointer on hover */
+        position: relative; /* Ensure positioning context for the icon */
+        }
+        
+        .circle i {
+        font-size: 22px; /* Set the size of the icon */
+        color: #fff; /* Set the icon color */
+        }
+        
+        .circle .fa-pause {
+        font-size: 22px; /* Set the size of the pause icon */
+        line-height: 1; /* Adjust line height to center icon */
+        margin-left: -3px;
+        }
+        
+        .m {
+           padding: 20px;
+        }
+        
+        .hr-1, .hr-2 {
+            width: 95%;
+            border: 1px solid #333;
+        }
+        
+        /* Update the card styles */
+        .card {
+        background-color: #111; /* Dark background color */
+        color: #fff;
+        width: 90%;
+        max-width: 400px;
+        height: 1.5%; /* Adjusted to fit content */
+        border-radius: 15px;
+        padding: 10px; /* Adjusted for better spacing */
+        display: flex;
+        align-items: center;
+        margin: 7px auto; /* Center the cards */
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Added box shadow for depth */
+        }
+        
+        .card-img img {
+        width: 55px;
+        height: 55px;
+        border-radius: 10px; /* Make the image circular */
+        object-fit: cover; /* Ensure the image covers the circle */
+        margin-right: 10px; /* Added spacing between image and text */
+        }
+        
+        .card-t-1 {
+        font-size: 13px; /* Increased font size for better readability */
+        margin-left: 10px; /* Adjusted for better alignment */
+        flex-grow: 1;
+        margin-bottom: -10px; /* Added margin to move the text up */
+        }
+        
+        #card-t-2 {
+        font-size: 10px; /* Increased font size for better readability */
+        margin-top: 10px; /* Adjusted margin to prevent excessive downward movement */
+        color: #aaa; /* Lighter text color for secondary information */
+        }
+        
+        .card-icon {
+        font-size: 22px;
+        margin-left: auto;
+        padding: 18px; /* Reduced padding for better alignment */
+        }
+        
+        /* Hover effect for card */
+        .card:hover {
+        background-color: #222; /* Darken the background on hover */
+        transition: background-color 0.2s;
+        }
+        
+        #space {
+         margin-top: 30px;
+        }
+        
+        .search-co {
+        color: ;
+        margin-left: -15px;
+        }
+        
+        #search-form {
+        position: relative;
+        overflow: hidden;
+        margin: 20px auto;
+        width: 10%; /* Adjusted for better responsiveness */
+        width: 350px; /* Added max-width for larger screens */
+        }
+        
+        #search-query  {
+        border: 0;
+        box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
+        padding: 20px 15px;
+        border-radius: 30px; /* Adjusted for better appearance */
+        width: calc(100% - 60px); /* Adjusted for icon width and padding */
+        font-family: 'Google Sans';
+        font-size: 16px;
+        outline: none;
+        }
+        
+        #search-form button {
+        background: #8D153A;
+        border: none;
+        color: #000;
+        font-family: 'Google Sans';
+        text-transform: uppercase;
+        font-weight: bold; /* Corrected typo */
+        position: absolute;
+        top: 50%;
+        right: 20px; /* Adjusted for better alignment */
+        transform: translateY(-50%);
+        padding: 15px 30px;
+        border-radius: 30px;
+        cursor: pointer;
+        outline: none;
+        }
+        
+        #search-form button:hover {
+        background: #8D153A;
+        color: #000;
+        transition: all 0.4s;
+        }
+        
+        .fa-search {
+        font-size: 20px; /* Adjust the size as needed */
+        }
+        
+        
+        .nav {
+        background-color: rgba(0, 0, 0, 0.8); /* Transparent black (50% opacity) */
+        color: rgb(0, 0, 0); /* Black color */
+        text-align: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 10%;
+        z-index: 9999; /* Ensure the footer is above other content */
+        }
+        
+        .footer-icons-f {
+        display: flex;
+        justify-content: space-around;
+        font-size: 25px;
+        padding: 20px 0;
+        color: #fff;
+        }
+        
+        .icon-f {
+        text-align: center;
+        margin-top: -5px;
+        }
+        
+        .icon-name-f {
+        font-size: 10px;
+        margin-top: 0px;
+        }
+        
+        .hide-text {
+        margin-bottom: 70px;
+        }
+        
+        
+        footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #708090;
+        color: white;
+        padding: 10px;
+        box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        bottom: 0px;
+        width: 90%;
+        max-width: 100%;
+        margin: 20% auto;
+        left: 50%;
+        border-radius: 10px;
+        transform: translateX(-50%);
+        }
+        
+        footer img {
+        height: 50px;
+        border: 1px solid #fff;
+        border-radius: 50%;
+        margin-left: 5px;
+        }
+        
+        #footer-track-name {
+        color: #fff;
+        font-size: 11px;
+        margin-left: 20px;
+        flex: 1;
+        }
+        
+        .footer-controls {
+        display: flex;
+        align-items: center;
+        margin-right: 15px;
+        }
+        
+        .footer-controls button,
+        .footer-controls a {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #fff;
+        margin: 0 10px;
+        font-size: 1.2em;
+        }
+        
+        .footer-controls button:hover,
+        .footer-controls a:hover {
+        color: #fff;
+        }
+        
+        .footer-controls i {
+        pointer-events: none;
+        }
+        
+        #play-icon {
+        font-size: 25px;
+        }
+        
+        #download {
+        padding-left: 10px;
+        }
+        
+        #track-list {
+        font-weight: bold;
+        }
+        
+        #download {
+        display: none;
+        }
+        
+        #continue {
+        background-color: #000;
+        width: 40px; /* Set a fixed width */
+        height: 40px; /* Set a fixed height equal to the width */
+        border: none;
+        border-radius: 50%; /* This will make it a circle */
+        margin-top: -10px;
+        margin-left: calc(50% - 25px); /* Center the circle horizontally */
+        }
+        
+        .t2 {
+    display: flex;
+    align-items: center;
+}
+
+.playlist-text {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Adjust the space between text and icon if needed */
+}
+
+#playlist {
+    vertical-align: middle;
+}
+
+  #track-list {
+    color:;
+    width: 98%;
+  }
+  
+  #link {
+  display: inline; /* or another display value that suits your layout */
+  text-decoration: none; /* removes the underline */
+  color: inherit; /* sets the color to the parent element's color */
+}
+
+    </style>
+<body>
+
+<div class="arrow">
+  <a id="link" href="Music.html">
+    <i class="fas fa-arrow-left" style="color: #ffffff;"></i></a>
+</div>
+
+<div class="m">
+    <div id="logo-container">
+        <img id="logo" src="https://i.ibb.co/4745h0r/IMG-20240606-083535.jpg" alt="Logo">
+    </div>
+    <div class="t1">
+        <b>Sinhala Song's</b>
+    </div>
+<div class="t2">
+    <b class="playlist-text">
+        Playlist
+        <svg id="playlist" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff">
+            <path d="M640-160q-50 0-85-35t-35-85q0-50 35-85t85-35q11 0 21 1.5t19 6.5v-328h200v80H760v360q0 50-35 85t-85 35ZM120-320v-80h320v80H120Zm0-160v-80h480v80H120Zm0-160v-80h480v80H120Z"/>
+        </svg>
+    </b>
+</div>
+
+    <div class="circle">
+        &nbsp;<i class="fas fa-play" style="font-size: 22px;"></i>
+    </div>
+
+    <div class="icon">
+        <i class="far fa-heart" style="color: #00ff00;" onclick="toggleIcons(this)"></i>
+        <i class="fas fa-heart" style="color: #00ff00; display: none;"></i>
+        &nbsp;&nbsp;&nbsp;<i class="fas fa-share-alt" style="color: #fff;" onclick="displayShareOption()"></i>
+    <button id="continue"><i class="fa-solid fa-repeat" style="color: #ffffff;"></i></button>
+    </div>
+</div>
+
+<center>
+<div class="search-co">
+    <form id="search-form">
+        <input id="search-query" type="text" placeholder="Search songs" required>
+        <button type="submit">
+            <i class='fa fa-search' style="color:#fff;"></i>
+        </button>
+    </form>
+</div>
+</center>
+
+<div id="track-list"></div>
+<br>
+
+<div class="hide-text">
+ 
+</div>
+
+   <footer>
+   <img id="footer-logo" src="logo.png" alt="Logo">
+   <div id="footer-track-name"><b>No track playing</b></div>
+   <div class="footer-controls">
+   <button id="prev"><i class="fa-solid fa-backward-step"></i></button>
+   <button id="play-pause"><i id="play-icon" class="fas fa-play" style="color: rgb(0, 227, 100);"></i></button>
+   <button id="next"><i class="fa-solid fa-forward-step"></i></button>
+   <a id="download" href="#" download><i class="fa-solid fa-circle-arrow-down"></i></a> 
+   </div>
+   </footer>
+
+<br>
+
+
+ <br>
+    
+    
+    <br>
+      <br>
+        
+        <br>
+<div class="nav">
+        <div class="footer-icons-f">
+            <div class="icon-f">
+                <a href="Music.html">
+                    <i class="fa-solid fa-music" style="color: #ffffff"></i>
+                </a>
+                <div class="icon-name-f">Music</div>
+            </div>
+            <div class="icon-f">
+                <a href="Search.html">
+                    <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
+                </a>
+                <div class="icon-name-f">Search</div>
+            </div>
+            <div class="icon-f">
+                <a href="Trending.html">
+                    <i class="fa-solid fa-fire-flame-curved" style="color: #ffffff;"></i>
+                </a>
+                <div class="icon-name-f">Trending</div>
+            </div>
+        </div>
+    </div>
+
+
+<!-- Audio Player (hidden) -->
+<audio id="audio-player" controls style="display: none;"></audio>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const audioPlayer = document.getElementById('audio-player');
+    const trackList = document.getElementById('track-list');
+    const playPauseButton = document.getElementById('play-pause');
+    const prevButton = document.getElementById('prev');
+    const nextButton = document.getElementById('next');
+    const continueButton = document.getElementById('continue');
+    const footerTrackName = document.getElementById('footer-track-name');
+    const footerLogo = document.getElementById('footer-logo');
+    const downloadLink = document.getElementById('download');
+    const playIcon = document.getElementById('play-icon');
+    const circle = document.querySelector('.circle');
+    const circleIcon = circle.querySelector('i');
+    const searchForm = document.getElementById('search-form');
+    const searchQuery = document.getElementById('search-query');
+
+    const data = {
+        "tracks": [
+            {
+                "title": "Aale Mal - ආලේ මල්",
+                "release_date": "Jethro Suvishes",
+                "url": "https://www.cjoint.com/doc/24_06/NFhx7pghG0V_Aaley-Mal-%E0%B6%86%E0%B6%BD%E0%B7%9A-%E0%B6%B8%E0%B6%BD%E0%B7%8A-.mp3",
+                "image": "https://i.ibb.co/JsnYxHW/image.jpg"
+            },
+            {
+                "title": "Adi Seeye - අඩි සීයේ පාරගාව",
+                "release_date": "Chamara Weerasinghe",
+                "url": "https://www.cjoint.com/doc/24_06/NFia0ILipYi_%E0%B6%85%E0%B6%A9%E0%B7%92-%E0%B7%83%E0%B7%93%E0%B6%BA%E0%B7%9A.mp3",
+                "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/chamara-weerasinghe.png"
+            },
+            {
+            "title": "Akkalage Wenna - අක්කලාගෙ වෙන්න",
+            "release_date": "Manjula Sewwandi",
+            "url": "https://www.cjoint.com/doc/24_06/NFiacZHsMwV_Akkalage-Wenna-%E0%B6%85%E0%B6%9A%E0%B7%8A%E0%B6%9A%E0%B6%BD%E0%B7%8F%E0%B6%9C%E0%B7%99-%E0%B7%80%E0%B7%99%E0%B6%B1%E0%B7%8A%E0%B6%B1.mp3",
+            "image": "https://i.ibb.co/YfMSHXw/image.jpg"
+            },
+            {
+            "title": "Arabi Kumari - අරාබි කුමාරී",
+            "release_date": "Sandun Perera",
+            "url": "https://www.cjoint.com/doc/24_06/NFiaed4sNyV_Arabi-Kumari-%E0%B6%85%E0%B6%BB%E0%B7%8F%E0%B6%B6%E0%B7%92-%E0%B6%9A%E0%B7%94%E0%B6%B8%E0%B7%8F%E0%B6%BB%E0%B7%93.mp3",
+            "image": "https://i.ibb.co/jV9mMxK/Arabi-kumari.jpg"
+            },
+            {
+            "title": "Bombe Motai - බොම්බෙ මොටයි ",
+            "release_date": "",
+            "url": "https://www.cjoint.com/doc/24_06/NFibe2MTiSi_%E0%B6%B6%E0%B7%9C%E0%B6%B8%E0%B7%8A%E0%B6%B6%E0%B7%99-%E0%B6%B8%E0%B7%9C%E0%B6%A7%E0%B6%BA%E0%B7%92-.mp3",
+            "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/gajaman.jpg"
+            },
+            {
+            "title": "Dias-ඩයස්",
+            "release_date": "FREEZE",
+            "url": "https://www.cjoint.com/doc/24_06/NFiafsBihWV_Dias-%E0%B6%A9%E0%B6%BA%E0%B7%83%E0%B7%8A.mp3",
+            "image": "https://i.ibb.co/xgDpWmM/dias.jpg"
+            },
+            {
+            "title": "Diyawanna - දියවන්නා කුමාරියේ",
+            "release_date": "Naada",
+            "url": "https://www.cjoint.com/doc/24_06/NFgcg27eCtO_Diyawanna-Kumariye---Naada-Official-Music-Video-.mp3",
+            "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/diyawanna%20Kumariye%20.jpg?token=GHSAT0AAAAAACSZF6XOHVH43U2ZOSC2I2HAZTKFRYQ"
+            },
+            {
+            "title": "Dumbara Manika - දුම්බර මැනිකා",
+            "release_date": "",
+            "url": "https://www.cjoint.com/doc/24_06/NFia3ez83Bi_%E0%B6%AF%E0%B7%94%E0%B6%B8%E0%B7%8A%E0%B6%B6%E0%B6%BB-%E0%B6%B8%E0%B7%90%E0%B6%B1%E0%B7%92%E0%B6%9A%E0%B7%9A.mp3",
+            "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/Dumbara-Manika.jpg"
+            },
+            {
+            "title": "Hadunada Ridunada - හැදුනද රිදුනද",
+            "release_date": "",
+            "url": "https://www.cjoint.com/doc/24_06/NFibnixg48i_%E0%B7%84%E0%B7%90%E0%B6%AF%E0%B7%94%E0%B6%B1%E0%B6%AF-%E0%B6%BB%E0%B7%92%E0%B6%AF%E0%B7%94%E0%B6%B1%E0%B6%AF.mp3",
+            "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/hadunada%20ridunada%20.jpg?token=GHSAT0AAAAAACSZF6XOMCT74ECR3QMAFEKUZTKFSHQ"
+            },
+            {
+            "title": "Hade Upan Lade - හදේ උපන් ලදේ",
+            "release_date": "",
+            "url": "https://www.cjoint.com/doc/24_06/NFibl7O4OVi_%E0%B7%84%E0%B6%AF%E0%B7%9A-%E0%B6%8B%E0%B6%B4%E0%B6%B1%E0%B7%8A-%E0%B6%BD%E0%B6%AF%E0%B7%9A.mp3",
+            "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/hade%20upan%20lade%20.jpeg?token=GHSAT0AAAAAACSZF6XPTID5LWML62DXEQFIZTKFSCQ"
+            },
+            {
+            "title": "Kasi Saban Pena - කාසි සබන් පෙණ",
+            "release_date": "Pasan Liyanage",
+            "url": "https://www.cjoint.com/doc/24_06/NFiagwRc08V_Kasi-Saban-Pena-%E0%B6%9A%E0%B7%8F%E0%B7%83%E0%B7%92-%E0%B7%83%E0%B6%B6%E0%B6%B1%E0%B7%8A-%E0%B6%B4%E0%B7%99%E0%B6%AB.mp3",
+            "image": "https://i.ibb.co/fpkHwgQ/Kasi-Saban-pena.jpg"
+            },
+            {
+            "title": "Komaliya - කොමලියා",
+            "release_date": "Prageeth Perera",
+            "url": "https://www.cjoint.com/doc/24_06/NFiahy1QA0V_Komaliya---%E0%B6%9A%E0%B7%9C%E0%B6%B8%E0%B6%BD%E0%B7%92%E0%B6%BA%E0%B7%8F.mp3",
+            "image": "https://i.ibb.co/CQGxhV1/komaliya.jpg"
+            },
+            {
+            "title": "Laga Lagatama - ලඟ ලඟටම",
+            "release_date": "Shan Putha",
+            "url": "https://www.cjoint.com/doc/24_06/NFiai4hTLvV_Laga-Lagatama-%E0%B6%BD%E0%B6%9F-%E0%B6%BD%E0%B6%9F%E0%B6%A7%E0%B6%B8.mp3",
+            "image": "https://i.ibb.co/rpc1X2n/Laga-Lagatama.jpg"
+            },
+            {
+            "title": "Lande - ළඳේ",
+            "release_date": "Roshan Fernando",
+            "url": "https://www.cjoint.com/doc/24_06/NFianJvBrhi_Lande-%E0%B7%85%E0%B6%B3%E0%B7%99%E0%B7%8A.mp3",
+            "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/lade.jpg"
+            },
+            {
+            "title": "lelena - ලෙලෙනා",
+            "release_date": "Nilan Hettiarachchi",
+            "url": "https://www.cjoint.com/doc/24_06/NFiapCHTemi_Lelena-%E0%B6%BD%E0%B7%99%E0%B6%BD%E0%B7%99%E0%B6%B1%E0%B7%8F.mp3",
+            "image": "https://i.ibb.co/jv4zC3B/Lelena.jpg"
+            },
+            {
+            "title": "Liyathabrara - ලියතඹරා",
+            "release_date": "",
+            "url": "https://www.cjoint.com/doc/24_06/NFibjTPkgZi_%E0%B6%BD%E0%B7%92%E0%B6%BA%E0%B6%AD%E0%B6%B9%E0%B6%BB%E0%B7%8F.mp3",
+            "image": "https://i.ibb.co/rpc1X2n/Laga-Lagatama.jpg"
+            },
+            {
+            "title": "Mage wela - මගේ වෙලා",
+            "release_date": "Shihan Mihiranga",
+            "url": "https://www.cjoint.com/doc/24_06/NFiarjKJDli_Mage-Wela-%E0%B6%B8%E0%B6%9C%E0%B7%9A-%E0%B7%80%E0%B7%99%E0%B6%BD%E0%B7%8F.mp3",
+            "image": "https://i.ibb.co/B2cxGht/mage-wela.webp"
+            },
+            {
+            "title": "Mai Mal - මැයි මල්",
+            "release_date": "Yasas Medagedara",
+            "url": "https://www.cjoint.com/doc/24_06/NFiata03UQi_Mai-Mal-%E0%B6%B8%E0%B7%90%E0%B6%BA%E0%B7%92-%E0%B6%B8%E0%B6%BD%E0%B7%8A.mp3",
+            "image": "https://i.ibb.co/2sYdP2K/IMG-20240609-082521.jpg"
+            },
+            {
+            "title": "Malakadakada - මලකඩකඩ",
+            "release_date": "Dinesh Gamage",
+            "url": "https://www.cjoint.com/doc/24_06/NFiawmX126i_Mala-Kada-Kada-%E0%B6%B8%E0%B6%BD-%E0%B6%9A%E0%B6%A9-%E0%B6%9A%E0%B6%A9.mp3",
+            "image": "https://i.ibb.co/fMtPRyZ/Mala-Kada-Kada.jpg"
+            },
+            {
+            "title": "Manda Pama - මන්ද පමා",
+            "release_date": "Uma-Ria",
+            "url": "https://www.cjoint.com/doc/24_06/NFiayHHtZ8i_Manda-Pama--%E0%B6%B8%E0%B6%B1%E0%B7%8A%E0%B6%AF-%E0%B6%B4%E0%B6%B8%E0%B7%8F.mp3",
+            "image": "https://i.ibb.co/2kqKGSQ/Manda-pama.jpg"
+            },
+            {
+            "title": "Manali - මනාලී",
+            "release_date": "",
+            "url": "https://www.cjoint.com/doc/24_06/NFibfTVfrAi_%E0%B6%B8%E0%B6%B1%E0%B7%8F%E0%B6%BD%E0%B7%92-.mp3",
+            "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/manali.jpg"
+            },
+            {
+            "title": "Mata Inna Hithuna - මට ඉන්න හිතුනා",
+            "release_date": "Amandi Sulochana",
+            "url": "https://www.cjoint.com/doc/24_06/NFiaAekZEoi_Mata-Inna-Hithuna-%E0%B6%B8%E0%B6%A7-%E0%B6%89%E0%B6%B1%E0%B7%8A%E0%B6%B1-%E0%B7%84%E0%B7%92%E0%B6%AD%E0%B7%94%E0%B6%B1.mp3",
+            "image": "https://i.ibb.co/H4gqsp3/mata-inna-hithuna.jpg"
+            },
+            {
+            "title": "Me as diha - මේ ඇස්දිහා බලන්",
+            "release_date": "Shihan Mihiranga",
+            "url": "https://www.cjoint.com/doc/24_06/NFiaDb3Xeni_Me-As-Diha-Balan---%E0%B6%B8%E0%B7%9A-%E0%B6%87%E0%B7%83%E0%B7%8A-%E0%B6%AF%E0%B7%92%E0%B7%84%E0%B7%8F-%E0%B6%B6%E0%B6%BD%E0%B6%B1.mp3",
+            "image": "https://i.ibb.co/f1cydzs/me-as-Diha-balan.jpg"
+            },
+            {
+            "title": "Monara Kirilli - මොනර කිරිල්ලී",
+            "release_date": "Bee Music",
+            "url": "https://www.cjoint.com/doc/24_06/NFiaHoVjpxi_Monara-Kirilli---%E0%B6%B8%E0%B7%9C%E0%B6%B1%E0%B6%BB-%E0%B6%9A%E0%B7%92%E0%B6%BB%E0%B7%92%E0%B6%BD%E0%B7%8A%E0%B6%BD%E0%B7%93.mp3",
+            "image": "https://i.ibb.co/WFQdD62/monara-kirilli.jpg"
+            },
+            {
+            "title": "Naden - නාදෙන්",
+            "release_date": "Chamath Sangeeth",
+            "url": "https://www.cjoint.com/doc/24_06/NFiaIAWSWgi_Naden-%E0%B6%B1%E0%B7%8F%E0%B6%AF%E0%B7%99%E0%B6%B1%E0%B7%8A.mp3",
+            "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/naden.jpeg"
+            },
+            {
+            "title": "Nakapana - නාකපන අනෝරා වැස්ක",
+            "release_date": "",
+            "url": "https://www.cjoint.com/doc/24_06/NFia4rvEdpi_%E0%B6%B1%E0%B7%8F%E0%B6%9A%E0%B6%B4%E0%B6%B1-%E0%B6%85%E0%B6%B1%E0%B7%9D%E0%B6%BB%E0%B7%8F-%E0%B7%80%E0%B7%90%E0%B7%83%E0%B7%8A%E0%B7%83%E0%B6%9A-.mp3",
+            "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/nakapana%20anora.jpeg"
+            },
+            {
+            "title": "Narams - නෑරම",
+            "release_date": "Kevin Smokio",
+            "url": "https://www.cjoint.com/doc/24_06/NFiaJQJXJBi_Narama---%E0%B6%B1%E0%B7%91%E0%B6%BB%E0%B6%B8.mp3",
+            "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/narama.jpg"
+            },
+            {
+            "title": "Nasuna - නෑසුනා",
+            "release_date": "Chamath Sangeeth",
+            "url": "https://www.cjoint.com/doc/24_06/NFiaKVWj6wi_Nasuna---%E0%B6%B1%E0%B7%91%E0%B7%83%E0%B7%94%E0%B6%B1%E0%B7%8F.mp3",
+            "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/nasuna.jpeg"
+            },
+            {
+            "title": "Nena - නේනා",
+            "release_date": "Thiwanka Dilshan",
+            "url": "https://www.cjoint.com/doc/24_06/NFiaL2GRYki_Nena---%E0%B6%B1%E0%B7%9A%E0%B6%B1%E0%B7%8F.mp3",
+            "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/nena.jpg"
+            },
+            {
+            "title": "Obage Mathaken - ඔබගේ මතකෙන් ",
+            "release_date": "",
+            "url": "https://www.cjoint.com/doc/24_06/NFia1JAAb1i_%E0%B6%94%E0%B6%B6%E0%B6%9C%E0%B7%9A-%E0%B6%B8%E0%B6%AD%E0%B6%9A%E0%B7%99%E0%B6%B1%E0%B7%8A.mp3",
+            "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/obage%20mathaken.jpg"
+            },
+            {
+            "title": "Opada - ඔපදා මතකය",
+            "release_date": "Kanchana Anuradhi",
+            "url": "https://www.cjoint.com/doc/24_06/NFiaMY1xA4i_Opada---%E0%B6%94%E0%B6%B4%E0%B6%AF%E0%B7%8F.mp3",
+            "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/opada.webp"
+            },
+            {
+            "title": "Perada - පෙරදා මැවූ සින",
+            "release_date": "",
+            "url": "https://www.cjoint.com/doc/24_06/NFibd0wxLDi_%E0%B6%B4%E0%B7%99%E0%B6%BB%E0%B6%AF%E0%B7%8F-%E0%B6%B8%E0%B7%90%E0%B7%80%E0%B7%94-%E0%B7%83%E0%B7%92%E0%B6%B1%E0%B7%8F.mp3",
+            "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/perada%20mau%20sina.jpg"
+            },
+            {
+            "title": "Poddak Saiko - පොඩ්ඩක් සයිකො",
+            "release_date": "Gayya",
+            "url": "https://www.cjoint.com/doc/24_06/NFiaON6Pk3i_Poddak-Saiko---%E0%B6%B4%E0%B7%9C%E0%B6%A9%E0%B7%8A%E2%80%8D%E0%B6%A9%E0%B6%9A%E0%B7%8A-%E0%B7%83%E0%B6%BA%E0%B7%92%E0%B6%9A%E0%B7%9D.mp3",
+            "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/poddak%20saiko.jpg"
+            },
+            {
+            "title": "Punchi Doni - පුංචි දෝණි",
+            "release_date": "",
+            "url": "https://www.cjoint.com/doc/24_06/NFia7JRaGGi_%E0%B6%B4%E0%B7%94%E0%B6%82%E0%B6%A0%E0%B7%92-%E0%B6%AF%E0%B7%9D%E0%B6%AB%E0%B7%92-%E0%B6%AD%E0%B6%BB%E0%B7%84-%E0%B7%80%E0%B7%99%E0%B6%BD%E0%B7%8F.mp3",
+            "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/Jothipala%20(1).jpg"
+            },
+            {
+            "title": "Ridawana Jiwithe - රිදවනා ජීවිතේ",
+            "release_date": "Shihan Mihiranga",
+            "url": "https://www.cjoint.com/doc/24_06/NFiaP4avpqi_Ridawana-Jeewithe---%E0%B6%BB%E0%B7%92%E0%B6%AF%E0%B7%80%E0%B6%B1%E0%B7%8F-%E0%B6%A2%E0%B7%93%E0%B7%80%E0%B7%92%E0%B6%AD%E0%B7%9A.mp3",
+            "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/Ridawana-Jeewithe.jpg"
+            },
+            {
+            "title": "Raththaran - රත්තරන් පෙම්පුරානේ",
+            "release_date": "",
+            "url": "https://www.cjoint.com/doc/24_06/NFibheBDUYi_%E0%B6%BB%E0%B6%AD%E0%B7%8A%E0%B6%AD%E0%B6%BB%E0%B6%82-%E0%B6%B4%E0%B7%99%E0%B6%B8%E0%B7%8A%E0%B6%B4%E0%B7%94%E0%B6%BB%E0%B7%8F%E0%B6%B1%E0%B7%9A.mp3",
+            "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/jothipala.jpg"
+            },
+            {
+            "title": "Rajamalige - රාජමාලිගේ",
+            "release_date": "",
+            "url": "https://www.cjoint.com/doc/24_06/NFibimOQVii_%E0%B6%BB%E0%B7%8F%E0%B6%A2-%E0%B6%B8%E0%B7%8F%E0%B6%BD%E0%B7%92%E0%B6%9C%E0%B7%9A-.mp3",
+            "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/Raja%20Malige.jpg"
+            },
+            {
+            "title": "Rosa Batiththi - රෝස බටිත්තී",
+            "release_date": "EVO BEATS and Mangala Denex",
+            "url": "https://www.cjoint.com/doc/24_06/NFiaRJoMnYi_Rosa-Batiththi-%E0%B6%BB%E0%B7%9D%E0%B7%83-%E0%B6%B6%E0%B6%A7%E0%B7%92%E0%B6%AD%E0%B7%8A%E0%B6%AD%E0%B7%92.mp3",
+            "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/Rosa%20batiththi.jpg"
+            },
+            {
+            "title": "Ru chaya - රූ චායා",
+            "release_date": "Anjana Perera",
+            "url": "https://www.cjoint.com/doc/24_06/NFiaSTrtGoi_Ruu-Chaya---%E0%B6%BB%E0%B7%96-%E0%B6%A0%E0%B7%8F%E0%B6%BA%E0%B7%8F.mp3",
+            "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/Ruu-Chaya.webp"
+            },
+            {
+            "title": "Salli - සල්ලි",
+            "release_date": "Sarith and Surith",
+            "url": "https://www.cjoint.com/doc/24_06/NFiaT0o2hHi_Salli---%E0%B7%83%E0%B6%BD%E0%B7%8A%E0%B6%BD%E0%B7%92.mp3",
+            "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/salli.jpg"
+            },
+            {
+            "title": "Selawena Manasa - සෙලවෙන මනස",
+            "release_date": "Spade Squad",
+            "url": "https://www.cjoint.com/doc/24_06/NFiaVjdrgti_Selawena-Manasa---%E0%B7%83%E0%B7%99%E0%B6%BD%E0%B7%80%E0%B7%99%E0%B6%B1-%E0%B6%B8%E0%B6%B1%E0%B7%83.mp3",
+            "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/selawena%20manasa.png"
+            },
+            {
+            "title": "Tikiriliya - ටිකිරිලියා",
+            "release_date": "Harshana K",
+            "url": "https://www.cjoint.com/doc/24_06/NFiaXohJZsi_Tikiriliya-%E0%B6%A7%E0%B7%92%E0%B6%9A%E0%B7%92%E0%B6%BB%E0%B7%92%E0%B6%BD%E0%B7%92%E0%B6%BA%E0%B7%8F.mp3",
+            "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/tikiriliya.jpg"
+            },
+            {
+            "title": "Ukula Sala - උකුල සලා",
+            "release_date": "EVO BEATS",
+            "url": "https://www.cjoint.com/doc/24_06/NFiaYHQMswi_Ukula-Sala---%E0%B6%8B%E0%B6%9A%E0%B7%94%E0%B6%BD-%E0%B7%83%E0%B6%BD%E0%B7%8F.mp3",
+            "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/ukulula%20sala.jpg"
+            },
+            {
+            "title": "Ummah - උම්මා",
+            "release_date": "Chanuka Mora",
+            "url": "https://www.cjoint.com/doc/24_06/NFiaZwpjoVi_Ummah-%E0%B6%8B%E0%B6%B8%E0%B7%8A%E0%B6%B8%E0%B7%8F---Chanuka-Mora.mp3",
+            "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/umma.jpg"
+            },
+            {
+            "title": "Wadinna - වඩින්න දේවතාවියේ",
+            "release_date": "",
+            "url": "https://www.cjoint.com/doc/24_06/NFibkZPDt7i_%E0%B7%80%E0%B6%A9%E0%B7%92%E0%B6%B1%E0%B7%8A%E0%B6%B1-%E0%B6%AF%E0%B7%9A%E0%B7%80%E0%B6%AD%E0%B7%8F%E0%B7%80%E0%B7%92%E0%B6%BA%E0%B7%9A.mp3",
+            "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/wadinna%20dewathawiye.jpg"
+            }
+            /*{
+            "title": "mon",
+            "release_date": "66",
+            "url": "",
+            "image": "https://i.ibb.co/WFQdD62/monara-kirilli.jpg"
+            },
+            {
+            "title": "mon",
+            "release_date": "66",
+            "url": "",
+            "image": "https://i.ibb.co/WFQdD62/monara-kirilli.jpg"
+            },
+            {
+            "title": "mon",
+            "release_date": "66",
+            "url": "",
+            "image": "https://i.ibb.co/WFQdD62/monara-kirilli.jpg"
+            },
+            {
+            "title": "mon",
+            "release_date": "66",
+            "url": "",
+            "image": "https://i.ibb.co/WFQdD62/monara-kirilli.jpg"
+            },
+            {
+            "title": "mon",
+            "release_date": "66",
+            "url": "",
+            "image": "https://i.ibb.co/WFQdD62/monara-kirilli.jpg"
+            },
+            {
+            "title": "mon",
+            "release_date": "66",
+            "url": "",
+            "image": "https://i.ibb.co/WFQdD62/monara-kirilli.jpg"
+            },
+            {
+            "title": "mon",
+            "release_date": "66",
+            "url": "",
+            "image": "https://i.ibb.co/WFQdD62/monara-kirilli.jpg"
+            },
+            {
+            "title": "mon",
+            "release_date": "66",
+            "url": "",
+            "image": "https://i.ibb.co/WFQdD62/monara-kirilli.jpg"
+            }*/
+        ]
+    };
+
+    let currentTrackIndex = -1;
+
+    const saveTrackData = () => {
+        const trackData = {
+            currentTrackIndex,
+            currentTime: audioPlayer.currentTime,
+        };
+        localStorage.setItem('trackData', JSON.stringify(trackData));
+    };
+
+    const loadTrackData = () => {
+        const trackData = localStorage.getItem('trackData');
+        return trackData ? JSON.parse(trackData) : null;
+    };
+
+    const renderTrackList = (tracks) => {
+        trackList.innerHTML = '';
+        if (tracks.length === 0) {
+            trackList.innerHTML = '<p>No results found</p>';
+            return;
+        }
+        tracks.forEach((track, index) => {
+            const card = document.createElement('div');
+            card.classList.add('card');
+            card.innerHTML = `
+                <div class="card-img">
+                    <img src="${track.image}" alt="${track.title}">
+                </div>
+                <div class="card-t-1">
+                    <b>${track.title}</b>
+                    <p class="card-t-2">${track.release_date}</p>
+                </div>
+                <div class="card-icon">
+                    <i class="fas fa-play" id="play-icon-${index}"></i>
+                </div>
+            `;
+            trackList.appendChild(card);
+
+            document.getElementById(`play-icon-${index}`).addEventListener('click', () => {
+                const globalIndex = data.tracks.indexOf(track);
+                if (currentTrackIndex === globalIndex && !audioPlayer.paused) {
+                    audioPlayer.pause();
+                    updatePlayPauseIcon(false);
+                    resetCardIcons();
+                } else {
+                    playTrack(globalIndex);
+                }
+            });
+        });
+    };
+
+    const playTrack = (index) => {
+        currentTrackIndex = index;
+        const track = data.tracks[index];
+        audioPlayer.src = track.url;
+        audioPlayer.play();
+        updatePlayPauseIcon(true);
+        updateCardIcons(index);
+        highlightPlayingTrack(index);
+        updateFooter(track);
+        saveTrackData();
+    };
+
+    const updatePlayPauseIcon = (isPlaying) => {
+        if (isPlaying) {
+            playIcon.classList.remove('fa-play');
+            playIcon.classList.add('fa-pause');
+            circleIcon.classList.remove('fa-play');
+            circleIcon.classList.add('fa-pause');
+        } else {
+            playIcon.classList.remove('fa-pause');
+            playIcon.classList.add('fa-play');
+            circleIcon.classList.remove('fa-pause');
+            circleIcon.classList.add('fa-play');
+        }
+    };
+
+    const updateCardIcons = (currentIndex) => {
+        const playIcons = document.querySelectorAll('.card-icon i');
+        playIcons.forEach((icon, index) => {
+            if (index === currentIndex) {
+                icon.classList.remove('fa-play');
+                icon.classList.add('fa-pause');
+            } else {
+                icon.classList.remove('fa-pause');
+                icon.classList.add('fa-play');
+            }
+        });
+    };
+
+    const resetCardIcons = () => {
+        const playIcons = document.querySelectorAll('.card-icon i');
+        playIcons.forEach((icon) => {
+            icon.classList.remove('fa-pause');
+            icon.classList.add('fa-play');
+        });
+    };
+
+    const highlightPlayingTrack = (index) => {
+        const cards = document.querySelectorAll('.card');
+        cards.forEach((card, i) => {
+            if (i === index) {
+                card.style.backgroundColor = '#22CE83';
+            } else {
+                card.style.backgroundColor = '';
+            }
+        });
+    };
+
+    const updateFooter = (track) => {
+        footerTrackName.innerHTML = `<b>${track.title}</b>`;
+        footerLogo.src = track.image;
+        downloadLink.href = track.url;
+    };
+
+    const scrollToPlayingTrack = () => {
+        if (currentTrackIndex >= 0) {
+            const playingCard = document.querySelectorAll('.card')[currentTrackIndex];
+            playingCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    };
+
+    playPauseButton.addEventListener('click', () => {
+        if (audioPlayer.paused) {
+            audioPlayer.play();
+            updatePlayPauseIcon(true);
+            highlightPlayingTrack(currentTrackIndex);
+        } else {
+            audioPlayer.pause();
+            updatePlayPauseIcon(false);
+            resetCardIcons();
+        }
+        saveTrackData();
+    });
+
+    prevButton.addEventListener('click', () => {
+        if (currentTrackIndex > 0) {
+            playTrack(currentTrackIndex - 1);
+        } else {
+            playTrack(data.tracks.length - 1);
+        }
+        saveTrackData();
+    });
+
+    nextButton.addEventListener('click', () => {
+        if (currentTrackIndex < data.tracks.length - 1) {
+            playTrack(currentTrackIndex + 1);
+        } else {
+            playTrack(0);
+        }
+        saveTrackData();
+    });
+
+    continueButton.addEventListener('click', () => {
+        const trackData = loadTrackData();
+        if (trackData) {
+            currentTrackIndex = trackData.currentTrackIndex;
+            const track = data.tracks[currentTrackIndex];
+            audioPlayer.src = track.url;
+            audioPlayer.currentTime = trackData.currentTime;
+            audioPlayer.play();
+            updatePlayPauseIcon(true);
+            updateCardIcons(currentTrackIndex);
+            highlightPlayingTrack(currentTrackIndex);
+            updateFooter(track);
+            scrollToPlayingTrack();  // Scroll to the playing track
+        }
+    });
+
+    audioPlayer.addEventListener('ended', () => {
+        currentTrackIndex++;
+        if (currentTrackIndex >= data.tracks.length) {
+            currentTrackIndex = 0;
+        }
+        playTrack(currentTrackIndex);
+        saveTrackData();
+    });
+
+    circle.addEventListener('click', () => {
+        if (audioPlayer.paused) {
+            playTrack(0);  // Always play the first track when the circle is clicked
+        } else {
+            audioPlayer.pause();
+            updatePlayPauseIcon(false);
+            resetCardIcons();
+        }
+        saveTrackData();
+    });
+
+    searchForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const query = searchQuery.value.toLowerCase();
+        const filteredTracks = data.tracks.filter(track => 
+            track.title.toLowerCase().includes(query) || 
+            track.release_date.toLowerCase().includes(query)
+        );
+        renderTrackList(filteredTracks);
+    });
+
+    searchQuery.addEventListener('keyup', () => {
+        if (searchQuery.value.trim() === '') {
+            renderTrackList(data.tracks);
+        }
+    });
+
+    const trackData = loadTrackData();
+    if (trackData) {
+        currentTrackIndex = trackData.currentTrackIndex;
+        const track = data.tracks[currentTrackIndex];
+        updateFooter(track);
+        renderTrackList(data.tracks);
+    } else {
+        renderTrackList(data.tracks);
+    }
+});
+</script>
+</body>
+</html>

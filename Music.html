@@ -2,18 +2,32 @@
 <html lang="en">
 <head>
   <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-<script>
-  window.OneSignalDeferred = window.OneSignalDeferred || [];
-  OneSignalDeferred.push(function(OneSignal) {
-    OneSignal.init({
-      appId: "3d17ebdf-a46e-4756-b066-e0ea0b1cf4a3",
-      safari_web_id: "web.onesignal.auto.4bf73218-3550-4659-982d-970270d14d2d",
-      notifyButton: {
-        enable: true,
-      },
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(function(OneSignal) {
+      OneSignal.init({
+        appId: "3d17ebdf-a46e-4756-b066-e0ea0b1cf4a3",
+        safari_web_id: "web.onesignal.auto.4bf73218-3550-4659-982d-970270d14d2d",
+        notifyButton: {
+          enable: true,
+        },
+      });
+
+      OneSignal.on('notificationDisplay', function(event) {
+        console.log('OneSignal notification displayed:', event);
+      });
+
+      OneSignal.on('notificationDismiss', function(event) {
+        console.log('OneSignal notification dismissed:', event);
+      });
+
+      OneSignal.on('notificationClick', function(event) {
+        console.log('OneSignal notification clicked:', event);
+        // Handle the click event, e.g., navigate to a specific page
+        window.location.href = event.data.url || '/';
+      });
     });
-  });
-</script>
+  </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, orientation=portrait">
 <title>Premium Music</title>
 <link rel="stylesheet" href="styles.css">
@@ -411,6 +425,14 @@
     <main>
     <p>
     <br>
+    <br>
+    <p>
+      
+    </p>
+    <br>
+    <br>
+    
+    <p></p>
     <div class="tit1">
     Artists
     </div>
@@ -493,12 +515,15 @@
     </div>
     
     <div class="item">
+      <a id="link" href="classic.html">
     <img src="https://i.ibb.co/mFfVVPz/images-3.jpg">
-    <div class="text-overlay"><b>Classical</b></div>
+    <div class="text-overlay"><b>Classical</b></div></a>
     </div>
+    
     <div class="item">
+      <a id="link" href="rap.html">
     <img src="https://i.ibb.co/ZSG6c6p/images-1.jpg">
-    <div class="text-overlay"><b>Rap</b></div>
+    <div class="text-overlay"><b>Rap</b></div></a>
     </div>
     </div>
     </div>
@@ -515,23 +540,30 @@
     <hr>
     
     <div class="box">
+      <a href="pubg.html">
     <div class="item">
     <img src="https://i.ibb.co/cX82MHR/Player-Unknown-s-Battlegrounds-Mobile-webp.png">
-    <div class="text-overlay"><b>PUBG</b></div>
+    <div class="text-overlay"><b>PUBG</b></div></a>
     </div>
     <div class="item">
+      <a id="link" href="undawn.html">
     <img src="https://i.ibb.co/c3ZgxWk/5a0ce3e7b9660de65915c38eb2e90bb71688ad6a.jpg">
-    <div class="text-overlay"><b>UNDAWN</b></div>
+    <div class="text-overlay"><b>UNDAWN</b></div></a>
     </div>
+    
     <div class="item">
+      <a id="link" href="free fire.html">
     <img src="https://i.ibb.co/v3b80PD/images-4.jpg">
-    <div class="text-overlay"><b>Free Fire</b></div>
+    <div class="text-overlay"><b>Free Fire</b></div></a>
     </div>
+    
     <div class="item">
+      <a id="link" href="blood strick.html">
     <img src="https://i.ibb.co/2t5VBz8/unnamed-5.png">
-    <div class="text-overlay"><b>Blood strick</b></div>
+    <div class="text-overlay"><b>Blood strick</b></div></a>
     </div>
     </div>
+    
     
     
     
@@ -547,49 +579,112 @@
     
     <div class="box">
     <div class="item">
+      <a id="link" href="pirets.html">
     <img src="https://i.ibb.co/JzMZCzK/IMG-20240416-093740.png">
-    <div class="text-overlay"><b>Pirates of the <p>Caribbean</b></div>
+    <div class="text-overlay"><b>Pirates of the <p>Caribbean</b></div></a>
     </div>
     
     <div class="item">
+      <a id="link" href="vicram.html">
     <img src="https://i.ibb.co/6rCdhMH/IMG-20240416-093934.jpg">
-    <div class="text-overlay"><b>Vikram</b></div>
+    <div class="text-overlay"><b>Vikram</b></div></a>
     </div>
+    
     <div class="item">
+      <a id="link" href="varisu.html">
     <img src="https://i.ibb.co/wcR9gJF/600x600bf-60.jpg">
-    <div class="text-overlay"><b>Varisu</b></div>
+    <div class="text-overlay"><b>Varisu</b></div></a>
     </div>
+    
     <div class="item">
+      <a id="link" href="sulthan.html">
     <img src="https://i.ibb.co/9t3Fg27/IMG-20240416-094322.jpg">
-    <div class="text-overlay"><b>Sulthan</b></div>
+    <div class="text-overlay"><b>Sulthan</b></div></a>
     </div>
+    
     <div class="item">
+      <a id="link" href="leo.html">
     <img src="https://i.ibb.co/zHRJqZW/IMG-20240416-094518.jpg">
-    <div class="text-overlay"><b>Leo</b></div>
+    <div class="text-overlay"><b>Leo</b></div></a>
     </div>
+    
     <div class="item">
+      <a id="link" href="master.html">
     <img src="https://i.ibb.co/t4t5rHd/IMG-20240416-094707.jpg">
-    <div class="text-overlay"><b>Master</b></div>
+    <div class="text-overlay"><b>Master</b></div></a>
     </div>
+    
     <div class="item">
+      <a id="link" href="jailer.html">
     <img src="https://i.ibb.co/5h73zmD/IMG-20240416-094844.jpg">
-    <div class="text-overlay"><b>Jailer</b></div>
+    <div class="text-overlay"><b>Jailer</b></div></a>
     </div>
+    
     <div class="item">
+      <a id="link" href="kgf.html">
     <img src="https://i.ibb.co/3dtLZHd/IMG-20240416-095054.jpg">
-    <div class="text-overlay"><b>K.G.F</b></div>
+    <div class="text-overlay"><b>K.G.F</b></div></a>
     </div>
+    
     <div class="item">
+      <a id="link" href="beast.html">
     <img src="https://i.ibb.co/GdpZ7yP/beast-review-b-1304220116.jpg">
-    <div class="text-overlay"><b>Beast</b></div>
+    <div class="text-overlay"><b>Beast</b></div></a>
     </div>
+    
     <div class="item">
+      <a id="link" href="rolex.html">
     <img src="https://i.ibb.co/jLwDwN0/IMG-20240416-095645.jpg">
-    <div class="text-overlay"><b>Rolex</b></div>
+    <div class="text-overlay"><b>Rolex</b></div></a>
     
     </div>
     </div>
     
+    <br>
+    <p>
+    <br>
+    <div class="tit1">
+    Playlists 
+    </div>
+    <p>
+    <br> 
+    <hr>
+    
+    <div class="box">
+      <a id="link" href="sinhala-song.html">
+    <div class="item">
+    <img src="https://i.ibb.co/4745h0r/IMG-20240606-083535.jpg">
+    <div class="text-overlay"><b>Sinhala Playlist</b></div>
+    </div> </a>
+    
+    <!--
+    
+    <div class="item">
+       <a id="link" href="rock.html">
+    <img src="https://i.ibb.co/7vPNSnM/download-2.png">
+    <div class="text-overlay"><b>Rock</b></div> </a>
+    </div>
+    
+    <div class="item">
+       <a id="link" href="hip-hop.html">
+    <img src="https://i.ibb.co/6H38V16/images-2.jpg">
+    <div class="text-overlay"><b>Hip Hop</b></div></a>
+    </div>
+    
+    <div class="item">
+      <a id="link" href="classic.html">
+    <img src="https://i.ibb.co/mFfVVPz/images-3.jpg">
+    <div class="text-overlay"><b>Classical</b></div></a>
+    </div>
+    
+    <div class="item">
+      <a id="link" href="rap.html">
+    <img src="https://i.ibb.co/ZSG6c6p/images-1.jpg">
+    <div class="text-overlay"><b>Rap</b></div></a>
+    </div>
+    </div>
+    </div>
+    -->
     
     <br>
     <p>
@@ -1139,6 +1234,42 @@
      // Call the function to save images and audios to localStorage
      saveMediaToLocalStorage();
      
+    </script>
+    
+    
+    
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                document.getElementById('location-status').innerText = "Requesting location...";
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                document.getElementById('location-status').innerText = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            document.getElementById('location-status').innerText = "Location obtained successfully!";
+            document.getElementById('latitude').innerText = "Latitude: " + position.coords.latitude;
+            document.getElementById('longitude').innerText = "Longitude: " + position.coords.longitude;
+        }
+
+        function showError(error) {
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    document.getElementById('location-status').innerText = "User denied the request for Geolocation.";
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    document.getElementById('location-status').innerText = "Location information is unavailable.";
+                    break;
+                case error.TIMEOUT:
+                    document.getElementById('location-status').innerText = "The request to get user location timed out.";
+                    break;
+                case error.UNKNOWN_ERROR:
+                    document.getElementById('location-status').innerText = "An unknown error occurred.";
+                    break;
+            }
+        }
     </script>
     </body>
     </html>
