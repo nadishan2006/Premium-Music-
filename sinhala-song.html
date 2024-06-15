@@ -389,6 +389,31 @@
         &nbsp;&nbsp;&nbsp;<i class="fas fa-share-alt" style="color: #fff;" onclick="displayShareOption()"></i>
     <button id="continue"><i class="fa-solid fa-repeat" style="color: #ffffff;"></i></button>
     </div>
+    <script>
+    function toggleIcons(icon) {
+    // Hide the clicked icon
+    icon.style.display = 'none';
+    // Display the other heart icon
+    document.querySelector('.fas.fa-heart').style.display = 'inline-block';
+}
+
+function displayShareOption() {
+    if (navigator.share) {
+        navigator.share({
+            title: 'Premium Music',
+            text: 'Check out this song!',
+            url: 'https://premium-music.netlify.app/sinhala-song',
+        }).then(() => {
+            console.log('Share successful');
+        }).catch((error) => {
+            console.error('Share failed:', error);
+        });
+    } else {
+        console.log('Web Share API not supported');
+        // Provide a fallback option or inform the user that sharing is not supported
+    }
+}
+</script>
 </div>
 
 <center>
@@ -501,7 +526,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             {
             "title": "Bombe Motai - බොම්බෙ මොටයි ",
-            "release_date": "",
+            "release_date": "Anushka Udana",
             "url": "https://www.cjoint.com/doc/24_06/NFibe2MTiSi_%E0%B6%B6%E0%B7%9C%E0%B6%B8%E0%B7%8A%E0%B6%B6%E0%B7%99-%E0%B6%B8%E0%B7%9C%E0%B6%A7%E0%B6%BA%E0%B7%92-.mp3",
             "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/gajaman.jpg"
             },
@@ -519,19 +544,19 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             {
             "title": "Dumbara Manika - දුම්බර මැනිකා",
-            "release_date": "",
+            "release_date": "Dilshan Maduranga",
             "url": "https://www.cjoint.com/doc/24_06/NFia3ez83Bi_%E0%B6%AF%E0%B7%94%E0%B6%B8%E0%B7%8A%E0%B6%B6%E0%B6%BB-%E0%B6%B8%E0%B7%90%E0%B6%B1%E0%B7%92%E0%B6%9A%E0%B7%9A.mp3",
             "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/Dumbara-Manika.jpg"
             },
             {
             "title": "Hadunada Ridunada - හැදුනද රිදුනද",
-            "release_date": "",
+            "release_date": "Dinesh Tharanga",
             "url": "https://www.cjoint.com/doc/24_06/NFibnixg48i_%E0%B7%84%E0%B7%90%E0%B6%AF%E0%B7%94%E0%B6%B1%E0%B6%AF-%E0%B6%BB%E0%B7%92%E0%B6%AF%E0%B7%94%E0%B6%B1%E0%B6%AF.mp3",
             "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/hadunada%20ridunada%20.jpg?token=GHSAT0AAAAAACSZF6XOMCT74ECR3QMAFEKUZTKFSHQ"
             },
             {
             "title": "Hade Upan Lade - හදේ උපන් ලදේ",
-            "release_date": "",
+            "release_date": "Dinusha Chathuranga",
             "url": "https://www.cjoint.com/doc/24_06/NFibl7O4OVi_%E0%B7%84%E0%B6%AF%E0%B7%9A-%E0%B6%8B%E0%B6%B4%E0%B6%B1%E0%B7%8A-%E0%B6%BD%E0%B6%AF%E0%B7%9A.mp3",
             "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/hade%20upan%20lade%20.jpeg?token=GHSAT0AAAAAACSZF6XPTID5LWML62DXEQFIZTKFSCQ"
             },
@@ -560,14 +585,14 @@ document.addEventListener('DOMContentLoaded', () => {
             "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/lade.jpg"
             },
             {
-            "title": "lelena - ලෙලෙනා",
+            "title": "Lelena - ලෙලෙනා",
             "release_date": "Nilan Hettiarachchi",
             "url": "https://www.cjoint.com/doc/24_06/NFiapCHTemi_Lelena-%E0%B6%BD%E0%B7%99%E0%B6%BD%E0%B7%99%E0%B6%B1%E0%B7%8F.mp3",
             "image": "https://i.ibb.co/jv4zC3B/Lelena.jpg"
             },
             {
             "title": "Liyathabrara - ලියතඹරා",
-            "release_date": "",
+            "release_date": "Athma Liyanage",
             "url": "https://www.cjoint.com/doc/24_06/NFibjTPkgZi_%E0%B6%BD%E0%B7%92%E0%B6%BA%E0%B6%AD%E0%B6%B9%E0%B6%BB%E0%B7%8F.mp3",
             "image": "https://i.ibb.co/rpc1X2n/Laga-Lagatama.jpg"
             },
@@ -597,7 +622,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             {
             "title": "Manali - මනාලී",
-            "release_date": "",
+            "release_date": "Ravi Jay and Yuki Navarathne",
             "url": "https://www.cjoint.com/doc/24_06/NFibfTVfrAi_%E0%B6%B8%E0%B6%B1%E0%B7%8F%E0%B6%BD%E0%B7%92-.mp3",
             "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/manali.jpg"
             },
@@ -651,7 +676,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             {
             "title": "Obage Mathaken - ඔබගේ මතකෙන් ",
-            "release_date": "",
+            "release_date": "Shihan Mihiranga",
             "url": "https://www.cjoint.com/doc/24_06/NFia1JAAb1i_%E0%B6%94%E0%B6%B6%E0%B6%9C%E0%B7%9A-%E0%B6%B8%E0%B6%AD%E0%B6%9A%E0%B7%99%E0%B6%B1%E0%B7%8A.mp3",
             "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/obage%20mathaken.jpg"
             },
@@ -663,7 +688,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             {
             "title": "Perada - පෙරදා මැවූ සින",
-            "release_date": "",
+            "release_date": "Shihan Mihiranga",
             "url": "https://www.cjoint.com/doc/24_06/NFibd0wxLDi_%E0%B6%B4%E0%B7%99%E0%B6%BB%E0%B6%AF%E0%B7%8F-%E0%B6%B8%E0%B7%90%E0%B7%80%E0%B7%94-%E0%B7%83%E0%B7%92%E0%B6%B1%E0%B7%8F.mp3",
             "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/perada%20mau%20sina.jpg"
             },
@@ -675,7 +700,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             {
             "title": "Punchi Doni - පුංචි දෝණි",
-            "release_date": "",
+            "release_date": "H.R Jothipala",
             "url": "https://www.cjoint.com/doc/24_06/NFia7JRaGGi_%E0%B6%B4%E0%B7%94%E0%B6%82%E0%B6%A0%E0%B7%92-%E0%B6%AF%E0%B7%9D%E0%B6%AB%E0%B7%92-%E0%B6%AD%E0%B6%BB%E0%B7%84-%E0%B7%80%E0%B7%99%E0%B6%BD%E0%B7%8F.mp3",
             "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/Jothipala%20(1).jpg"
             },
@@ -687,7 +712,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             {
             "title": "Raththaran - රත්තරන් පෙම්පුරානේ",
-            "release_date": "",
+            "release_date": "H.R Jothipala",
             "url": "https://www.cjoint.com/doc/24_06/NFibheBDUYi_%E0%B6%BB%E0%B6%AD%E0%B7%8A%E0%B6%AD%E0%B6%BB%E0%B6%82-%E0%B6%B4%E0%B7%99%E0%B6%B8%E0%B7%8A%E0%B6%B4%E0%B7%94%E0%B6%BB%E0%B7%8F%E0%B6%B1%E0%B7%9A.mp3",
             "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/jothipala.jpg"
             },
@@ -741,7 +766,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             {
             "title": "Wadinna - වඩින්න දේවතාවියේ",
-            "release_date": "",
+            "release_date": "Harsha Dhanosh",
             "url": "https://www.cjoint.com/doc/24_06/NFibkZPDt7i_%E0%B7%80%E0%B6%A9%E0%B7%92%E0%B6%B1%E0%B7%8A%E0%B6%B1-%E0%B6%AF%E0%B7%9A%E0%B7%80%E0%B6%AD%E0%B7%8F%E0%B7%80%E0%B7%92%E0%B6%BA%E0%B7%9A.mp3",
             "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/wadinna%20dewathawiye.jpg"
             }
@@ -810,6 +835,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const trackData = localStorage.getItem('trackData');
         return trackData ? JSON.parse(trackData) : null;
     };
+    
+    
 
     const renderTrackList = (tracks) => {
         trackList.innerHTML = '';

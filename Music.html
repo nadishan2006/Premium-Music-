@@ -1,33 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-  <script>
-    window.OneSignalDeferred = window.OneSignalDeferred || [];
-    OneSignalDeferred.push(function(OneSignal) {
-      OneSignal.init({
-        appId: "3d17ebdf-a46e-4756-b066-e0ea0b1cf4a3",
-        safari_web_id: "web.onesignal.auto.4bf73218-3550-4659-982d-970270d14d2d",
-        notifyButton: {
-          enable: true,
-        },
-      });
-
-      OneSignal.on('notificationDisplay', function(event) {
-        console.log('OneSignal notification displayed:', event);
-      });
-
-      OneSignal.on('notificationDismiss', function(event) {
-        console.log('OneSignal notification dismissed:', event);
-      });
-
-      OneSignal.on('notificationClick', function(event) {
-        console.log('OneSignal notification clicked:', event);
-        // Handle the click event, e.g., navigate to a specific page
-        window.location.href = event.data.url || '/';
-      });
-    });
-  </script>
+  
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, orientation=portrait">
 <title>Premium Music</title>
 <link rel="stylesheet" href="styles.css">
@@ -61,7 +35,7 @@
     z-index: 9999; /* Ensure the footer is above other content */
     position: fixed; /* Set the position to fixed */
     top: 0; /* Align it to the top */
-    left: 0; /* Align it to the left */
+    left: -5px; /* Align it to the left */
     }
     
     .logo {
@@ -71,18 +45,18 @@
     }
     
     .logo img {
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     margin-top: 15px;
-    margin-right: 15px;
+    margin-right: 30px;
     }
     
     .logo-text {
     color: #fff;
     font-size: 30px;
     margin-top: 16px;
-    margin-left: 10px; /* Add margin instead of negative margin */
+    margin-left: -9px; /* Add margin instead of negative margin */
     }
     
     
@@ -208,7 +182,7 @@
     
     .text {
     color: white;
-    font-size: 20px;
+    font-size: 16px;
     margin-top: -1px;
     margin-right: 10px;
     flex: 1; 
@@ -233,7 +207,7 @@
     .icon-m {
     color: white;
     font-size: 24px;
-    margin-right: 30px;
+    margin-right: 10px;
     cursor: pointer;
     }
     
@@ -249,183 +223,214 @@
     display: none;
     }
     
-  .menu-wap {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto; /* Changed to auto to show scroll bars when needed */
-  z-index: 99999; /* Set a high z-index value */
+  
+
+.container-m {
+    display: flex;
 }
 
-#side-Menu {
-  position: fixed;
-  top: 0; /* Adjusted top position */
-  left: -100%; /* Start off-screen, adjust as necessary for smooth sliding */
-  width: 75%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
-  padding: 20px;
-  transition: left 0.7s; /* Smooth transition for left position */
-  z-index: 99999; /* Set a high z-index value */
-  overflow-y: auto; /* Add vertical scroll bar if content overflows */
+.menu-icon {
+    font-size: 30px;
+    cursor: pointer;
+    color: #fff;
+    transition: color 0.3s;
+    padding-right: 10px;
+    margin-top: 10px;
+    z-index: 999;
 }
 
-#side-Menu.active {
-  left: 0; /* Slide in from left */
+.menu-icon:hover {
+    color: #000;
 }
 
-.menu-itm img {
-  width: 50px;
-  height: 50px;
+.side-menu {
+    width: 0;
+    height: 100%;
+    background-color: rgb(52,50,50);
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 60px;
+    transition: width 0.5s;
+    overflow-x: hidden;
+    z-index: 99999;
+}
+
+.side-menu a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.side-menu a:hover {
+    background-color: #555;
+}
+
+.close-btn {
+    color: white;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.content-m {
+    flex: 1;
+    padding: 20px;
+    transition: margin-left 0.5s;
+}
+
+@media (max-width: 768px) {
+    /* Existing styles */
+    .side-menu {
+        width: 0; /* Set initial width to 0 */
+        /* Other styles */
+    }
+
+    .content-m {
+        margin-left: 0; /* Set initial margin to 0 */
+        /* Other styles */
+    }
+}
+
+.menu-itm {
+  width: ;
+  height: ;
+  padding-left: 10px;
+}
+
+.menu-itm img{
+  width: 25%;
+  height: 25%;
   border-radius: 50%;
-  margin-top: 15px;
-  margin-right: 10px;
-}
-
-.menu-txt {
-  color: #fff;
-  font-size: 26px;
-  margin-top: -40px;
-  margin-left: 25%; /* Add margin instead of negative margin */
+  margin-top: -18%;
 }
 
 .new {
-  color: #fff; /* Added color to make it visible */
-  font-size: 20px;
-  margin-top: 45px;
-  margin-left: -15%;
+    color: #fff;
+    font-size: 20px; /* Set the desired font size */
+    margin-top: 15px; /* Set the spacing between items */
 }
 
-    /* 
-    
-    @media screen and (orientation: landscape) {
-  body {
-    display: none;
-    color: rgb(21,21,21);
-  }
-  .rotate-message {
-    display: block; 
-  }
+#hr-m {
+    width: 90%;
+    border: 0.5px solid #444;
+    margin-right: 20px;
 }
 
-@media screen and (orientation: portrait) {
-  .rotate-message {
-    display: none; 
-  }
-}  
-*/
-
-#link {
-  display: inline; /* or another display value that suits your layout */
-  text-decoration: none; /* removes the underline */
-  color: inherit; /* sets the color to the parent element's color */
+#groot {
+    width: 10%;
+    height: 15%;
 }
-
- #groot {
-   width: 10%;
-   height: 10%;
- }
     </style>
     <body>
       
-      <div id="menu-wap">
-   <div id="side-Menu">
-   <div class="menu-itm">
-    <img src="https://i.ibb.co/kSQN5ZW/Screenshot-2024-0414-204428.jpg">
-    <div class="menu-txt">
-    <b>Premium Music</b>
-        <div class="new">
-          <a id="link" href="create your page.html">
-        <b><i class="fa-solid fa-folder-plus" style="color: #ffffff;"></i> create your page</a>
-        </div>
-        <div class="new">
-          <a id="link" href="this version.html">
-        <i class="fa fa-android" aria-hidden="true" style="color: #fff;"></i> This Version
-        
-        </div></a>
-        <div class="new">
-          <a id="link" href="update.html">
-        <i class="fa fa-level-up" aria-hidden="true" style="color: #fff;"></i> Update</a>
-        </div>
-        <div class="new">
-     <a id="link" href="about.html">
-        <i class="fa-solid fa-users" style="color: #ffffff;"></i> About us</a>
-        </div>
-        <div class="new">
-   <a id="link" href="ads.html">
-        <i class="fa-solid fa-rectangle-ad" style="color: #ffffff;"></i> Watch Ads</a>
-        </div>
-        <div class="new">
-      <a id="link" href="contact.html">
-        <i class="fa-regular fa-circle-question" style="color: #ffffff;"></i> Help Center </a>
-        </div>
-        <div class="new">
-         <a id="link" href="t & c.html">
- <i class="fa-solid fa-fingerprint" style="color: #ffffff;"></i> Teams & police</b></a>
-        </div>
-    
-        <div class="new">
-         <a id="link" href="groot.html">
- <img id="groot" src="https://i.ibb.co/G39DVH4/m-ai.jpg"><b>Groot AI</b></a>
-        </div>
-        </div>
-        <div class="fullow">
-          
-        </div>
-   </div>
-   </div>
-   </div>
-   </div>
-   <script>
-     document.querySelector('.menu-wap').addEventListener('click', function() {
-  document.getElementById('side-Menu').classList.toggle('active');
-});
-   </script>
-   <script>
-   let startX = null;
-   let currentX = null;
-   let menuOpen = false;
    
-   document.addEventListener('touchstart', function(e) {
-   startX = e.touches[0].clientX;
-   currentX = startX;
-   });
-   
-   document.addEventListener('touchmove', function(e) {
-   if (!startX) return; // Exit if startX is null
-   currentX = e.touches[0].clientX;
-   if (startX < 20 && currentX - startX > 50) {
-   menuOpen = true;
-   document.getElementById('side-Menu').classList.add('active');
-   e.preventDefault(); // Use preventDefault instead of stopPropagation
-   }
-   });
-   
-   document.addEventListener('touchend', function() {
-   if (!menuOpen) {
-   document.getElementById('side-Menu').classList.remove('active');
-   }
-   startX = null;
-   currentX = null;
-   menuOpen = false;
-   });
-   
-   </script>
    
 <!-- start -->
 
     <div class="h-logo">
     <div class="logo">
+    <div class="menu-icon" onclick="toggleMenu()"><svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="35px" fill="#fff"><path d="M160-240q-17 0-28.5-11.5T120-280q0-17 11.5-28.5T160-320h640q17 0 28.5 11.5T840-280q0 17-11.5 28.5T800-240H160Zm0-200q-17 0-28.5-11.5T120-480q0-17 11.5-28.5T160-520h640q17 0 28.5 11.5T840-480q0 17-11.5 28.5T800-440H160Zm0-200q-17 0-28.5-11.5T120-680q0-17 11.5-28.5T160-720h640q17 0 28.5 11.5T840-680q0 17-11.5 28.5T800-640H160Z"/></svg></div>
     <img src="https://i.ibb.co/kSQN5ZW/Screenshot-2024-0414-204428.jpg">
     <div class="logo-text"><b>Premium Music</b></div>
     </div>
     </div>
+    
+    
+    <div class="container-m">
+        <div class="menu-icon" onclick="toggleMenu()"> hhh &#9776;</div>
+        <div class="side-menu" id="sideMenu">
+            <a href="javascript:void(0)" class="close-btn" onclick="toggleMenu()">&times;</a>
+            <div class="menu-wap" id="menu-wap">
+                <div id="side-Menu">
+                
+                    <div class="menu-itm">
+                        <img src="https://i.ibb.co/kSQN5ZW/Screenshot-2024-0414-204428.jpg">
+                        <div class="menu-txt">
+                            <b></b>
+                           
+                            <div class="new">
+                                <a href="create-your-page.html">
+                                    <b><i class="fa-solid fa-folder-plus" style="color: #ffffff;"></i> create your page</a>
+                            </div>
+                             <hr id="hr-m">
+                            <div class="new">
+                                <a href="this-version.html">
+                                    <i class="fa fa-android" aria-hidden="true" style="color: #fff;"></i> This Version
+                                </a>
+                            </div>
+                             <hr id="hr-m">
+                            <div class="new">
+                                <a href="update.html">
+                                    <i class="fa fa-level-up" aria-hidden="true" style="color: #fff;"></i> Update
+                                </a>
+                            </div>
+                             <hr id="hr-m">
+                            <div class="new">
+                                <a href="about.html">
+                                    <i class="fa-solid fa-users" style="color: #ffffff;"></i> About us
+                                </a>
+                            </div>
+                             <hr id="hr-m">
+                            <div class="new">
+                                <a href="ads.html">
+                                    <i class="fa-solid fa-rectangle-ad" style="color: #ffffff;"></i> Watch Ads
+                                </a>
+                            </div>
+                             <hr id="hr-m">
+                            <div class="new">
+                                <a href="contact.html">
+                                    <i class="fa-regular fa-circle-question" style="color: #ffffff;"></i> Help Center 
+                                </a>
+                            </div>
+                             <hr id="hr-m">
+                            <div class="new">
+                                <a href="t & c.html">
+                                    <i class="fa-solid fa-fingerprint" style="color: #ffffff;"></i> Teams & police</b>
+                                </a>
+                            </div>
+                            <hr id="hr-m">
+                            <div class="new">
+                            <a href="groot.html" style="display: flex; align-items: center;">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="24px" fill="#fff">
+                            <path d="M240-160q-33 0-56.5-23.5T160-240q0-33 23.5-56.5T240-320q33 0 56.5 23.5T320-240q0 33-23.5 56.5T240-160Zm320 0q-33 0-56.5-23.5T480-240q0-33 23.5-56.5T560-320q33 0 56.5 23.5T640-240q0 33-23.5 56.5T560-160ZM400-320q-33 0-56.5-23.5T320-400q0-33 23.5-56.5T400-480q33 0 56.5 23.5T480-400q0 33-23.5 56.5T400-320Zm320 0q-33 0-56.5-23.5T640-400q0-33 23.5-56.5T720-480q33 0 56.5 23.5T800-400q0 33-23.5 56.5T720-320ZM240-480q-33 0-56.5-23.5T160-560q0-33 23.5-56.5T240-640q33 0 56.5 23.5T320-560q0 33-23.5 56.5T240-480Zm320 0q-33 0-56.5-23.5T480-560q0-33 23.5-56.5T560-640q33 0 56.5 23.5T640-560q0 33-23.5 56.5T560-480ZM400-640q-33 0-56.5-23.5T320-720q0-33 23.5-56.5T400-800q33 0 56.5 23.5T480-720q0 33-23.5 56.5T400-640Zm320 0q-33 0-56.5-23.5T640-720q0-33 23.5-56.5T720-800q33 0 56.5 23.5T800-720q0 33-23.5 56.5T720-640Z"/>
+                            </svg>
+                            <b style="margin-left: 10px;">Groot AI</b>
+                            </a>
+                            </div>
+                            <hr id="hr-m">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-m">
+            </div>
+        </div>
+    
+    <script>
+    function toggleMenu() {
+    const sideMenu = document.getElementById("sideMenu");
+    const container = document.querySelector(".container");
+    if (sideMenu.style.width === "250px") {
+    sideMenu.style.width = "0";
+    container.style.marginLeft = "0";
+    } else {
+    sideMenu.style.width = "250px";
+    container.style.marginLeft = "250px";
+    }
+    }
+    </script>
+    
+    
+    
+    
     <main>
     <p>
-    <br>
-    <br>
     <p>
       
     </p>

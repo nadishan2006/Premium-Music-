@@ -157,15 +157,51 @@
         loadElement.style.display = 'block';
         const loadTime = getRandomTime();
         loadElement.style.animationDuration = `${loadTime}ms`;
+
         setTimeout(() => {
-          window.location.href = 'Music.html';
+          const isSignedUp = localStorage.getItem('isSignedUp');
+          if (isSignedUp) {
+            window.location.href = 'Music.html';
+          } else {
+            window.location.href = 'Signup.html';
+          }
         }, loadTime);
       }, getRandomTime());
     }
 
+    function checkInitialLoad() {
+      if (!localStorage.getItem('initialLoad')) {
+        localStorage.setItem('initialLoad', 'true');
+        if (!localStorage.getItem('isSignedUp')) {
+          window.location.href = 'Signup.html';
+        } else {
+          window.location.href = 'Music.html';
+        }
+      }
+    }
+
+    function signOut() {
+      localStorage.removeItem('isSignedUp');
+      checkOnlineStatus();
+    }
+
+    checkInitialLoad();
     checkOnlineStatus();
+
     window.addEventListener('online', checkOnlineStatus);
     window.addEventListener('offline', checkOnlineStatus);
-  </script>
+
+    // Assuming there is a sign out button with class 'signout-btn'
+    document.querySelector('.signout-btn').addEventListener('click', signOut);
+
+    // To simulate signup action
+    function signUp() {
+      localStorage.setItem('isSignedUp', 'true');
+      checkOnlineStatus();
+    }
+
+    // Assuming there is a signup button with class 'signup-btn'
+    document.querySelector('.signup-btn').addEventListener('click', signUp);
+</script>
 </body>
 </html>
