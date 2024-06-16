@@ -270,11 +270,7 @@
   }
   
   /* Hide content if the orientation is landscape */
-  @media (orientation: landscape) {
-  body {
-  display: none;
-  }
-  }
+  
   
   #link {
   display: inline; /* or another display value that suits your layout */
@@ -307,19 +303,7 @@
 </style>
 </head>
 <body>
-<script>
-  function handleOrientationChange() {
-    if (window.matchMedia("(orientation: landscape)").matches) {
-      alert("Please rotate your device to portrait mode for the best experience.");
-    }
-  }
 
-  // Check orientation on load
-  handleOrientationChange();
-
-  // Add an event listener for orientation change
-  window.addEventListener("orientationchange", handleOrientationChange);
-</script>
  <div id="menu-wap">
    <div id="side-Menu">
    <div class="menu-itm">
