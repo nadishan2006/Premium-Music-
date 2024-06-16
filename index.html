@@ -141,67 +141,58 @@
 
   <script>
     function getRandomTime() {
-      return Math.floor(Math.random() * 4 + 1) * 1000;
-    }
+  return Math.floor(Math.random() * 4 + 1) * 1000;
+}
 
-    function checkOnlineStatus() {
-      if (!navigator.onLine) {
-        document.querySelector('.offline').style.display = 'block';
-        return;
-      }
+function checkOnlineStatus() {
+  if (!navigator.onLine) {
+    document.querySelector('.offline').style.display = 'block';
+    return;
+  }
 
-      document.querySelector('.img-1').style.display = 'block';
-      setTimeout(() => {
-        document.querySelector('.img-1').style.display = 'none';
-        const loadElement = document.querySelector('.load');
-        loadElement.style.display = 'block';
-        const loadTime = getRandomTime();
-        loadElement.style.animationDuration = `${loadTime}ms`;
+  document.querySelector('.img-1').style.display = 'block';
+  setTimeout(() => {
+    document.querySelector('.img-1').style.display = 'none';
+    const loadElement = document.querySelector('.load');
+    loadElement.style.display = 'block';
+    const loadTime = getRandomTime();
+    loadElement.style.animationDuration = `${loadTime}ms`;
 
-        setTimeout(() => {
-          const isSignedUp = localStorage.getItem('isSignedUp');
-          if (isSignedUp) {
-            window.location.href = 'Music.html';
-          } else {
-            window.location.href = 'Signup.html';
-          }
-        }, loadTime);
-      }, getRandomTime());
-    }
+    setTimeout(() => {
+      window.location.href = 'Music.html';
+    }, loadTime);
+  }, getRandomTime());
+}
 
-    function checkInitialLoad() {
-      if (!localStorage.getItem('initialLoad')) {
-        localStorage.setItem('initialLoad', 'true');
-        if (!localStorage.getItem('isSignedUp')) {
-          window.location.href = 'Signup.html';
-        } else {
-          window.location.href = 'Music.html';
-        }
-      }
-    }
+function checkInitialLoad() {
+  if (!localStorage.getItem('initialLoad')) {
+    localStorage.setItem('initialLoad', 'true');
+    window.location.href = 'Music.html';
+  }
+}
 
-    function signOut() {
-      localStorage.removeItem('isSignedUp');
-      checkOnlineStatus();
-    }
+function signOut() {
+  localStorage.removeItem('isSignedUp');
+  checkOnlineStatus();
+}
 
-    checkInitialLoad();
-    checkOnlineStatus();
+checkInitialLoad();
+checkOnlineStatus();
 
-    window.addEventListener('online', checkOnlineStatus);
-    window.addEventListener('offline', checkOnlineStatus);
+window.addEventListener('online', checkOnlineStatus);
+window.addEventListener('offline', checkOnlineStatus);
 
-    // Assuming there is a sign out button with class 'signout-btn'
-    document.querySelector('.signout-btn').addEventListener('click', signOut);
+// Assuming there is a sign out button with class 'signout-btn'
+document.querySelector('.signout-btn').addEventListener('click', signOut);
 
-    // To simulate signup action
-    function signUp() {
-      localStorage.setItem('isSignedUp', 'true');
-      checkOnlineStatus();
-    }
+// To simulate signup action
+function signUp() {
+  localStorage.setItem('isSignedUp', 'true');
+  checkOnlineStatus();
+}
 
-    // Assuming there is a signup button with class 'signup-btn'
-    document.querySelector('.signup-btn').addEventListener('click', signUp);
+// Assuming there is a signup button with class 'signup-btn'
+document.querySelector('.signup-btn').addEventListener('click', signUp);
 </script>
 </body>
 </html>
