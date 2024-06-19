@@ -267,11 +267,54 @@
       margin-left: 85%;
       }
       
-      
+
+#message {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
     </style>
 </head>
 <body>
-  
+  <div id="land">
+        <!-- All your content goes here -->
+       
+   
+    <div id="message" class="hidden">
+        <p id="message-text"></p>
+    </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    function checkOrientation() {
+        const content = document.getElementById('land');
+        const message = document.getElementById('message');
+        const messageText = document.getElementById('message-text');
+        
+        const isLandscape = window.innerWidth > window.innerHeight;
+        const isAndroidTV = /Android/.test(navigator.userAgent) && /TV/.test(navigator.userAgent);
+
+        if (isLandscape || isAndroidTV) {
+            messageText.textContent = isAndroidTV 
+                ? "Can't load. Please log in on mobile." 
+                : "Please switch to portrait mode.";
+            message.classList.remove('hidden');
+            content.classList.add('hidden');
+        } else {
+            message.classList.add('hidden');
+            content.classList.remove('hidden');
+        }
+    }
+
+    window.addEventListener('resize', checkOrientation);
+    checkOrientation();
+});
+  </script>
   
   <h class="h1"><b> How can I create a Page?</b></h>
   
@@ -454,7 +497,7 @@ function showAlert() {
     </div>
     </div>
   
-  
+  </div>
   <script>
   function handleOrientationChange() {
     if (window.matchMedia("(orientation: landscape)").matches) {

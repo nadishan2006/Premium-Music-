@@ -10,244 +10,154 @@
     <script src="https://kit.fontawesome.com/e7e1ed9392.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" type="image/jpg" href="https://i.ibb.co/kSQN5ZW/Screenshot-2024-0414-204428.jpg">
     <style>
-      body{
-        background-color: #000;
-      }
-      
-      .footer-icons {
-    display: flex;
-    justify-content: space-around;
-    font-size: 25px;
-    padding: 20px 0;
-    color: #fff;
-    }
-    
-    .icon {
-    text-align: center;
-    margin-top: -5px;
-    }
-    
-    .icon-name {
-    font-size: 10px;
-    margin-top: 0px;
-    }
-    
-      
-      .box {
-      background-color: #27272a;
-      width: auto; /* Adjust width as needed */
-      border: #fff solid 0.5px;
-      border-radius: 10px;
-      overflow: hidden; /* Ensure video doesn't overflow */
-      }
-      
-      .box iframe {
-      width: 100%;
-      height: 15%; /* Adjust height as needed */
-      border: none; /* Remove border */
-      }
-      
-      .box1 img{
-      background-color: red;
-      width: 110px;
-      height: 110px;
-      border: #9BA090 solid 1px;
-      border-radius: 50%;
-      margin-top: -15%;
-      margin-left: 30px;
-      }
-      
-      .image-1{
-      
-      }
-      
-      .text-1 {
-        color: #fff;
+    body {
+            background-color: #000;
+            color: #fff;
+        }
+        
+        .box {
+            background-color: #27272a;
+            width: auto;
+            height: 145px;
+            border: #fff solid 0.5px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        
+        #yt {
+            width: 100%;
+            height: auto;
+            border: none;
+        }
+        
+        .box1 img {
+            width: 110px;
+            height: 110px;
+            border: #9BA090 solid 1px;
+            border-radius: 50%;
+            margin-top: -55px;
+            margin-left: 30px;
+        }
+        
+        .text-1 {
+            color: #fff;
+            font-size: 25px;
+            margin-top: -50px;
+            margin-left: 160px;
+        }
+        
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            max-width: 1200px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        
+        .music-box {
+            background-color: #333;
+            color: #fff;
+            width: calc(100% - 20px);
+            max-width: 600px;
+            height: 20%;
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .music-box.playing {
+            background-color: rgb(0, 219, 100);
+        }
+        
+        .music-box img {
+            width: 70px;
+            height: 70px;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+        
+        .text-container {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .text-b1 {
+    font-size: 14px;
+    padding-right: 50px;
+    font-weight: bold; /* Makes the text bold */
+}
+
+.text-b2 {
+    font-size: 9px;
+    font-weight: bold; /* Makes the text bold */
+}
+
+@media screen and (min-width: 1024px) {
+    /* Styles for desktop screens */
+    .text-b1 {
         font-size: 25px;
-        margin-top: -15%;
-        margin-left: 45%;
-      }
-      
-      
-      /* music */
-      
-      .m-con {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 0;
-      }
-      
-      .m-box {
-      background-color: #27272a;
-      width: 90%;
-      height: 200px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between; /* Ensures equal spacing around the green box */
-      position: relative; /* Enable positioning */
-      }
-      
-      .up-box {
-      background-color: #636060;
-      width: 94%;
-      height: 40%;
-      border-radius: 10px; /* Sets the top-left and top-right corners to be circular */
-      position: absolute;
-      bottom: 10px; /* Position the green box to the bottom of the black box */
-      left: 50%; /* Adjusted to center the box horizontally */
-      transform: translateX(-50%); /* Move the box back by half of its own width to center it */
-      }
-      
-      .img {
-      width: 75px;
-      height: 75px;
-      margin-top: -33%;
-      margin-left: 6px;
-      }
-      
-      .img img {
-      width: 100%;
-      height: 100%;
-      margin-right: -80px;
-      border-radius: 10px;
-      }
-      
-      .text {
-      color: white;
-      font-size: 20px;
-      margin-top: -20%;
-      margin-left: 37%;
-      flex: 1; 
-      }
-      
-      .text2 {
-      color: white;
-      font-size: 10px;
-      margin-top: 5px;
-      margin-right: 10px; /* Added a semicolon here */
-      flex: 1; 
-      }
-      
-      .controls {
-      color: #22c55e;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100%;
-      }
-      
-      .time-1 {
-      color: white;
-      font-size: 14px;
-      margin-top: -20%;
-      margin-left: 10px;
-      position: absolute;
-      left: 0;
-      }
-      
-      .time-2 {
-      color: white;
-      font-size: 14px;
-      margin-top: -20%;
-      margin-left: 87%;
-      position: absolute;
-      left: 0;
-      }
-      
-      
-      .timeline {
-      width: 80%;
-      height: 3px; /* Adjusted height */
-      margin-top: -30%;
-      margin-right: 0px;
-      -webkit-appearance: none; /* Remove the default appearance */
-      appearance: none;
-      background-color: #22c55e; /* Green track color */
-      border-radius: 5px; /* Rounded track */
-      }
-      
-      .timeline::-webkit-slider-thumb {
-      -webkit-appearance: none; /* Remove the default appearance */
-      appearance: none;
-      width: 10px;
-      height: 10px;
-      background-color: #22c55e; /* Green thumb color */
-      border-radius: 50%; /* Rounded thumb */
-      cursor: pointer;
-      }
-      
-      
-      
-      .dropdown {
-      display: none;
-      position: absolute;
-      background-color: #636060;
-      padding: 10px;
-      border-radius: 5px;
-      bottom: 30px;
-      right: 10px;
-      }
-      
-      .dropdown a {
-      color: white;
-      text-decoration: none;
-      display: block;
-      margin-bottom: 5px;
-      }
-      
-      .dropdown a:hover {
-      text-decoration: underline;
-      }
-      
-      .icon {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 80px;
-      margin-left: 0px;
-      }
-      
-      .icon-m {
-      color: white;
-      font-size: 24px;
-      margin: 0 25px; /* Adjusted margin to create gap between icons */
-      cursor: pointer;
-      }
-      
-      .heart {
-      color: white;
-      font-size: 18px;
-      margin: 0 10px; /* Adjusted margin to create gap between icons */
-      cursor: pointer;
-      }
-      
-      .dots{
-      color: white;
-      font-size: 18px;
-      margin: 0 10px; /* Adjusted margin to create gap between icons */
-      cursor: pointer;
-      }
-      
-      .li-n {
-       color: #fff;
-       width: 90%;
-      }
-     .back-box {
-       width: 100%;
-       height: 20px;
-     }
-     
-     #b-i {
-       font-size: 20px;
-       padding-left: 10px;
-     }
-     
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    /* Styles for larger screens like Android TV */
+    .text-b1 {
+        font-size: 29px;
+    }
+}
+        
+        .controls {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        
+        .controls i {
+            font-size: 24px;
+            cursor: pointer;
+            margin-right: 30px;
+        }
+        
+        .controls i:last-child {
+            margin-right: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .music-box {
+                flex-direction: row;
+                height: auto;
+                width: 100%;
+            }
+            
+            .music-box img {
+                margin-right: 10px;
+            }
+        }
+        
+          #link {
+  display: inline; /* or another display value that suits your layout */
+  text-decoration: none; /* removes the underline */
+  color: inherit; /* sets the color to the parent element's color */
+}
+
+.arrow {
+    font-size: 1.5rem;
+    padding-top: 10px;
+    padding-left: 20px;
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
     </style>
     </head>
     <body>
@@ -257,7 +167,7 @@
     </div>
      <br>
      <div class="box">
-     <iframe width="560" height="315" src="https://www.youtube.com/embed/MZA2gtEC7B8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+     <iframe id ="yt" src="https://www.youtube.com/embed/MZA2gtEC7B8" allowfullscreen></iframe>
      </div>
      <div class="box1"><img src="https://i.ibb.co/7tpFKWn/shehanjpeg.jpg" alt="Hidden Image" onclick="revealImage()"></div>
         <script>
@@ -276,635 +186,157 @@
            <b>Shihan Mihiranga</b>
         </div>
      </div>
-    <p>
+    <br>
    <br>
-   <!-- #1 -->
-   <hr class="li-n">
-   <br>
-   <div class="m-con">
-   <div class="m-box">
-   <div class="up-box">
-   <div class="img">
-   <img src="https://i.ibb.co/9YmLf7L/IMG-20240521-190103.jpg">
-   </div>
-   <div class="text"><b><font size="2.5px">NONASENA | නොනැසෙන</font></b> <p class="text2">Released on: no provide</p></div>
-   <div class="controls">
-   <input type="range" class="timeline" min="0" max="100" step="1">
-   <div class="time-1" id="t1">0:00</div>
-   <div class="time-2" id="t2">3:00</div>
-   </div>
-   
-   <audio id="audioPlayer1" src="https://www.cjoint.com/doc/24_04/NDpqqXizGc8_Shihan-Mihiranga-Oba-Kawuruda.mp3"></audio>
-   
-   <script>
-   function setupAudioControls(playBtnId, pauseBtnId, audioPlayerId, timeId) {
-   const audioPlayer = document.getElementById(audioPlayerId);
-   const timeline = document.querySelector('.timeline');
-   const time1 = document.getElementById(timeId);
-   const time2 = document.querySelector('.time-2');
-   
-   audioPlayer.addEventListener('timeupdate', function() {
-   const currentTime = audioPlayer.currentTime;
-   const duration = audioPlayer.duration;
-   const progress = (currentTime / duration) * 100;
-   timeline.value = progress;
-   
-   // Update time display
-   const minutes = Math.floor(currentTime / 60);
-   const seconds = Math.floor(currentTime % 60);
-   const endMinutes = Math.floor(duration / 60);
-   const endSeconds = Math.floor(duration % 60);
-   time1.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-   time2.textContent = `${endMinutes}:${endSeconds.toString().padStart(2, '0')}`;
-   });
-   
-   timeline.addEventListener('input', function() {
-   const seekTime = (timeline.value / 100) * audioPlayer.duration;
-   audioPlayer.currentTime = seekTime;
-   });
-   }
-   
-   setupAudioControls('playBtn1', 'pauseBtn1', 'audioPlayer1', 't1');
-   </script>
-   <div class="icon">
-   <div class="heart" onclick="toggleHeart1()">
-   <i id="heartIcon1" class="fa-regular fa-heart" style="color: #ffffff;"></i>
-   </div>
-   <script>
-   function toggleHeart1() {
-   const heartIcon = document.getElementById('heartIcon1');
-   if (heartIcon.classList.contains('fa-regular')) {
-   heartIcon.classList.remove('fa-regular');
-   heartIcon.classList.add('fa-solid');
-   heartIcon.style.color = '#ff1f80';
-   } else {
-   heartIcon.classList.remove('fa-solid');
-   heartIcon.classList.add('fa-regular');
-   heartIcon.style.color = '#ffffff';
-   }
-   }
-   
-   </script>
-   <i id="playBtn1" class="icon-m fas fa-play" style="color: #22c55e;"></i>
-   <i id="pauseBtn1" class="icon-m fas fa-pause" style="display: none; color: #22c55e;"></i>
-   <div class="dots" id="dow1"><i class="fa-solid fa-cloud-arrow-down" style="color: #ffffff;"></i></div>
-   <script>
-   document.querySelector('#dow1').addEventListener('click', function() {
-   const link = 'https://drive.google.com/file/d/12xXL2Lzwaj6BfCRBYN_76GDwwJaZ633Q/view';
-   const a = document.createElement('a');
-   a.href = link;
-   a.setAttribute('target', '_blank');
-   a.style.display = 'none';
-   document.body.appendChild(a);
-   a.click();
-   document.body.removeChild(a);
-   });
-   </script>
-   
-   </div>
-    </div>
-   </div>
-   </div>
-   </div>
-   
-   <br>
-   <!-- #2 -->
-      <!-- 
-    <hr class="li-n">
-   <br>
-   <div class="m-con">
-   <div class="m-box">
-   <div class="up-box">
-   <div class="img">
-   <img src="https://i.ibb.co/w4s2Wby/279912798-554688012687989-7371472378482916394-n-e1651905549299-696x522.jpg">
-   </div>
-   <div class="text"><b>නොනැසෙන</b> <p class="text2">Released on 21 March 2019</p></div>
-   <div class="controls">
-   <input type="range" class="timeline" min="0" max="100" step="1">
-   <div class="time-1" id="t-3">0:00</div>
-   <div class="time-2" id="t-4">3:00</div>
-   </div>
-   
-   <audio id="audioPlayer2" src="https://www.cjoint.com/doc/24_05/NEchFcWY1cj_Alan-Walker-Sabrina-Carpenter-Farruko---On-My-Way.mp3"></audio>
-   
-   <script>
-   function setupAudioControls(playBtnId, pauseBtnId, audioPlayerId, timeId) {
-   const audioPlayer = document.getElementById(audioPlayerId);
-   const timeline = audioPlayer.parentElement.querySelector('.timeline');
-   const time3 = audioPlayer.parentElement.querySelector('.time-1');
-   const time4 = audioPlayer.parentElement.querySelector('.time-2');
-   
-   audioPlayer.addEventListener('timeupdate', function() {
-   const currentTime = audioPlayer.currentTime;
-   const duration = audioPlayer.duration;
-   const progress = (currentTime / duration) * 100;
-   timeline.value = progress;
-   
-   // Update time display
-   const minutes = Math.floor(currentTime / 60);
-   const seconds = Math.floor(currentTime % 60);
-   const endMinutes = Math.floor(duration / 60);
-   const endSeconds = Math.floor(duration % 60);
-   time3.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-   time4.textContent = `${endMinutes}:${endSeconds.toString().padStart(2, '0')}`;
-   });
-   
-   timeline.addEventListener('input', function() {
-   const seekTime = (timeline.value / 100) * audioPlayer.duration;
-   audioPlayer.currentTime = seekTime;
-   });
-   }
-   
-   setupAudioControls('playBtn1', 'pauseBtn1', 'audioPlayer1', 't-1');
-   setupAudioControls('playBtn2', 'pauseBtn2', 'audioPlayer2', 't-3'); // Change 't-3' to 't-4' if you want to use the second time display for the second audio player
-   setupAudioControls('playBtn3', 'pauseBtn3', 'audioPlayer3', 't-5');
-   setupAudioControls('playBtn4', 'pauseBtn4', 'audioPlayer4', 't-7');
-   setupAudioControls('playBtn5', 'pauseBtn5', 'audioPlayer5', 't-9');
-   setupAudioControls('playBtn6', 'pauseBtn6', 'audioPlayer6', 't-11');
-   </script>
-   <div class="icon">
-   <div class="heart" onclick="toggleHeart2()">
-   <i id="heartIcon2" class="fa-regular fa-heart" style="color: #ffffff;"></i>
-   </div>
-   <script>
-   function toggleHeart2() {
-   const heartIcon = document.getElementById('heartIcon2');
-   if (heartIcon.classList.contains('fa-regular')) {
-   heartIcon.classList.remove('fa-regular');
-   heartIcon.classList.add('fa-solid');
-   heartIcon.style.color = '#ff1f80';
-   } else {
-   heartIcon.classList.remove('fa-solid');
-   heartIcon.classList.add('fa-regular');
-   heartIcon.style.color = '#ffffff';
-   }
-   }
-   
-   </script>
-   <i id="playBtn2" class="icon-m fas fa-play" style="color: #22c55e;"></i>
-   <i id="pauseBtn2" class="icon-m fas fa-pause" style="display: none; color: #22c55e;"></i>
-   <div class="dots" id="dow2"><i class="fa-solid fa-cloud-arrow-down" style="color: #ffffff;"></i></div>
-   <script>
-   document.querySelector('dow2').addEventListener('click', function() {
-   const link = 'https://drive.google.com/uc?export=download&id=1vx_VMvEyCTAuaqUiHUSX-hnJjBBelnO0';
-   const a = document.createElement('a');
-   a.href = link;
-   a.setAttribute('download', '');
-   a.click();
-   });
-   </script>
-   
-   </div>
-  
-   </div>
-   </div>
-   </div>
-   </div>
-   <br>        -->
-   
-   <!-- #3 -->
-     <!-- 
-   <hr class="li-n">
-   <br>
-   <div class="m-con">
-   <div class="m-box">
-   <div class="up-box">
-   <div class="img">
-   <img src="https://i.ibb.co/FbmMmsM/unity.jpg">
-   </div>
-   <div class="text"><b>Unity</b> <p class="text2">Released on 15 July 2019</p></div>
-   <div class="controls">
-   <input type="range" class="timeline" min="0" max="100" step="1">
-   <div class="time-1" id="t-5">0:00</div>
-   <div class="time-2" id="t-6">3:00</div>
-   </div>
-   
-   <audio id="audioPlayer3" src="https://www.cjoint.com/doc/24_05/NEdlvoym16T_Alan-x-Walkers---Unity.mp3"></audio>
-   
-   <script>
-   function setupAudioControls(playBtnId, pauseBtnId, audioPlayerId, timeId) {
-   const audioPlayer = document.getElementById(audioPlayerId);
-   const timeline = audioPlayer.parentElement.querySelector('.timeline');
-   const time5 = audioPlayer.parentElement.querySelector('.time-1');
-   const time6 = audioPlayer.parentElement.querySelector('.time-2');
-   
-   audioPlayer.addEventListener('timeupdate', function() {
-   const currentTime = audioPlayer.currentTime;
-   const duration = audioPlayer.duration;
-   const progress = (currentTime / duration) * 100;
-   timeline.value = progress;
-   
-   // Update time display
-   const minutes = Math.floor(currentTime / 60);
-   const seconds = Math.floor(currentTime % 60);
-   const endMinutes = Math.floor(duration / 60);
-   const endSeconds = Math.floor(duration % 60);
-   time5.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-   time6.textContent = `${endMinutes}:${endSeconds.toString().padStart(2, '0')}`;
-   });
-   
-   timeline.addEventListener('input', function() {
-   const seekTime = (timeline.value / 100) * audioPlayer.duration;
-   audioPlayer.currentTime = seekTime;
-   });
-   }
-   
-   setupAudioControls('playBtn1', 'pauseBtn1', 'audioPlayer1', 't-1');
-   setupAudioControls('playBtn2', 'pauseBtn2', 'audioPlayer2', 't-3'); // Change 't-3' to 't-4' if you want to use the second time display for the second audio player
-   setupAudioControls('playBtn3', 'pauseBtn3', 'audioPlayer3', 't-5');
-   setupAudioControls('playBtn4', 'pauseBtn4', 'audioPlayer4', 't-7');
-   setupAudioControls('playBtn5', 'pauseBtn5', 'audioPlayer5', 't-9');
-   setupAudioControls('playBtn6', 'pauseBtn6', 'audioPlayer6', 't-11');
-   
-   </script>
-   <div class="icon">
-   <div class="heart" onclick="toggleHeart3()">
-   <i id="heartIcon3" class="fa-regular fa-heart" style="color: #ffffff;"></i>
-   </div>
-   <script>
-   function toggleHeart3() {
-   const heartIcon = document.getElementById('heartIcon3');
-   if (heartIcon.classList.contains('fa-regular')) {
-   heartIcon.classList.remove('fa-regular');
-   heartIcon.classList.add('fa-solid');
-   heartIcon.style.color = '#ff1f80';
-   } else {
-   heartIcon.classList.remove('fa-solid');
-   heartIcon.classList.add('fa-regular');
-   heartIcon.style.color = '#ffffff';
-   }
-   }
-   
-   </script>
-   <i id="playBtn3" class="icon-m fas fa-play" style="color: #22c55e;"></i>
-   <i id="pauseBtn3" class="icon-m fas fa-pause" style="display: none; color: #22c55e;"></i>
-   <div class="dots" id="dow3"><i class="fa-solid fa-cloud-arrow-down" style="color: #ffffff;"></i></div>
-   <script>
-   document.querySelector('#dow3').addEventListener('click', function() {
-   const link = 'https://drive.google.com/uc?export=download&id=1vx_VMvEyCTAuaqUiHUSX-hnJjBBelnO0';
-   const a = document.createElement('a');
-   a.href = link;
-   a.setAttribute('download', '');
-   a.click();
-   });
-   </script>
-   
-   </div>
-   
-   </div>
-   </div>
-   </div>
-   </div> 
-   
-   
-   
-   <br>
-   <!-- #4 -->
-      <!-- 
-   <hr class="li-n">
-   <br>
-   <div class="m-con">
-   <div class="m-box">
-   <div class="up-box">
-   <div class="img">
-   <img src="https://i.ibb.co/HHp4Mvb/IMG-20240502-052949.jpg">
-   </div>
-   <div class="text"><b>The Spectre</b> <p class="text2">Released on 15 September 2017</p></div>
-   <div class="controls">
-   <input type="range" class="timeline" min="0" max="100" step="1">
-   <div class="time-1" id="t-7">0:00</div>
-   <div class="time-2" id="t-8">3:00</div>
-   </div>
-   
-   <audio id="audioPlayer4" src="https://www.cjoint.com/doc/24_05/NEdlK0vGPhj_Alan-Walker---The-Spectre.mp3"></audio>
-   
-   <script>
-   function setupAudioControls(playBtnId, pauseBtnId, audioPlayerId, timeId) {
-   const audioPlayer = document.getElementById(audioPlayerId);
-   const timeline = audioPlayer.parentElement.querySelector('.timeline');
-   const time7 = audioPlayer.parentElement.querySelector('.time-1');
-   const time8 = audioPlayer.parentElement.querySelector('.time-2');
-   
-   audioPlayer.addEventListener('timeupdate', function() {
-   const currentTime = audioPlayer.currentTime;
-   const duration = audioPlayer.duration;
-   const progress = (currentTime / duration) * 100;
-   timeline.value = progress;
-   
-   // Update time display
-   const minutes = Math.floor(currentTime / 60);
-   const seconds = Math.floor(currentTime % 60);
-   const endMinutes = Math.floor(duration / 60);
-   const endSeconds = Math.floor(duration % 60);
-   time7.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-   time8.textContent = `${endMinutes}:${endSeconds.toString().padStart(2, '0')}`;
-   });
-   
-   timeline.addEventListener('input', function() {
-   const seekTime = (timeline.value / 100) * audioPlayer.duration;
-   audioPlayer.currentTime = seekTime;
-   });
-   }
-   
-   setupAudioControls('playBtn1', 'pauseBtn1', 'audioPlayer1', 't-1');
-   setupAudioControls('playBtn2', 'pauseBtn2', 'audioPlayer2', 't-3'); // Change 't-3' to 't-4' if you want to use the second time display for the second audio player
-   setupAudioControls('playBtn3', 'pauseBtn3', 'audioPlayer3', 't-5');
-   setupAudioControls('playBtn4', 'pauseBtn4', 'audioPlayer4', 't-7');
-   setupAudioControls('playBtn5', 'pauseBtn5', 'audioPlayer5', 't-9');
-   setupAudioControls('playBtn6', 'pauseBtn6', 'audioPlayer6', 't-11');
-   
-   </script>
-   <div class="icon">
-   <div class="heart" onclick="toggleHeart4()">
-   <i id="heartIcon4" class="fa-regular fa-heart" style="color: #ffffff;"></i>
-   </div>
-   <script>
-   function toggleHeart4() {
-   const heartIcon = document.getElementById('heartIcon4');
-   if (heartIcon.classList.contains('fa-regular')) {
-   heartIcon.classList.remove('fa-regular');
-   heartIcon.classList.add('fa-solid');
-   heartIcon.style.color = '#ff1f80';
-   } else {
-   heartIcon.classList.remove('fa-solid');
-   heartIcon.classList.add('fa-regular');
-   heartIcon.style.color = '#ffffff';
-   }
-   }
-   
-   </script>
-   <i id="playBtn4" class="icon-m fas fa-play" style="color: #22c55e;"></i>
-   <i id="pauseBtn4" class="icon-m fas fa-pause" style="display: none; color: #22c55e;"></i>
-   <div class="dots" id="dow4"><i class="fa-solid fa-cloud-arrow-down" style="color: #ffffff;"></i></div>
-   <script>
-   document.querySelector('#dow4').addEventListener('click', function() {
-   const link = 'https://drive.google.com/uc?export=download&id=1vx_VMvEyCTAuaqUiHUSX-hnJjBBelnO0';
-   const a = document.createElement('a');
-   a.href = link;
-   a.setAttribute('download', '');
-   a.click();
-   });
-   </script>
-   
-   </div>
-   
-   </div>
-   </div>
-   </div>
-   </div>
-   
-   
-   
-   
-   
-   <br>
-   <!-- #5 -->
-      <!--  
-   <hr class="li-n">
-   <br>
-   <div class="m-con">
-   <div class="m-box">
-   <div class="up-box">
-   <div class="img">
-   <img src="https://i.ibb.co/yNw9p2q/faded.jpg">
-   </div>
-   <div class="text"><b>Faded</b> <p class="text2">Released on 17 August 2015</p></div>
-   <div class="controls">
-   <input type="range" class="timeline" min="0" max="100" step="1">
-   <div class="time-1" id="t-9">0:00</div>
-   <div class="time-2" id="t-10">3:00</div>
-   </div>
-   
-   <audio id="audioPlayer5" src="https://www.cjoint.com/doc/24_05/NEdmcEayu6T_Alan-Walker---Faded.mp3"></audio>
-   
-   <script>
-   function setupAudioControls(playBtnId, pauseBtnId, audioPlayerId, timeId) {
-   const audioPlayer = document.getElementById(audioPlayerId);
-   const timeline = audioPlayer.parentElement.querySelector('.timeline');
-   const time9 = audioPlayer.parentElement.querySelector('.time-1');
-   const time10 = audioPlayer.parentElement.querySelector('.time-2');
-   
-   audioPlayer.addEventListener('timeupdate', function() {
-   const currentTime = audioPlayer.currentTime;
-   const duration = audioPlayer.duration;
-   const progress = (currentTime / duration) * 100;
-   timeline.value = progress;
-   
-   // Update time display
-   const minutes = Math.floor(currentTime / 60);
-   const seconds = Math.floor(currentTime % 60);
-   const endMinutes = Math.floor(duration / 60);
-   const endSeconds = Math.floor(duration % 60);
-   time9.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-   time10.textContent = `${endMinutes}:${endSeconds.toString().padStart(2, '0')}`;
-   });
-   
-   timeline.addEventListener('input', function() {
-   const seekTime = (timeline.value / 100) * audioPlayer.duration;
-   audioPlayer.currentTime = seekTime;
-   });
-   }
-   
-   setupAudioControls('playBtn1', 'pauseBtn1', 'audioPlayer1', 't-1');
-   setupAudioControls('playBtn2', 'pauseBtn2', 'audioPlayer2', 't-3'); // Change 't-3' to 't-4' if you want to use the second time display for the second audio player
-   setupAudioControls('playBtn3', 'pauseBtn3', 'audioPlayer3', 't-5');
-   setupAudioControls('playBtn4', 'pauseBtn4', 'audioPlayer4', 't-7');
-   setupAudioControls('playBtn5', 'pauseBtn5', 'audioPlayer5', 't-9');
-   setupAudioControls('playBtn6', 'pauseBtn6', 'audioPlayer6', 't-11');
-   
-   </script>
-   <div class="icon">
-   <div class="heart" onclick="toggleHeart5()">
-   <i id="heartIcon5" class="fa-regular fa-heart" style="color: #ffffff;"></i>
-   </div>
-   <script>
-   function toggleHeart5() {
-   const heartIcon = document.getElementById('heartIcon5');
-   if (heartIcon.classList.contains('fa-regular')) {
-   heartIcon.classList.remove('fa-regular');
-   heartIcon.classList.add('fa-solid');
-   heartIcon.style.color = '#ff1f80';
-   } else {
-   heartIcon.classList.remove('fa-solid');
-   heartIcon.classList.add('fa-regular');
-   heartIcon.style.color = '#ffffff';
-   }
-   }
-   
-   </script>
-   <i id="playBtn5" class="icon-m fas fa-play" style="color: #22c55e;"></i>
-   <i id="pauseBtn5" class="icon-m fas fa-pause" style="display: none; color: #22c55e;"></i>
-   <div class="dots" id="dow5"><i class="fa-solid fa-cloud-arrow-down" style="color: #ffffff;"></i></div>
-   <script>
-   document.querySelector('#dow5').addEventListener('click', function() {
-   const link = 'https://drive.google.com/uc?export=download&id=1vx_VMvEyCTAuaqUiHUSX-hnJjBBelnO0';
-   const a = document.createElement('a');
-   a.href = link;
-   a.setAttribute('download', '');
-   a.click();
-   });
-   </script>
-   
-   </div>
-   
-   </div>
-   </div>
-   </div>
-   </div>
-   
-   
-   
-   
-   
-   <br>
-   <!-- #6 -->  
-   <!--  
-   <hr class="li-n">
-   <br>
-   <div class="m-con">
-   <div class="m-box">
-   <div class="up-box">
-   <div class="img">
-   <img src="https://i.ibb.co/SmKCmbp/sing-me-to-sleep.jpg">
-   </div>
-   <div class="text"><b>Sing Me to Sleep</b> <p class="text2">Released on 03 June 2016</p></div>
-   <div class="controls">
-   <input type="range" class="timeline" min="0" max="100" step="1">
-   <div class="time-1" id="t-11">0:00</div>
-   <div class="time-2" id="t-12">3:00</div>
-   </div>
-   
-   <audio id="audioPlayer6" src="https://www.cjoint.com/doc/24_05/NEdmbSjdhFT_Alan-Walker---Sing-Me-To-Sleep.mp3"></audio>
-   
-   <script>
-   function setupAudioControls(playBtnId, pauseBtnId, audioPlayerId, timeId) {
-   const audioPlayer = document.getElementById(audioPlayerId);
-   const timeline = audioPlayer.parentElement.querySelector('.timeline');
-   const time11 = audioPlayer.parentElement.querySelector('.time-1');
-   const time12 = audioPlayer.parentElement.querySelector('.time-2');
-   
-   audioPlayer.addEventListener('timeupdate', function() {
-   const currentTime = audioPlayer.currentTime;
-   const duration = audioPlayer.duration;
-   const progress = (currentTime / duration) * 100;
-   timeline.value = progress;
-   
-   // Update time display
-   const minutes = Math.floor(currentTime / 60);
-   const seconds = Math.floor(currentTime % 60);
-   const endMinutes = Math.floor(duration / 60);
-   const endSeconds = Math.floor(duration % 60);
-   time11.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-   time12.textContent = `${endMinutes}:${endSeconds.toString().padStart(2, '0')}`;
-   });
-   
-   timeline.addEventListener('input', function() {
-   const seekTime = (timeline.value / 100) * audioPlayer.duration;
-   audioPlayer.currentTime = seekTime;
-   });
-   }
-   
-   setupAudioControls('playBtn1', 'pauseBtn1', 'audioPlayer1', 't-1');
-   setupAudioControls('playBtn2', 'pauseBtn2', 'audioPlayer2', 't-3'); // Change 't-3' to 't-4' if you want to use the second time display for the second audio player
-   setupAudioControls('playBtn3', 'pauseBtn3', 'audioPlayer3', 't-5');
-   setupAudioControls('playBtn4', 'pauseBtn4', 'audioPlayer4', 't-7');
-   setupAudioControls('playBtn5', 'pauseBtn5', 'audioPlayer5', 't-9');
-   setupAudioControls('playBtn6', 'pauseBtn6', 'audioPlayer6', 't-11');
-   
-   </script>
-   <div class="icon">
-   <div class="heart" onclick="toggleHeart6()">
-   <i id="heartIcon6" class="fa-regular fa-heart" style="color: #ffffff;"></i>
-   </div>
-   <script>
-   function toggleHeart6() {
-   const heartIcon = document.getElementById('heartIcon6');
-   if (heartIcon.classList.contains('fa-regular')) {
-   heartIcon.classList.remove('fa-regular');
-   heartIcon.classList.add('fa-solid');
-   heartIcon.style.color = '#ff1f80';
-   } else {
-   heartIcon.classList.remove('fa-solid');
-   heartIcon.classList.add('fa-regular');
-   heartIcon.style.color = '#ffffff';
-   }
-   }
-   
-   </script>
-   <i id="playBtn6" class="icon-m fas fa-play" style="color: #22c55e;"></i>
-   <i id="pauseBtn6" class="icon-m fas fa-pause" style="display: none; color: #22c55e;"></i>
-   <div class="dots" id="dow6"><i class="fa-solid fa-cloud-arrow-down" style="color: #ffffff;"></i></div>
-   <script>
-   document.querySelector('#dow6').addEventListener('click', function() {
-   const link = 'https://drive.google.com/uc?export=download&id=1vx_VMvEyCTAuaqUiHUSX-hnJjBBelnO0';
-   const a = document.createElement('a');
-   a.href = link;
-   a.setAttribute('download', '');
-   a.click();
-   });
-   </script>
-   
-   </div>
-   
-   </div>
-   </div>
-   </div>
-   </div>
-   -->
-   
-   <script>
-   function setupAudioControls(playBtnId, pauseBtnId, audioPlayerId) {
-   const playBtn = document.getElementById(playBtnId);
-   const pauseBtn = document.getElementById(pauseBtnId);
-   const audioPlayer = document.getElementById(audioPlayerId);
-   
-   playBtn.addEventListener('click', function() {
-   if (currentAudio && currentAudio !== audioPlayer) {
-   currentAudio.pause();
-   const currentPlayBtn = document.querySelector('.icons-m .fas.fa-play');
-   const currentPauseBtn = document.querySelector('.icons-m .fas.fa-pause');
-   currentPlayBtn.style.display = 'inline-block';
-   currentPauseBtn.style.display = 'none';
-   }
-   
-   if (audioPlayer.paused) {
-   audioPlayer.play();
-   playBtn.style.display = 'none';
-   pauseBtn.style.display = 'inline-block';
-   currentAudio = audioPlayer;
-   } else {
-   audioPlayer.pause();
-   playBtn.style.display = 'inline-block';
-   pauseBtn.style.display = 'none';
-   currentAudio = null;
-   }
-   });
-   
-   pauseBtn.addEventListener('click', function() {
-   audioPlayer.pause();
-   playBtn.style.display = 'inline-block';
-   pauseBtn.style.display = 'none';
-   currentAudio = null;
-   });
-   
-   audioPlayer.addEventListener('ended', function() {
-   playBtn.style.display = 'inline-block';
-   pauseBtn.style.display = 'none';
-   currentAudio = null;
-   });
-   }
-   
-   let currentAudio = null;
-   
-   setupAudioControls('playBtn1', 'pauseBtn1', 'audioPlayer1');
-   setupAudioControls('playBtn2', 'pauseBtn2', 'audioPlayer2');
-   setupAudioControls('playBtn3', 'pauseBtn3', 'audioPlayer3');
-   setupAudioControls('playBtn4', 'pauseBtn4', 'audioPlayer4');
-   setupAudioControls('playBtn5', 'pauseBtn5', 'audioPlayer5');
-   setupAudioControls('playBtn6', 'pauseBtn6', 'audioPlayer6');
-   
-   </script>
+   <div class="container" id="results"></div>
+    <audio id="audio"></audio>
     
+<script>
+        const data = [
+    {
+        image: "https://i.ibb.co/7tpFKWn/shehanjpeg.jpg",
+        title1: "Oba Kawruda",
+        title2: "none",
+        mp3: "https://www.cjoint.com/doc/24_04/NDpqqXizGc8_Shihan-Mihiranga-Oba-Kawuruda.mp3"
+    },
+  /*  {
+        image: "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/amal.jpg",
+        title1: "Lassanai Adare",
+        title2: "12 January 2014",
+        mp3: "https://github.com/nadishan2006/premium-Music-mp3/blob/main/Lassanai%20%20Adare%20-%20Amal%20Perera.mp3?raw=true"
+    },
+    {
+        image: "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/amal%201.jpg",
+        title1: "Heenayak Wage",
+        title2: "2023",
+        mp3: "https://github.com/nadishan2006/premium-Music-mp3/blob/main/Heenayak%20Wage%20-%20Amal%20Perera.mp3"
+    },
+    {
+        image: "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/amal..jpeg",
+        title1: "The Spectre",
+        title2: "15 September 2017",
+        mp3: "https://www.cjoint.com/doc/24_05/NEdlK0vGPhj_Alan-Walker---The-Spectre.mp3"
+    },
+    {
+        image: "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/amal-perera-gMD1f.jpeg",
+        title1: "Faded",
+        title2: "17 August 2015",
+        mp3: "https://www.cjoint.com/doc/24_05/NEdmcEayu6T_Alan-Walker---Faded.mp3"
+    },
+    {
+        image: "https://i.ibb.co/SmKCmbp/sing-me-to-sleep.jpg",
+        title1: "Sing Me to Sleep",
+        title2: "03 June 2016",
+        mp3: "https://www.cjoint.com/doc/24_05/NEdmbSjdhFT_Alan-Walker---Sing-Me-To-Sleep.mp3"
+    } */
+];
 
+const resultsDiv = document.getElementById('results');
+const audio = document.getElementById('audio');
+let currentBox = null;
+
+data.forEach((item, index) => {
+    const box = document.createElement('div');
+    box.className = 'music-box';
+
+    const img = document.createElement('img');
+    img.src = item.image;
+    box.appendChild(img);
+
+    const textContainer = document.createElement('div');
+    textContainer.className = 'text-container';
+
+    const title1 = document.createElement('div');
+    title1.className = 'text-b1';
+    title1.textContent = item.title1;
+    textContainer.appendChild(title1);
+
+    const title2 = document.createElement('div');
+    title2.className = 'text-b2';
+    title2.textContent = item.title2;
+    textContainer.appendChild(title2);
+
+    box.appendChild(textContainer);
+
+    const controls = document.createElement('div');
+    controls.className = 'controls';
+
+    const prevIcon = document.createElement('i');
+    prevIcon.className = 'fas fa-step-backward';
+    prevIcon.onclick = function(event) { prevSong(event, index) };
+    controls.appendChild(prevIcon);
+
+    const playIcon = document.createElement('i');
+    playIcon.className = 'fas fa-play';
+    playIcon.onclick = function(event) { togglePlay(event, item.mp3, box) };
+    controls.appendChild(playIcon);
+
+    const nextIcon = document.createElement('i');
+    nextIcon.className = 'fas fa-step-forward';
+    nextIcon.onclick = function(event) { nextSong(event, index) };
+    controls.appendChild(nextIcon);
+
+    box.appendChild(controls);
+
+    resultsDiv.appendChild(box);
+});
+
+function playMusic(box, mp3) {
+    if (currentBox && currentBox !== box) {
+        currentBox.classList.remove('playing');
+        updatePlayIcon(currentBox, false);
+        audio.pause();
+    }
+    currentBox = box;
+    currentBox.classList.add('playing');
+    audio.src = mp3;
+    audio.play();
+    updatePlayIcon(currentBox, true);
+}
+
+function togglePlay(event, mp3, box) {
+    event.stopPropagation();
+    if (!currentBox || currentBox !== box) {
+        playMusic(box, mp3);
+    } else if (audio.paused) {
+        audio.play();
+        updatePlayIcon(currentBox, true);
+        currentBox.classList.add('playing');
+    } else {
+        audio.pause();
+        updatePlayIcon(currentBox, false);
+        currentBox.classList.remove('playing');
+    }
+}
+
+function updatePlayIcon(box, isPlaying) {
+    const playIcon = box.querySelector('.fa-play, .fa-pause');
+    if (isPlaying) {
+        playIcon.classList.remove('fa-play');
+        playIcon.classList.add('fa-pause');
+    } else {
+        playIcon.classList.remove('fa-pause');
+        playIcon.classList.add('fa-play');
+    }
+}
+
+function nextSong(event, currentIndex) {
+    event.stopPropagation();
+    const nextIndex = (currentIndex + 1) % data.length;
+    playMusic(document.querySelectorAll('.music-box')[nextIndex], data[nextIndex].mp3);
+}
+
+function prevSong(event, currentIndex) {
+    event.stopPropagation();
+    const prevIndex = (currentIndex - 1 + data.length) % data.length;
+    playMusic(document.querySelectorAll('.music-box')[prevIndex], data[prevIndex].mp3);
+}
+
+audio.addEventListener('ended', () => {
+    const currentIndex = data.findIndex(item => item.mp3 === audio.src);
+    const nextIndex = (currentIndex + 1) % data.length;
+    playMusic(document.querySelectorAll('.music-box')[nextIndex], data[nextIndex].mp3);
+});
+    </script>
     </body>
     </html>
