@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login with GitHub</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+  body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+</style>
+<body>
+  <button onclick="login()">Login with GitHub</button>
+
+  <script src="script.js">
+    
+    function login() {
+  var auth0Domain = 'YOUR_AUTH0_DOMAIN';
+  var clientId = 'Ov23l3wZh2iyt7g9IB';
+  var callbackURL = 'http://localhost:3000/callback'; // Replace with your callback URL
+
+  var authorizeEndpoint = 'https://' + auth0Domain + '/authorize';
+  var responseType = 'code';
+  var scope = 'openid profile email';
+  var state = generateRandomString(); // Function to generate a random state string
+
+  var url = authorizeEndpoint + '?response_type=' + encodeURIComponent(responseType) +
+    '&client_id=' + encodeURIComponent(clientId) +
+    '&redirect_uri=' + encodeURIComponent(callbackURL) +
+    '&scope=' + encodeURIComponent(scope) +
+    '&state=' + encodeURIComponent(state);
+
+  // Redirect the user to Auth0 for authentication
+  window.location.href = url;
+}
+
+  </script>
+</body>
+</html>
