@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amal Perera</title>
+    <title>Premium Music</title>
     <script src="https://kit.fontawesome.com/e7e1ed9392.js" crossorigin="anonymous"></script>
     <style>
         body {
@@ -145,6 +145,8 @@
   color: inherit; /* sets the color to the parent element's color */
 }
 
+  
+
 .arrow {
     font-size: 1.5rem;
     padding-top: 10px;
@@ -153,6 +155,16 @@
     position: fixed;
     top: 0;
     left: 0;
+}
+
+.more {
+  background-color: #fff;
+  color: #000;
+  font-size: 16px;
+  margin-right: 0px;
+  width: 70%; /* Adjust width to account for margin */
+  padding: 30px;
+  border-radius: 20px;
 }
     </style>
 </head>
@@ -166,52 +178,58 @@
 
     <br>
     <div class="box">
-        <iframe id="yt" src="https://www.youtube.com/embed/Pa0sg0Y9_RM" allowfullscreen></iframe>
+        <iframe id="yt" src="https://www.youtube.com/embed/WfzvY4qR6Hc" allowfullscreen></iframe>
     </div>
     <div class="box1">
-        <img src="https://i.ibb.co/fYfNCz0/amal.jpg" alt=".." onclick="revealImage()">
+        <img src="https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/gzer.jpg" alt="Hidden Image" onclick="revealImage()">
     </div>
     <div class="text-1">
-        <b>Amal Perera</b>
+        <b>Premium Music</b>
     </div>
     <br>
     <br>
     <div class="container" id="results"></div>
     <audio id="audio"></audio>
-    
+       <center>
+    <div class="container" id="results"></div>
+    <audio id="audio"></audio>
+    <div class="more">
+     <b> More song's will be add soon.</b>
+    </div>
+   </center>
     <script>
         const data = [
     {
-        image: "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/malpita%20mal.jpeg",
-        title1: "Mal Pita Mal",
-        title2: "2022",
-        mp3: "https://www.cjoint.com/doc/24_04/NDpqvWPwCl8_Mal-Pita-Mal---Amal-Perera.mp3"
+        image: "https://i.ibb.co/kSQN5ZW/Screenshot-2024-0414-204428.jpg",
+        title1: "Premium Chord",
+        title2: "29 June 2024",
+        mp3: "https://github.com/nadishan2006/premium-Music-mp3/blob/main/Premium%20chords%20.mp3?raw=true"
+    }
+    /*
+    {
+        image: "https://i.ibb.co/w4s2Wby/279912798-554688012687989-7371472378482916394-n-e1651905549299-696x522.jpg",
+        title1: "On My Way",
+        title2: "21 March 2019",
+        mp3: "https://www.cjoint.com/doc/24_05/NEchFcWY1cj_Alan-Walker-Sabrina-Carpenter-Farruko---On-My-Way.mp3"
     },
     {
-        image: "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/amal.jpg",
-        title1: "Lassanai Adare",
-        title2: "12 January 2014",
-        mp3: "https://github.com/nadishan2006/premium-Music-mp3/blob/main/Lassanai%20%20Adare%20-%20Amal%20Perera.mp3?raw=true"
+        image: "https://i.ibb.co/FbmMmsM/unity.jpg",
+        title1: "Unity",
+        title2: "15 July 2019",
+        mp3: "https://www.cjoint.com/doc/24_05/NEdlvoym16T_Alan-x-Walkers---Unity.mp3"
     },
     {
-        image: "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/amal%201.jpg",
-        title1: "Heenayak Wage",
-        title2: "2023",
-        mp3: "https://github.com/nadishan2006/premium-Music-mp3/blob/main/Heenayak%20Wage%20-%20Amal%20Perera.mp3"
-    },
-   {
-        image: "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/amal..jpeg",
-        title1: "amal",
-        title2: "sii",
-        mp3: "https://github.com/nadishan2006/premium-Music-mp3/blob/main/sanda%20seetha.mp3?raw=true"
+        image: "https://i.ibb.co/HHp4Mvb/IMG-20240502-052949.jpg",
+        title1: "The Spectre",
+        title2: "15 September 2017",
+        mp3: "https://www.cjoint.com/doc/24_05/NEdlK0vGPhj_Alan-Walker---The-Spectre.mp3"
     },
     {
-        image: "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/amal-perera-gMD1f.jpeg",
-        title1: "amal",
-        title2: "idie",
-        mp3: "https://github.com/nadishan2006/premium-Music-mp3/blob/main/%E0%B6%B8%E0%B7%8F%E0%B6%BA%E0%B6%B8%E0%B7%8A%20%E0%B6%AD%E0%B6%BB%E0%B7%94%20%E0%B6%BB%E0%B7%91%E0%B6%B1%E0%B7%9A%20mayam%20tharu.mp3?raw=true"
+        image: "https://i.ibb.co/yNw9p2q/faded.jpg",
+        title1: "Faded",
+        title2: "17 August 2015",
+        mp3: "https://www.cjoint.com/doc/24_05/NEdmcEayu6T_Alan-Walker---Faded.mp3"
     },
-     /* 
     {
         image: "https://i.ibb.co/SmKCmbp/sing-me-to-sleep.jpg",
         title1: "Sing Me to Sleep",

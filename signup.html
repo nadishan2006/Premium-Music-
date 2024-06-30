@@ -3,219 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://kit.fontawesome.com/e7e1ed9392.js" crossorigin="anonymous"></script>
-    <title>SIGNUP</title>
+    <title>Music App Registration</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-        :root {
-            font-size: 100%;
-            --white: oklch(100% 0 0);
-            --primary-light: oklch(78.81% 0.109 255.212);
-            --primary: oklch(58.63% 0.227 281.34);
-            --primary-dark: oklch(47.56% 0.273 284.25);
-            --greyLight-1:  oklch(93.77% 0.015 257.2);
-            --greyLight-2:  oklch(85.86% 0.033 270.41);
-            --greyDark:     oklch(73.91% 0.056 267.7);
-            --background: var(--greyLight-1);
-            --onBackground: var(--greyDark);
-            --surface: var(--primary);
-            --onSurface: var(--white);
-            --onSurface-Dark: oklch(58.2% 0.228 266.74);
-            --shadow: .3rem .3rem .6rem var(--greyLight-2), -.2rem -.2rem .5rem var(--white);
-        }
-        * { box-sizing: border-box; }
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--background);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            overflow: hidden;
-            margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(to right, #8360c3, #2ebf91);
+        font-family: Arial, sans-serif;
+        margin: 0;
         }
         .container {
-            background-color: var(--background);
-            color: var(--onBackground);
-            padding: 1.25rem 2.5rem;
-            border-radius: 1.5rem;
-            box-shadow: var(--shadow);
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
         }
-        .container h1 {
-            font-size: 1.8rem;
-            text-align: center;
-            padding-bottom: 1.25rem;
-            font-weight: 600;
+        .form-group {
+        margin-bottom: 15px;
         }
-        .container a {
-            text-decoration: none;
-            color: var(--onSurface-Dark);
+        .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
         }
-        .form-control {
-            position: relative;
-            margin: 1.25rem 0 2.5rem 0;
-            width: 18.75rem;
+        .form-group input, .form-group select {
+        width: 95%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        transition: border-color 0.3s;
         }
-        .form-control input {
-            background-color: transparent;
-            border: 0;
-            border-bottom: 0.125rem var(--onBackground) solid;
-            display: block;
-            width: 100%;
-            padding: .9rem;
-            font-size: 1.2rem;
-            color: var(--onBackground);
-            font-weight: 400;
+        .form-group input:focus, .form-group select:focus {
+        border-color: #32CD32; /* Green color */
+        outline: none;
         }
-        .form-control input:focus, .form-control input:valid {
-            outline: 0;
-            border-bottom-color: var(--greyLight-2);
+        .form-group input:disabled {
+        background-color: #f9f9f9;
         }
-        .form-control label {
-            position: absolute;
-            top: .9rem;
-            left: 0;
+        .form-group button {
+        width: 100%;
+        padding: 10px;
+        background: #2ebf91;
+        border: none;
+        color: #fff;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
         }
-        .form-control label span {
-            display: inline-block;
-            font-size: 1.2rem;
-            min-width: .3rem;
-            transition: 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        .form-group button:hover {
+        background: #249c78;
         }
-        .form-control input:focus + label span, .form-control input:valid + label span {
-            color: var(--greyLight-2);
-            transform: translateY(-1.875rem);
-            font-size: 1rem;
+        .toggle-link {
+        text-align: center;
+        display: block;
+        margin-top: 15px;
+        color: #8360c3;
+        cursor: pointer;
         }
-        .submit {
-            cursor: pointer;
-            display: inline-block;
-            width: 100%;
-            background: var(--surface);
-            padding: .9rem;
-            font-family: inherit;
-            font-size: 1.2rem;
-            border: 0;
-            border-radius: .8rem;
-            box-shadow:inset .2rem .2rem 1rem var(--primary-light), 
-            inset -.2rem -.2rem 1rem var(--primary-dark), var(--shadow);
-            color: var(--greyLight-1);
-            transition: 300ms ease;
-            font-weight: 500;
+        .toggle-link:hover {
+        text-decoration: underline;
         }
-        .submit:focus { outline: 0; }
-        .submit:hover { color: var(--onSurface); }
-        .submit:active {
-            box-shadow:inset .2rem .2rem 1rem var(--primary-dark), 
-            inset -.2rem -.2rem 1rem var(--primary-light);
-            color: var(--onSurface);
+        .hidden {
+        display: none;
         }
-        .text {
-            margin-top: 1.875rem;
-            text-align: center;
-            font-size: .8rem;
-            font-weight: 400;
+        .error {
+        color: red;
+        font-size: 0.9em;
         }
-        .card {
-            position: fixed;
-            top: 10px;
-            left: 50%;
-            width: 80%;
-            transform: translateX(-50%);
-            background-color: var(--background);
-            color: #000;
-            border: 1px solid #000;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            text-align: center;
-            font-family: Arial, sans-serif;
-            font-size: 16px;
-            font-weight: bold;
-            display: none;
+        .success-message {
+        background-color: #4CAF50;
+        color: white;
+        text-align: center;
+        border-radius: 15px;
+        padding: 10px;
+        margin-bottom: 15px;
+        display: none;
         }
-        .card.visible {
-            display: block;
+        
+        .hide { 
+        display: none;
+        }
+        
+        .vpn {
+        color: rgb(233,21,21);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Signup</h1>
-        <form action="https://sheetdb.io/api/v1/633vitwuujta8" method="post" id="sheetdb-form">
-            <div class="form-control">
-                <input type="email" id="email" name="email" autocomplete="off" required>
-                <label for="email"><span>Email</span></label>
+        <!-- Success Message -->
+        <div id="success-message" class="success-message"></div>
+        
+        <!-- Registration Form -->
+        <form action="https://sheetdb.io/api/v1/633vitwuujta8" method="post" id="sheetdb-form-register">
+            <h2>Register</h2>
+            <h4 class="vpn">Don't use VPN for Register</h4>
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
             </div>
-            <div class="form-control">
-                <input type="password" name="password" id="password" required>
-                <label for="password"><span>Password</span></label>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                <span id="password-error" class="error"></span>
             </div>
-            <div class="form-control">
-                <input type="name" name="name" id="name" required>
-                <label for="name"><span>Name</span></label>
+            
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
             </div>
-            <button class="submit" type="submit">Signup</button>
-            <p class="text">Already have an account? <a href="login.html">Login</a></p>
+            
+            <div class="form-group">
+                <label for="country">Country</label>
+                <select id="country" name="country" required>
+                    <option value="">Select your country</option>
+                </select>
+            </div>
+            
+            <!-- Hide status -->
+            <div class="hide">
+            <div class="form-group">
+            <label for="status">Status</label>
+            <input type="text" id="status" name="status" value="Login" readonly>
+            </div>
+            </div>
+            <div class="hide">
+            <div class="form-group">
+            <label for="IP Address">IP Address</label>
+            <input type="text" id="ip" name="ip">
+            </div>
+            </div>
+            <script type="application/javascript">
+            function getIP(json) {
+            document.getElementById("ip").value = json.ip;
+            }
+            </script>
+            
+            <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
+            
+            <div class="form-group">
+                <button id="register-button" type="submit">Sign Up</button>
+            </div>
+            
+            <span class="toggle-link"><a href="login.html">Already have an account? Login</a></span>
         </form>
     </div>
-    <div id="messageCard" class="card"></div>
+    
+    <!-- JavaScript at the end of the body -->
     <script>
-        const labels = document.querySelectorAll('.form-control label');
-        labels.forEach(label => {
-            label.innerHTML = label.innerText.split('').map((letter, index) => 
-                `<span style="transition-delay:${index * 40}ms">${letter}</span>`
-            ).join('');
-        });
-
-        async function checkIfUserExists(email) {
-            const url = 'https://sheetdb.io/api/v1/633vitwuujta8/search?email=' + email;
-            const response = await fetch(url);
-            const data = await response.json();
-            return data.length > 0;
-        }
-
-        var form = document.getElementById('sheetdb-form');
-        form.addEventListener("submit", async function (e) {
-            e.preventDefault();
-            const email = document.getElementById('email').value;
-            const userExists = await checkIfUserExists(email);
-
-            if (userExists) {
-                alert('User already registered.');
-                return;
-            }
-
-            // Display "Registration successful" message
-            const messageCard = document.getElementById('messageCard');
-            messageCard.innerHTML = 'Registration successful';
-            messageCard.classList.add('visible');
-
-            // Submit form data
-            fetch(form.action, {
-                method: "POST",
-                body: new FormData(form),
-            })
-            .then(response => response.json())
-            .then((data) => {
-                console.log(data);
-
-                // Update message to "Please wait..."
-                setTimeout(function () {
-                    messageCard.innerHTML = 'Please wait...';
-                }, 2000);
-
-                // Redirect after another 2 seconds
-                setTimeout(function () {
-                    window.location.href = 'Music.html';
-                }, 2000);
-            })
-            .catch((error) => {
-                console.error("Form submission failed", error);
-            });
-        });
+    function formatDate(date) {
+    const options = { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true };
+    return date.toLocaleDateString('en-US', options).replace(/,/g, '');
+    }
+    
+    // Function to show success message and redirect
+    function showSuccessMessage(message) {
+    const successMessage = document.getElementById('success-message');
+    successMessage.textContent = message;
+    successMessage.style.display = 'block';
+    
+    // Redirect after 2 seconds
+    setTimeout(() => {
+    window.location.href = 'Music.html';
+    }, 2000);
+    }
+    
+    // Function to validate password
+    function validatePassword(password) {
+    const regex = /^(?=.*[A-Z])(?=.*\d).{6,}$/;
+    return regex.test(password);
+    }
+    
+    // Form submission handling for registration form
+    document.getElementById('sheetdb-form-register').addEventListener('submit', (event) => {
+    const password = document.getElementById('password').value;
+    const passwordError = document.getElementById('password-error');
+    
+    if (!validatePassword(password)) {
+    passwordError.textContent = 'Password must be at least 6 characters long, contain at least one number and one capital letter.';
+    event.preventDefault();
+    } else {
+    passwordError.textContent = '';
+    
+    // Add register date to the form data
+    const registerDateInput = document.createElement('input');
+    registerDateInput.type = 'hidden';
+    registerDateInput.name = 'register-date';
+    registerDateInput.value = formatDate(new Date());
+    document.getElementById('sheetdb-form-register').appendChild(registerDateInput);
+    
+    // Add selected country to the form data
+    const countryInput = document.createElement('input');
+    countryInput.type = 'hidden';
+    countryInput.name = 'country';
+    countryInput.value = document.getElementById('country').value;
+    document.getElementById('sheetdb-form-register').appendChild(countryInput);
+    
+    // Show success message and redirect
+    showSuccessMessage('Registration successful! Redirecting to Music.html...');
+    }
+    });
+    
+    // Fetch and populate countries
+    fetch('https://restcountries.com/v3.1/all')
+    .then(response => response.json())
+    .then(data => {
+    const countrySelect = document.getElementById('country');
+    data.sort((a, b) => a.name.common.localeCompare(b.name.common));
+    data.forEach(country => {
+    const option = document.createElement('option');
+    option.value = country.name.common;
+    option.textContent = country.name.common;
+    countrySelect.appendChild(option);
+    });
+    })
+    .catch(error => console.error('Error fetching countries:', error));
     </script>
+    
+    
 </body>
 </html>

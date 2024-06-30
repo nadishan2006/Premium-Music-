@@ -3,241 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://kit.fontawesome.com/e7e1ed9392.js" crossorigin="anonymous"></script>
-    <title>LOGIN</title>
+    <title>Music App Registration</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #8360c3, #2ebf91);
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group select {
+            width: 95%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus, .form-group select:focus {
+            border-color: #32CD32; /* Green color */
+            outline: none;
+        }
+        .form-group input:disabled {
+            background-color: #f9f9f9;
+        }
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background: #2ebf91;
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background: #249c78;
+        }
+        .toggle-link {
+            text-align: center;
+            display: block;
+            margin-top: 15px;
+            color: #8360c3;
+            cursor: pointer;
+        }
+        .toggle-link:hover {
+            text-decoration: underline;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+        .success-message {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            border-radius: 15px;
+            padding: 10px;
+            margin-bottom: 15px;
+            display: none;
+        }
+        .hide { 
+            display: none;
+        }
+        .vpn {
+            color: rgb(233,21,21);
+        }
+    </style>
 </head>
-<style>
-   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-   
-   :root {
-   font-size: 100%;
-   --white: oklch(100% 0 0);
-   --primary-light: oklch(78.81% 0.109 255.212);
-   --primary: oklch(58.63% 0.227 281.34);
-   --primary-dark: oklch(47.56% 0.273 284.25);
-   
-   --greyLight-1:  oklch(93.77% 0.015 257.2);
-   --greyLight-2:  oklch(85.86% 0.033 270.41);
-   --greyDark:     oklch(73.91% 0.056 267.7);
-   
-   --background: var(--greyLight-1);
-   --onBackground: var(--greyDark);
-   
-   --surface: var(--primary);
-   --onSurface: var(--white);
-   --onSurface-Dark: oklch(58.2% 0.228 266.74);
-   
-   --shadow: .3rem .3rem .6rem var(--greyLight-2),
-   -.2rem -.2rem .5rem var(--white);
-   }
-   
-   * {
-   box-sizing: border-box;
-   }
-   
-   body {
-   font-family: 'Inter', sans-serif;
-   background-color: var(--background);
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
-   height: 100vh;
-   overflow: hidden;
-   margin: 0;
-   }
-   
-   .container {
-   background-color: var(--background);
-   color: var(--onBackground);
-   padding: 1.25rem 2.5rem;
-   border-radius: 1.5rem;
-   box-shadow: var(--shadow);
-   }
-   
-   .container h1 {
-   font-size: 1.8rem;
-   text-align: center;
-   padding-bottom: 1.25rem;
-   font-weight: 600;
-   }
-   
-   .container a {
-   text-decoration: none;
-   color: var(--onSurface-Dark);
-   }
-   
-   .form-control {
-   position: relative;
-   margin: 1.25rem 0 2.5rem 0;
-   width: 18.75rem;
-   }
-   
-   .form-control input {
-   background-color: transparent;
-   border: 0;
-   border-bottom: 0.125rem var(--onBackground) solid;
-   display: block;
-   width: 100%;
-   padding: .9rem;
-   font-size: 1.2rem;
-   color: var(--onBackground);
-   font-weight: 400;
-   }
-   
-   .form-control input:focus,
-   .form-control input:valid {
-   outline: 0;
-   border-bottom-color: var(--greyLight-2);
-   }
-   
-   .form-control label {
-   position: absolute;
-   top: .9rem;
-   left: 0;
-   }
-   
-   .form-control label span {
-   display: inline-block;
-   font-size: 1.2rem;
-   min-width: .3rem;
-   transition: 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-   }
-   
-   .form-control input:focus + label span,
-   .form-control input:valid + label span {
-   color: var(--greyLight-2);
-   transform: translateY(-1.875rem);
-   font-size: 1rem;
-   }
-   
-   .submit {
-   cursor: pointer;
-   display: inline-block;
-   width: 100%;
-   background: var(--surface);
-   padding: .9rem;
-   font-family: inherit;
-   font-size: 1.2rem;
-   border: 0;
-   border-radius: .8rem;
-   box-shadow:inset .2rem .2rem 1rem var(--primary-light), 
-   inset -.2rem -.2rem 1rem var(--primary-dark),
-   var(--shadow);
-   color: var(--greyLight-1);
-   transition: 300ms ease;
-   font-weight: 500;
-   }
-   
-   .submit:focus {
-   outline: 0;
-   }
-   
-   .submit:hover{
-   color: var(--onSurface);
-   }
-   
-   .submit:active {
-   box-shadow:inset .2rem .2rem 1rem var(--primary-dark), 
-   inset -.2rem -.2rem 1rem var(--primary-light);
-   color: var(--onSurface);
-   }
-   
-   .text {
-   margin-top: 1.875rem;
-   text-align: center;
-   font-size: .8rem;
-   font-weight: 400;
-   }
-   
-   .card {
-   position: fixed;
-   top: 10px;
-   left: 50%;
-   width: 80%;
-   transform: translateX(-50%);
-   background-color: var(--background);
-   color: #000;
-   border: 1px solid #000;
-   border-radius: 8px;
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-   padding: 20px;
-   text-align: center;
-   font-family: Arial, sans-serif;
-   font-size: 16px;
-   font-weight: bold;
-   display: none;
-   }
-   
-   .card.visible {
-   display: block;
-   }
-   
-</style>
 <body>
-   <div class="container">
-   <h1>Login</h1>
-   <form id="sheetdb-form">
-   <div class="form-control">
-   <input type="email" id="email" name="email" autocomplete="off" required>
-   <label for="email"><span>Email</span></label>
-   </div>
-   <div class="form-control">
-   <input type="password" name="password" id="password" required>
-   <label for="password"><span>Password</span></label>
-   </div>
-   <button class="submit">Login</button>
-   <p class="text">Don't have an account? <a href="signup.html">SIGNUP</a></p>
-   </form>
-   </div>
-   
-   <script>
-    const labels = document.querySelectorAll('.form-control label')
-    
-    labels.forEach(label => {
-    label.innerHTML = label.innerText
-    .split('')
-    .map((letter, index) => `<span style="transition-delay:${index * 40}ms">${letter}</span>`)
-    .join('')
-    })
-   </script>
-  
-  <div id="messageCard" class="card"></div>
+    <div class="container">
+        <!-- Success Message -->
+        <div id="success-message" class="success-message"></div>
+        
+        <!-- Login Form -->
+        <form id="sheetdb-form-login">
+            <h2>Login</h2>
+            <h4 class="vpn">Don't use VPN for Login</h4>
+            <div class="form-group">
+                <label for="l-email">Email</label>
+                <input type="email" id="l-email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="l-password">Password</label>
+                <input type="password" id="l-password" name="password" required>
+            </div>
+            <div class="hide">
+                <div class="form-group">
+                    <label for="l-time">Login Time</label>
+                    <input type="text" id="l-time" name="login-time" disabled>
+                </div>
+            </div>
+            <div class="form-group">
+                <button id="login-button" type="submit">Login</button>
+            </div>
+            <span class="toggle-link"><a href="signup.html">Don't have an account? Register</a></span>
+        </form>
+    </div>
 
-  <script>
-    async function checkIfUserExists(email, password) {
-      const url = `https://sheetdb.io/api/v1/633vitwuujta8/search?email=${email}&password=${password}`;
-      const response = await fetch(url);
-      const data = await response.json();
-      return data.length > 0;
-    }
+    <!-- JavaScript at the end of the body -->
+    <script>
+        function formatDate(date) {
+            const options = { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true };
+            return date.toLocaleDateString('en-US', options).replace(/,/g, '');
+        }
 
-    var form = document.getElementById('sheetdb-form');
-    form.addEventListener("submit", async function (e) {
-      e.preventDefault();
+        // Function to show success message and redirect
+        function showSuccessMessage(message) {
+            const successMessage = document.getElementById('success-message');
+            successMessage.textContent = message;
+            successMessage.style.display = 'block';
 
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      const userExists = await checkIfUserExists(email, password);
+            // Redirect after 2 seconds
+            setTimeout(() => {
+                window.location.href = 'Music.html';
+            }, 2000);
+        }
 
-      const messageCard = document.getElementById('messageCard');
+        // Function to check login credentials
+        async function checkLoginCredentials(email, password) {
+            try {
+                const response = await fetch('https://sheetdb.io/api/v1/633vitwuujta8');
+                const data = await response.json();
+                return data.some(user => user.email === email && user.password === password);
+            } catch (error) {
+                console.error('Error fetching user data:', error);
+                return false;
+            }
+        }
 
-      if (userExists) {
-        // Display "Login successful" message
-        messageCard.innerHTML = 'Login successful';
-        messageCard.classList.add('visible');
+        // Form submission handling for login form
+        document.getElementById('sheetdb-form-login').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const email = document.getElementById('l-email').value;
+            const password = document.getElementById('l-password').value;
 
-        // Redirect after 2 seconds
-        setTimeout(function () {
-          window.location.href = 'Music.html';
-        }, 2000);
-      } else {
-        // Display "You don't have an account, please signup first" message
-        messageCard.innerHTML = "You're email or password is wrong or if you don't have account Please Sign up";
-        messageCard.classList.add('visible');
-      }
-    });
-  </script>
+            const isValidUser = await checkLoginCredentials(email, password);
+
+            if (isValidUser) {
+                // Show success message and redirect
+                showSuccessMessage('Login successful! Redirecting to Music.html...');
+            } else {
+                alert('Invalid email or password. Please try again.');
+            }
+        });
+
+        // Set the login time
+        document.getElementById('l-time').value = formatDate(new Date());
+    </script>
 </body>
 </html>

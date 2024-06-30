@@ -150,6 +150,7 @@ function checkOnlineStatus() {
     return;
   }
 
+  document.querySelector('.offline').style.display = 'none';
   document.querySelector('.img-1').style.display = 'block';
   setTimeout(() => {
     document.querySelector('.img-1').style.display = 'none';
@@ -159,25 +160,62 @@ function checkOnlineStatus() {
     loadElement.style.animationDuration = `${loadTime}ms`;
 
     setTimeout(() => {
-      window.location.href = 'Music.html';
+      checkIPAndStatus(window.userIP).then(isValidUser => {
+        if (isValidUser) {
+          window.location.href = 'Music.html';
+        } else {
+          window.location.href = 'signup.html';
+        }
+      });
     }, loadTime);
   }, getRandomTime());
 }
 
-function checkInitialLoad() {
-  if (!localStorage.getItem('initialLoad')) {
-    localStorage.setItem('initialLoad', 'true');
-    window.location.href = 'Music.html';
+// Function to get user's IP address
+function getIP(callback) {
+  const script = document.createElement('script');
+  script.src = `https://api.ipify.org?format=jsonp&callback=${callback.name}`;
+  document.body.appendChild(script);
+}
+
+// Function to check IP address and status in the database
+async function checkIPAndStatus(ip) {
+  try {
+    const response = await fetch('https://sheetdb.io/api/v1/633vitwuujta8');
+    const data = await response.json();
+
+    const user = data.find(user => user.ip === ip && user.status === 'Login');
+    return !!user;
+  } catch (error) {
+    console.error('Error fetching user data:', error);
+    return false;
   }
 }
+
+// Callback function for IP retrieval
+function handleIPResponse(json) {
+  window.userIP = json.ip;  // Store IP in a global variable
+  if (!localStorage.getItem('initialLoad')) {
+    localStorage.setItem('initialLoad', 'true');
+    checkIPAndStatus(window.userIP).then(isValidUser => {
+      if (isValidUser) {
+        window.location.href = 'Music.html';
+      } else {
+        window.location.href = 'signup.html';
+      }
+    });
+  } else {
+    checkOnlineStatus();
+  }
+}
+
+// Get user's IP address and handle initial load
+getIP(handleIPResponse);
 
 function signOut() {
   localStorage.removeItem('isSignedUp');
   checkOnlineStatus();
 }
-
-checkInitialLoad();
-checkOnlineStatus();
 
 window.addEventListener('online', checkOnlineStatus);
 window.addEventListener('offline', checkOnlineStatus);
@@ -193,6 +231,10 @@ function signUp() {
 
 // Assuming there is a signup button with class 'signup-btn'
 document.querySelector('.signup-btn').addEventListener('click', signUp);
+
+// Initial online status check
+checkOnlineStatus();
+
 </script>
 </body>
 </html>
