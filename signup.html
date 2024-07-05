@@ -158,72 +158,99 @@
     <!-- JavaScript at the end of the body -->
     <script>
     function formatDate(date) {
-    const options = { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true };
-    return date.toLocaleDateString('en-US', options).replace(/,/g, '');
-    }
-    
-    // Function to show success message and redirect
-    function showSuccessMessage(message) {
-    const successMessage = document.getElementById('success-message');
-    successMessage.textContent = message;
-    successMessage.style.display = 'block';
-    
-    // Redirect after 2 seconds
-    setTimeout(() => {
+  const options = {
+    day: '2-digit', month: 'short', year: 'numeric',
+    hour: '2-digit', minute: '2-digit', hour12: true
+  };
+  return date.toLocaleDateString('en-US', options).replace(/,/g, '');
+}
+
+// Function to show success message and redirect
+function showSuccessMessage(message) {
+  const successMessage = document.getElementById('success-message');
+  successMessage.textContent = message;
+  successMessage.style.display = 'block';
+
+  // Redirect after 2 seconds
+  setTimeout(() => {
     window.location.href = 'Music.html';
-    }, 2000);
-    }
-    
-    // Function to validate password
-    function validatePassword(password) {
-    const regex = /^(?=.*[A-Z])(?=.*\d).{6,}$/;
-    return regex.test(password);
-    }
-    
-    // Form submission handling for registration form
-    document.getElementById('sheetdb-form-register').addEventListener('submit', (event) => {
-    const password = document.getElementById('password').value;
-    const passwordError = document.getElementById('password-error');
-    
-    if (!validatePassword(password)) {
+  }, 2000);
+}
+
+// Function to validate password
+function validatePassword(password) {
+  const regex = /^(?=.*[A-Z])(?=.*\d).{6,}$/;
+  return regex.test(password);
+}
+
+// Form submission handling for registration form
+document.getElementById('sheetdb-form-register').addEventListener('submit', (event) => {
+  const password = document.getElementById('password').value;
+  const passwordError = document.getElementById('password-error');
+
+  if (!validatePassword(password)) {
     passwordError.textContent = 'Password must be at least 6 characters long, contain at least one number and one capital letter.';
     event.preventDefault();
-    } else {
+  } else {
     passwordError.textContent = '';
-    
+
     // Add register date to the form data
     const registerDateInput = document.createElement('input');
     registerDateInput.type = 'hidden';
     registerDateInput.name = 'register-date';
     registerDateInput.value = formatDate(new Date());
     document.getElementById('sheetdb-form-register').appendChild(registerDateInput);
-    
+
     // Add selected country to the form data
     const countryInput = document.createElement('input');
     countryInput.type = 'hidden';
     countryInput.name = 'country';
     countryInput.value = document.getElementById('country').value;
     document.getElementById('sheetdb-form-register').appendChild(countryInput);
-    
-    // Show success message and redirect
-    showSuccessMessage('Registration successful! Redirecting to Music.html...');
-    }
+
+    // Prevent default form submission
+    event.preventDefault();
+
+    // Collect form data
+    const formData = new FormData(document.getElementById('sheetdb-form-register'));
+
+    // Send form data to the server
+    fetch(document.getElementById('sheetdb-form-register').action, {
+      method: 'POST',
+      body: formData,
+    })
+    .then(response => {
+      if (response.ok) {
+        // Show success message and redirect
+        showSuccessMessage('Registration successful! Redirecting to Music.html...');
+      } else {
+        throw new Error('Network response was not ok.');
+      }
+    })
+    .catch(error => {
+      console.error('Error submitting form:', error);
+      const successMessage = document.getElementById('success-message');
+      successMessage.textContent = 'Registration failed. Please try again.';
+      successMessage.style.display = 'block';
     });
-    
-    // Fetch and populate countries
-    fetch('https://restcountries.com/v3.1/all')
-    .then(response => response.json())
-    .then(data => {
+  }
+});
+
+// Fetch and populate countries
+fetch('https://restcountries.com/v3.1/all')
+  .then(response => response.json())
+  .then(data => {
     const countrySelect = document.getElementById('country');
     data.sort((a, b) => a.name.common.localeCompare(b.name.common));
     data.forEach(country => {
-    const option = document.createElement('option');
-    option.value = country.name.common;
-    option.textContent = country.name.common;
-    countrySelect.appendChild(option);
+      const option = document.createElement('option');
+      option.value = country.name.common;
+      option.textContent = country.name.common;
+      countrySelect.appendChild(option);
     });
-    })
-    .catch(error => console.error('Error fetching countries:', error));
+  })
+  .catch(error => console.error('Error fetching countries:', error));
+
     </script>
     
     

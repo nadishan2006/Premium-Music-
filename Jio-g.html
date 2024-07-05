@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JIO G</title>
+    <script src="https://kit.fontawesome.com/e7e1ed9392.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://kit.fontawesome.com/e7e1ed9392.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" type="image/jpg" href="https://i.ibb.co/kSQN5ZW/Screenshot-2024-0414-204428.jpg">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+        }
+        
+        .box {
+            background-color: #27272a;
+            width: auto;
+            height: 145px;
+            border: #fff solid 0.5px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        
+        #yt {
+            width: 100%;
+            height: auto;
+            border: none;
+        }
+        
+        .box1 img {
+            width: 110px;
+            height: 110px;
+            border: #9BA090 solid 1px;
+            border-radius: 50%;
+            margin-top: -55px;
+            margin-left: 30px;
+        }
+        
+        .text-1 {
+            color: #fff;
+            font-size: 25px;
+            margin-top: -50px;
+            margin-left: 160px;
+        }
+        
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            max-width: 1200px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        
+        .music-box {
+            background-color: #333;
+            color: #fff;
+            width: calc(100% - 20px);
+            max-width: 600px;
+            height: 20%;
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .music-box.playing {
+            background-color: rgb(0, 219, 100);
+        }
+        
+        .music-box img {
+            width: 70px;
+            height: 70px;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+        
+        .text-container {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .text-b1 {
+    font-size: 14px;
+    padding-right: 50px;
+    font-weight: bold; /* Makes the text bold */
+}
+
+.text-b2 {
+    font-size: 9px;
+    font-weight: bold; /* Makes the text bold */
+}
+
+@media screen and (min-width: 1024px) {
+    /* Styles for desktop screens */
+    .text-b1 {
+        font-size: 25px;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    /* Styles for larger screens like Android TV */
+    .text-b1 {
+        font-size: 29px;
+    }
+}
+        
+        .controls {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        
+        .controls i {
+            font-size: 24px;
+            cursor: pointer;
+            margin-right: 30px;
+        }
+        
+        .controls i:last-child {
+            margin-right: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .music-box {
+                flex-direction: row;
+                height: auto;
+                width: 100%;
+            }
+            
+            .music-box img {
+                margin-right: 10px;
+            }
+        }
+        
+          #link {
+  display: inline; /* or another display value that suits your layout */
+  text-decoration: none; /* removes the underline */
+  color: inherit; /* sets the color to the parent element's color */
+}
+
+.arrow {
+    font-size: 1.5rem;
+    padding-top: 10px;
+    padding-left: 20px;
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+    </style>
+</head>
+<body>
+  <p>
+    <div class="arrow">
+  <a id="link" href="Music.html">
+    <i class="fas fa-arrow-left" style="color: #ffffff;"></i></a>
+</div>
+<br>
+
+    <br>
+    <div class="box">
+        <iframe id="yt" src="https://www.youtube.com/embed/mUCekqKYOjA" allowfullscreen></iframe>
+    </div>
+    <div class="box1">
+        <img src="https://i.ibb.co/0JMbvX0/IMG-20240521-190054.jpg" alt=".." onclick="revealImage()">
+    </div>
+    <div class="text-1">
+        <b>JIO G</b>
+    </div>
+    <br>
+    <br>
+    <div class="container" id="results"></div>
+    <audio id="audio"></audio>
+    
+    <script>
+        const data = [
+    {
+        image: "https://i.ibb.co/0JMbvX0/IMG-20240521-190054.jpg",
+        title1: "Nonasena",
+        title2: "none",
+        mp3: "https://www.cjoint.com/doc/24_05/NEvn4xkwmQN_nonasena-jio-g-ft-d-zesar.mp3"
+    },
+  /*  {
+        image: "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/amal.jpg",
+        title1: "Lassanai Adare",
+        title2: "12 January 2014",
+        mp3: "https://github.com/nadishan2006/premium-Music-mp3/blob/main/Lassanai%20%20Adare%20-%20Amal%20Perera.mp3?raw=true"
+    },
+    {
+        image: "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/amal%201.jpg",
+        title1: "Heenayak Wage",
+        title2: "2023",
+        mp3: "https://github.com/nadishan2006/premium-Music-mp3/blob/main/Heenayak%20Wage%20-%20Amal%20Perera.mp3"
+    },
+    {
+        image: "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/amal..jpeg",
+        title1: "The Spectre",
+        title2: "15 September 2017",
+        mp3: "https://www.cjoint.com/doc/24_05/NEdlK0vGPhj_Alan-Walker---The-Spectre.mp3"
+    },
+    {
+        image: "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/amal-perera-gMD1f.jpeg",
+        title1: "Faded",
+        title2: "17 August 2015",
+        mp3: "https://www.cjoint.com/doc/24_05/NEdmcEayu6T_Alan-Walker---Faded.mp3"
+    },
+    {
+        image: "https://i.ibb.co/SmKCmbp/sing-me-to-sleep.jpg",
+        title1: "Sing Me to Sleep",
+        title2: "03 June 2016",
+        mp3: "https://www.cjoint.com/doc/24_05/NEdmbSjdhFT_Alan-Walker---Sing-Me-To-Sleep.mp3"
+    } */
+];
+
+const resultsDiv = document.getElementById('results');
+const audio = document.getElementById('audio');
+let currentBox = null;
+
+data.forEach((item, index) => {
+    const box = document.createElement('div');
+    box.className = 'music-box';
+
+    const img = document.createElement('img');
+    img.src = item.image;
+    box.appendChild(img);
+
+    const textContainer = document.createElement('div');
+    textContainer.className = 'text-container';
+
+    const title1 = document.createElement('div');
+    title1.className = 'text-b1';
+    title1.textContent = item.title1;
+    textContainer.appendChild(title1);
+
+    const title2 = document.createElement('div');
+    title2.className = 'text-b2';
+    title2.textContent = item.title2;
+    textContainer.appendChild(title2);
+
+    box.appendChild(textContainer);
+
+    const controls = document.createElement('div');
+    controls.className = 'controls';
+
+    const prevIcon = document.createElement('i');
+    prevIcon.className = 'fas fa-step-backward';
+    prevIcon.onclick = function(event) { prevSong(event, index) };
+    controls.appendChild(prevIcon);
+
+    const playIcon = document.createElement('i');
+    playIcon.className = 'fas fa-play';
+    playIcon.onclick = function(event) { togglePlay(event, item.mp3, box) };
+    controls.appendChild(playIcon);
+
+    const nextIcon = document.createElement('i');
+    nextIcon.className = 'fas fa-step-forward';
+    nextIcon.onclick = function(event) { nextSong(event, index) };
+    controls.appendChild(nextIcon);
+
+    box.appendChild(controls);
+
+    resultsDiv.appendChild(box);
+});
+
+function playMusic(box, mp3) {
+    if (currentBox && currentBox !== box) {
+        currentBox.classList.remove('playing');
+        updatePlayIcon(currentBox, false);
+        audio.pause();
+    }
+    currentBox = box;
+    currentBox.classList.add('playing');
+    audio.src = mp3;
+    audio.play();
+    updatePlayIcon(currentBox, true);
+}
+
+function togglePlay(event, mp3, box) {
+    event.stopPropagation();
+    if (!currentBox || currentBox !== box) {
+        playMusic(box, mp3);
+    } else if (audio.paused) {
+        audio.play();
+        updatePlayIcon(currentBox, true);
+        currentBox.classList.add('playing');
+    } else {
+        audio.pause();
+        updatePlayIcon(currentBox, false);
+        currentBox.classList.remove('playing');
+    }
+}
+
+function updatePlayIcon(box, isPlaying) {
+    const playIcon = box.querySelector('.fa-play, .fa-pause');
+    if (isPlaying) {
+        playIcon.classList.remove('fa-play');
+        playIcon.classList.add('fa-pause');
+    } else {
+        playIcon.classList.remove('fa-pause');
+        playIcon.classList.add('fa-play');
+    }
+}
+
+function nextSong(event, currentIndex) {
+    event.stopPropagation();
+    const nextIndex = (currentIndex + 1) % data.length;
+    playMusic(document.querySelectorAll('.music-box')[nextIndex], data[nextIndex].mp3);
+}
+
+function prevSong(event, currentIndex) {
+    event.stopPropagation();
+    const prevIndex = (currentIndex - 1 + data.length) % data.length;
+    playMusic(document.querySelectorAll('.music-box')[prevIndex], data[prevIndex].mp3);
+}
+
+audio.addEventListener('ended', () => {
+    const currentIndex = data.findIndex(item => item.mp3 === audio.src);
+    const nextIndex = (currentIndex + 1) % data.length;
+    playMusic(document.querySelectorAll('.music-box')[nextIndex], data[nextIndex].mp3);
+});
+    </script>
+</body>
+</html>

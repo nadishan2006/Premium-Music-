@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logout</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+  body {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url("images/background.jpg"); /* Replace with your background image */
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 30px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+a {
+  background-color: #ff0000;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+</style>
+<body>
+  <div class="container">
+    <h1>Are you sure you want to logout?</h1>
+    <p>Click below log out button.</p>
+    <a href="#" id="logout-button">Log out</a>
+  </div>
+
+  <script src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
+  <script>
+    let userIP = '';
+
+    function getIP(json) {
+      userIP = json.ip;
+    }
+
+    document.getElementById('logout-button').addEventListener('click', function(event) {
+      event.preventDefault();
+      if (userIP) {
+        // Fetch the user's data from the database
+        fetch(`https://sheetdb.io/api/v1/633vitwuujta8/search?ip=${userIP}`)
+          .then(response => response.json())
+          .then(data => {
+            if (data.length > 0) {
+              const userId = data[0].id; // Assume the row has an 'id' field
+              // Update the user's status to 'logout'
+              fetch(`https://sheetdb.io/api/v1/633vitwuujta8/id/${userId}`, {
+                method: 'PATCH',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ status: 'logout' })
+              })
+              .then(response => response.json())
+              .then(data => {
+                console.log('Logout successful:', data);
+                window.location.href = 'index.html';
+              })
+              .catch(error => {
+                console.error('Error updating status:', error);
+              });
+            } else {
+              console.error('No user found with IP:', userIP);
+            }
+          })
+          .catch(error => {
+            console.error('Error fetching user data:', error);
+          });
+      } else {
+        console.error('IP address not found.');
+      }
+    });
+  </script>
+</body>
+</html>
