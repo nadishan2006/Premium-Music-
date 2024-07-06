@@ -1099,5 +1099,38 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 </script>
+
+<script>
+  // Get references to the audio player and control buttons
+var audioPlayer = document.getElementById('audio-player');
+var playButton = document.getElementById('play-button');
+var pauseButton = document.getElementById('pause-button');
+var volumeUpButton = document.getElementById('volume-up-button');
+var volumeDownButton = document.getElementById('volume-down-button');
+
+// Play the audio
+playButton.addEventListener('click', function() {
+    audioPlayer.play();
+});
+
+// Pause the audio
+pauseButton.addEventListener('click', function() {
+    audioPlayer.pause();
+});
+
+// Increase the volume
+volumeUpButton.addEventListener('click', function() {
+    if (audioPlayer.volume < 1.0) {
+        audioPlayer.volume += 0.1;
+    }
+});
+
+// Decrease the volume
+volumeDownButton.addEventListener('click', function() {
+    if (audioPlayer.volume > 0.0) {
+        audioPlayer.volume -= 0.1;
+    }
+});
+</script>
 </body>
 </html>
