@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>Sinhala Songs Video</title>
     <style>
         body {
@@ -140,6 +141,22 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        #link {
+  display: inline; /* or another display value that suits your layout */
+  text-decoration: none; /* removes the underline */
+  color: inherit; /* sets the color to the parent element's color */
+}
+
+.arrow {
+   color: #fff;
+    font-size: 1.5rem;
+    padding-top: 10px;
+    padding-left: 40px;
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
     </style>
     <style>
     .material-symbols-outlined {
@@ -152,6 +169,12 @@
     </style>
 </head>
 <body>
+  <br>
+    <div class="arrow">
+  <a id="link" href="Music.html">
+    <i class="fas fa-arrow-left" style="color: #ffffff;"></i></a>
+</div>
+  <br>
     <div id="sideMenu" class="side-menu">
         <!-- Close button -->
         <button class="close-btn" onclick="closeMenu()">&times;</button>

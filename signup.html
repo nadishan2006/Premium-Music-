@@ -75,7 +75,7 @@
         font-size: 0.9em;
         }
         .success-message {
-        background-color: #4CAF50;
+        background-color: #23d74c;
         color: white;
         text-align: center;
         border-radius: 15px;
@@ -222,7 +222,7 @@ document.getElementById('sheetdb-form-register').addEventListener('submit', (eve
     .then(response => {
       if (response.ok) {
         // Show success message and redirect
-        showSuccessMessage('Registration successful! Redirecting to Music.html...');
+        showSuccessMessage('Registration successful! Please wait...');
       } else {
         throw new Error('Network response was not ok.');
       }
