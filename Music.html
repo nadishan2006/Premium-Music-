@@ -43,8 +43,7 @@
     align-items: center;
     }
     
-    
-.logo img {
+    .logo img {
     width: 35px;
     height: 35px;
     max-width: 55%;
@@ -52,15 +51,15 @@
     border-radius: 50%;
     margin-top: 15px;
     margin-right: 30px;
-}
-
-/* Media query for Android TV and desktop */
-@media (min-width: 1024px) {
-    .logo img {
-        justify-content: flex-start;
-        padding-left: 200px;
     }
-}
+    
+    /* Media query for Android TV and desktop */
+    @media (min-width: 1024px) {
+    .logo img {
+    justify-content: flex-start;
+    padding-left: 200px;
+    }
+    }
     
     .logo-text {
     color: #fff;
@@ -68,8 +67,6 @@
     margin-top: 16px;
     margin-left: -9px; /* Add margin instead of negative margin */
     }
-    
-    
     
     main {
     padding: 20px;
@@ -105,9 +102,6 @@
     margin-top: 0px;
     }
     
-    
-    
-    
     /* image card for artist */
     .box {
     width: 100%;
@@ -133,7 +127,6 @@
     object-fit: cover;
     border-radius: 10px; /* Add border radius */
     }
-    
     
     .text-overlay {
     position: absolute;
@@ -203,7 +196,7 @@
     color: white;
     font-size: 10px;
     margin-top: 5px;
-    margin-right: 10px
+    margin-right: 10px;
     flex: 1; 
     }
     
@@ -211,10 +204,12 @@
     display: flex;
     align-items: center;
     }
-    icons-m:focus {
-  outline: none;
-  box-shadow: none;
-}
+    
+    .icons-m:focus {
+    outline: none;
+    box-shadow: none;
+    }
+    
     .icon-m {
     color: white;
     font-size: 24px;
@@ -234,13 +229,11 @@
     display: none;
     }
     
-  
-
-.container-m {
+    .container-m {
     display: flex;
-}
-
-.menu-icon {
+    }
+    
+    .menu-icon {
     font-size: 30px;
     cursor: pointer;
     color: #fff;
@@ -248,13 +241,13 @@
     padding-right: 10px;
     margin-top: 10px;
     z-index: 999;
-}
-
-.menu-icon:hover {
+    }
+    
+    .menu-icon:hover {
     color: #000;
-}
-
-.side-menu {
+    }
+    
+    .side-menu {
     width: 0;
     height: 100%;
     background-color: rgb(52,50,50);
@@ -265,140 +258,157 @@
     transition: width 0.5s;
     overflow-x: hidden;
     z-index: 99999;
-}
-
-.side-menu a {
+    }
+    
+    .side-menu a {
     padding: 10px 15px;
     text-decoration: none;
     color: white;
     display: block;
     transition: 0.3s;
-}
-
-.side-menu a:hover {
+    }
+    
+    .side-menu a:hover {
     background-color: #555;
-}
-
-.close-btn {
+    }
+    
+    .close-btn {
     color: white;
     position: absolute;
     top: 20px;
     right: 20px;
     font-size: 30px;
     cursor: pointer;
-}
-
-.content-m {
+    }
+    
+    .content-m {
     flex: 1;
     padding: 20px;
     transition: margin-left 0.5s;
-}
-
-@media (max-width: 768px) {
+    }
+    
+    @media (max-width: 768px) {
     /* Existing styles */
     .side-menu {
-        width: 0; /* Set initial width to 0 */
-        /* Other styles */
+    width: 0; /* Set initial width to 0 */
+    /* Other styles */
     }
-
+    
     .content-m {
-        margin-left: 0; /* Set initial margin to 0 */
-        /* Other styles */
+    margin-left: 0; /* Set initial margin to 0 */
+    /* Other styles */
     }
-}
-
-.menu-itm {
-  width: ;
-  height: ;
-  padding-left: 10px;
-}
-
-.menu-itm img{
-  width: 25%;
-  height: 25%;
-  border-radius: 50%;
-  margin-top: -18%;
-}
-
-.new {
+    }
+    
+    .menu-itm {
+    padding-left: 10px;
+    }
+    
+    .menu-itm img {
+    width: 25%;
+    height: 25%;
+    border-radius: 50%;
+    margin-top: -18%;
+    }
+    
+    .new {
     color: #fff;
     font-size: 20px; /* Set the desired font size */
     margin-top: 15px; /* Set the spacing between items */
-}
-
-#hr-m {
+    }
+    
+    #hr-m {
     width: 90%;
     border: 0.5px solid #444;
     margin-right: 20px;
-}
-
-#groot {
+    }
+    
+    #groot {
     width: 10%;
     height: 15%;
-}
-
-#h-logo1 {
-  max-width: 70px;
-}
-
-.text-overlay {
-            display: flex;
-            align-items: center;
-        }
-        .text-overlay b {
-            display: flex;
-            align-items: center;
-        }
-        .text-overlay svg {
-            margin-left: 5px; /* Optional: Adds space between text and icon */
-        }
-
-    </style>
+    }
     
-    <style>
-      #side-Menu {
-  max-height: 100vh; /* Adjust this as needed */
-  overflow-y: auto;
-  scrollbar-width: thin; /* For Firefox */
-  scrollbar-color: #888 #111; /* For Firefox */
-}
-
-#side-Menu::-webkit-scrollbar {
-  width: 8px; /* Width of the scrollbar */
-}
-
-#side-Menu::-webkit-scrollbar-track {
-  background: #111; /* Background color of the scrollbar track */
-}
-
-#side-Menu::-webkit-scrollbar-thumb {
-  background-color: #888; /* Color of the scrollbar thumb */
-  border-radius: 10px; /* Roundness of the scrollbar thumb */
-}
-
-#side-Menu::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Color of the scrollbar thumb when hovered */
-}
-
-.menu-itm {
-  padding: 10px;
-}
-
-.menu-txt {
-  display: flex;
-  flex-direction: column;
-}
-
-.new {
-  margin-bottom: 10px;
-}
-
-#hr-m {
-  border: none;
-  border-top: 1px solid #ffffff;
-  margin: 10px 0;
-}
-
+    #h-logo1 {
+    max-width: 70px;
+    border-radius: 50%; /* Moved here to apply globally */
+    }
+    
+    .text-overlay {
+    display: flex;
+    align-items: center;
+    }
+    
+    .text-overlay b {
+    display: flex;
+    align-items: center;
+    }
+    
+    .text-overlay svg {
+    margin-left: 5px; /* Optional: Adds space between text and icon */
+    }
+    
+    #side-Menu {
+    max-height: 100vh; /* Adjust this as needed */
+    overflow-y: auto;
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #888 #111; /* For Firefox */
+    }
+    
+    #side-Menu::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+    }
+    
+    #side-Menu::-webkit-scrollbar-track {
+    background: #111; /* Background color of the scrollbar track */
+    }
+    
+    #side-Menu::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Roundness of the scrollbar thumb */
+    }
+    
+    #side-Menu::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color of the scrollbar thumb when hovered */
+    }
+    
+    .menu-itm {
+    padding: 10px;
+    }
+    
+    .menu-txt {
+    display: flex;
+    flex-direction: column;
+    }
+    
+    .new {
+    margin-bottom: 10px;
+    }
+    
+    #hr-m {
+    border: none;
+    border-top: 1px solid #ffffff;
+    margin: 10px 0;
+    }
+    
+    /* Default padding-left for all devices */
+    .menu-icon {
+    padding-left: 10px;
+    }
+    
+    /* For desktop screens (e.g., min-width: 1024px) */
+    @media only screen and (min-width: 1024px) {
+    .menu-icon {
+    padding-left: 20px;
+    }
+    }
+    
+    /* For Android TV screens (e.g., min-width: 1920px) */
+    @media only screen and (min-width: 1920px) {
+    .menu-icon {
+    padding-left: 30px;
+    }
+    }
+    
     </style>
     <body>
       
@@ -577,7 +587,7 @@
     <div class="text-overlay"><b>Yohani</b></div>
     </div></a>
     
-   <a id="link" href="Jio g.html">
+   <a id="link" href="Jio-g.html">
    <div class="item">
     <img src="https://i.ibb.co/0JMbvX0/IMG-20240521-190054.jpg">
     <div class="text-overlay"><b>JIO G<svg xmlns='http://www.w3.org/2000/svg' height='22px' viewBox='0 -960 960 960' width='22px' fill='rgb(0, 257, 100)'><path d='m438.62-421.54-71.97-72.23q-5.61-5.23-13.17-5.61-7.56-.39-13.29 5.34-6.38 6.39-6.38 13.42 0 7.04 6.38 13.04l76.93 76.93q9.19 9.57 21.5 9.57 12.3 0 21.88-9.57l159.69-159.7q5.35-5.34 5.68-12.84.32-7.5-5.68-13.62-6.11-5.73-13.29-5.79-7.17-.05-13.28 6.06l-155 155Zm-88.77 280.12-52-86.89-98.62-20.81q-11.31-2.23-18.08-12-6.77-9.76-5.53-21.57l9.46-101-66.2-76.04q-7.84-8.19-7.84-20.27t7.84-20.65l66.2-75.66-9.46-101q-1.24-11.81 5.53-21.57 6.77-9.77 18.08-12.39l98.62-20.42 52-87.27q6.34-10.08 16.71-14 10.36-3.92 21.44.81l92 39.38 92-39.38q11.08-4.73 21.44-.81 10.37 3.92 16.71 14l52 87.27 98.62 20.42q11.31 2.62 18.08 12.39 6.77 9.76 5.53 21.57l-9.46 101 66.58 75.66q7.46 8.57 7.46 20.65 0 12.08-7.46 20.27l-66.58 76.04 9.46 101q1.24 11.81-5.53 21.57-6.77 9.77-18.08 12l-98.62 20.81-52 86.89q-6.34 10.46-16.71 14.38-10.36 3.92-21.44-.81l-92-39.38-92 39.38q-11.08 4.73-21.44.81-10.37-3.92-16.71-14.38Z'/></svg></b></div>
@@ -634,7 +644,7 @@
     </div>
     </div>
     
-    
+    <!--
     <br>
     <p>
     <br>
@@ -671,7 +681,7 @@
     </div>
     
     
-    
+    -->
     
     <br>
     <p>
@@ -776,14 +786,16 @@
     <div class="text-overlay"><b>Sinhala Playlist</b></div> </a>
     </div>
     
-    <!--
+
     
     <div class="item">
-       <a id="link" href="hip-hop.html">
-    <img src="https://i.ibb.co/6H38V16/images-2.jpg">
-    <div class="text-overlay"><b>Hip Hop</b></div></a>
+       <a id="link" href="sinhala-song-video.html">
+    <img src="https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/video-playlist.jpg">
+    <div class="text-overlay"><b>Sinhala Songs Video</b></div></a>
     </div>
-    
+    </div>
+        <!--
+        
     <div class="item">
       <a id="link" href="classic.html">
     <img src="https://i.ibb.co/mFfVVPz/images-3.jpg">

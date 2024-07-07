@@ -48,48 +48,99 @@
   
   <style>
     body {
-      background-color: #000;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 100vh;
-      margin: 0;
-      color: #fff;
-      font-family: Arial, sans-serif;
-    }
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  margin: 0;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
 
-    .content {
-      display: flex;
-      flex: 1;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
+.content {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
-    .img-1, .load {
-      display: none;
-    }
+.img-1, .load {
+  display: none;
+}
 
-    .img-1 img {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-    }
+.img-1 img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
 
-    .load {
-      border: 4px solid #000;
-      border-top: 4px solid rgb(0, 227, 100);
-      border-right: 4px solid rgb(0, 227, 100);
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      animation: spin 1s infinite linear;
-    }
+#text {
+  
+}
 
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+ #neuro {
+  
+}
+ 
+.load {
+  border: 4px solid #000;
+  border-top: 4px solid rgb(0, 227, 100);
+  border-right: 4px solid rgb(0, 227, 100);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* For desktop screens */
+@media (min-width: 1024px) {
+  .content {
+    flex-direction: row;
+  }
+  
+  .img-1 img {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .load {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+/* For Android TV screens */
+@media (min-width: 1280px) and (min-height: 720px) {
+  .content {
+    flex-direction: row;
+  }
+  
+  .img-1 img {
+    width: 400px;
+    height: 400px;
+  }
+  
+  .load {
+    width: 100px;
+    height: 100px;
+  }
+      
+      #text {
+      font-size: 28px;
     }
+      
+      #neuro {
+      width: 20%;
+      height: auto;
+    }
+}
 
     .offline {
       display: none;
@@ -135,8 +186,8 @@
   </div>
 
   <div class="footer">
-    <span><b>from</b></span>
-    <img src="neuro.jpg" alt="Footer Image">
+    <span id="text"><b>from</b></span>
+    <img id="neuro" src="neuro.jpg">
   </div>
 
   <script>

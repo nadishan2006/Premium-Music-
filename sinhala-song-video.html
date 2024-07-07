@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Sinhala Songs Video</title>
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+            margin: 0;
+            position: relative; /* Ensure body acts as reference for absolute positioning */
+            background-color: #000;
+        }
+
+        .side-menu {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .side-menu a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 20px; /* Adjust the font size as needed */
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .side-menu a:hover, .side-menu a.active {
+            color: #f1f1f1;
+            background-color: #575757;
+        }
+
+        .side-menu .close-btn {
+            position: absolute;
+            top: 20px; /* Adjust top position as needed */
+            right: 25px;
+            font-size: 36px;
+            color: #818181;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 2; /* Ensure it's above other elements in the side menu */
+        }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }
+
+        hr {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border-width: 1px;
+            border-color: #555;
+        }
+
+        @media screen and (max-height: 450px) {
+            .side-menu {padding-top: 15px;}
+            .side-menu a {font-size: 18px;}
+        }
+
+        #searchBar {
+            width: calc(100% - 64px);
+            padding: 10px;
+            font-size: 18px;
+            margin-bottom: 10px;
+            margin-left: 15px;
+            border-radius: 25px;
+            outline: none; /* Hide outline when focused */
+        }
+
+        .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            border: none;
+            border-radius: 15px; 
+        }
+
+        .video-frame {
+            width: 100%;
+            max-width: 100%; /* Adjust max-width as needed */
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            position: relative;
+            border: 1px solid #fff;
+            border-radius: 15px; /* Rounded corners */
+            overflow: hidden; /* Ensure content does not overflow */
+        }
+
+        .video-frame iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: none;
+            top: 0;
+            left: 0;
+        }
+
+        /* Loading animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999; /* Ensure it's above everything else */
+        }
+
+        .loading.hidden {
+            display: none; /* Hide the loading animation */
+        }
+
+        .loading::before {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 50px;
+            border: 6px solid #ccc;
+            border-top: 6px solid #000;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+    <style>
+    .material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+    }
+    </style>
+</head>
+<body>
+    <div id="sideMenu" class="side-menu">
+        <!-- Close button -->
+        <button class="close-btn" onclick="closeMenu()">&times;</button>
+        
+        <!-- Menu items -->
+        <input type="text" id="searchBar" onkeyup="searchMenu()" placeholder="Search...">
+        <div id="menuItems"></div>
+    </div>
+
+    <div id="main">
+        <!-- Menu toggle button -->
+        <span style="color: #fff; font-size:30px;cursor:pointer" onclick="openMenu()"><svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#fff"><path d="M500-360q42 0 71-29t29-71v-220h120v-80H560v220q-13-10-28-15t-32-5q-42 0-71 29t-29 71q0 42 29 71t71 29ZM320-240q-33 0-56.5-23.5T240-320v-480q0-33 23.5-56.5T320-880h480q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H320Zm0-80h480v-480H320v480ZM160-80q-33 0-56.5-23.5T80-160v-560h80v560h560v80H160Zm160-720v480-480Z"/></svg> Open Video List</span>
+        <hr>
+        <br> 
+        <div id="videoContainer" class="video-container"></div>
+        <div id="loading" class="loading hidden"></div>
+    </div>
+
+    <script>
+    const videoDatabase = [
+    { title: "•1 Top Trending", url: "https://www.youtube.com/embed/isJ_1oq_n28" },
+    { title: "•2 Top Trending", url: "https://www.youtube.com/embed/rOMP223psIQ" },
+    { title: "•3 Top Trending", url: "https://www.youtube.com/embed/1bEnYz0HJAw" },
+    { title: "•4 Top Trending", url: "https://www.youtube.com/embed/5F_LVRdoObM" },
+    { title: "•5 Top Trending", url: "https://www.youtube.com/embed/N9QqxY4uueM" },
+    { title: "•6 Top Trending", url: "https://www.youtube.com/embed/mD-ynSEb-AA" },
+    { title: "•7 Top Trending", url: "https://www.youtube.com/embed/ZM0FDtrapHA" },
+    { title: "•8 Top Trending", url: "https://www.youtube.com/embed/02P1hRM_0Gk" },
+    { title: "Aale Mal - ආලේ මල්", url: "https://www.youtube.com/embed/HEm9KIjEVV4" },
+    { title: "Akkalage Wenna - අක්කලාගෙ වෙන්න", url: "https://www.youtube.com/embed/TJ-WCWsYpIk" },
+    { title: "Arabi Kumari - අරාබි කුමාරී", url: "https://www.youtube.com/embed/5I1eLZySBAA" },
+    { title: "Dias-ඩයස්", url: "https://www.youtube.com/embed/dwZTdlrR-uU" },
+    { title: "Diyawanna - දියවන්නා කුමාරියේ", url: "https://www.youtube.com/embed/CD9cNzfJHA4" },
+    { title: "Dumbara Manika - දුම්බර මැනිකා", url: "https://www.youtube.com/embed/_c9HOX5MSSM" },
+    { title: "Hadunada Ridunada - හැදුනද රිදුනද", url: "https://www.youtube.com/embed/wVay4NUzXn4" },
+    { title: "Hade Upan Lade - හදේ උපන් ලදේ", url: "https://www.youtube.com/embed/Cwyek0FRh8g" },
+    { title: "Kasi Saban Pena - කාසි සබන් පෙණ", url: "https://www.youtube.com/embed/AWl3WBAU4h8" },
+    { title: "Komaliya - කොමලියා", url: "https://www.youtube.com/embed/gHwX3ujcVas" },
+    { title: "Laga Lagatama - ලඟ ලඟටම", url: "https://www.youtube.com/embed/b7dUGLCpH2A" },
+    { title: "Lande - ළඳේ", url: "https://www.youtube.com/embed/M3IshbI9vtM" },
+    { title: "Lelena - ලෙලෙනා", url: "https://www.youtube.com/embed/0geqOYqwL0s" },
+    { title: "Liyathabrara - ලියතඹරා", url: "https://www.youtube.com/embed/uYwmGgjnId8" },
+    { title: "Malakadakada - මලකඩකඩ", url: "https://www.youtube.com/embed/BDM8Z8UewAQ" },
+    { title: "Mandaram - මන්දාරම් කතාවේ", url: "https://www.youtube.com/embed/6V62okYjrCc"},
+    { title: "Manali - මනාලී", url: "https://www.youtube.com/embed/92AvBgfIGKU"},
+    { title: "Mata Inna Hithuna - මට ඉන්න හිතුනා", url: "https://www.youtube.com/embed/AaQIHxtvJmY"},
+    { title: "Monara Kirilli - මොනර කිරිල්ලී", url: "https://www.youtube.com/embed/NX8rwGMXho8"},
+    { title: "Naden - නාදෙන්", url: "https://www.youtube.com/embed/ot50HxhJmgQ"},
+    { title: "Ukula Sala - උකුල සලා", url: "https://www.youtube.com/embed/Tn6exRIgSWI"},
+    { title: ".", url: "" },
+    { title: ".", url: "" }
+    ];
+    
+    function openMenu() {
+    document.getElementById("sideMenu").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    }
+    
+    function closeMenu() {
+    document.getElementById("sideMenu").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+    }
+    
+    function displayMenuItems() {
+    const menuItemsContainer = document.getElementById('menuItems');
+    menuItemsContainer.innerHTML = '';
+    videoDatabase.forEach((video, index) => {
+    const menuItem = document.createElement('a');
+    menuItem.href = 'javascript:void(0)';
+    menuItem.innerText = video.title;
+    menuItem.onclick = () => {
+    playVideo(index);
+    closeMenu();
+    };
+    menuItemsContainer.appendChild(menuItem);
+    });
+    }
+    
+    function playVideo(index) {
+    const videoContainer = document.getElementById('videoContainer');
+    const videoFrames = videoContainer.getElementsByClassName('video-frame');
+    
+    for (let i = 0; i < videoFrames.length; i++) {
+    const iframe = videoFrames[i].getElementsByTagName('iframe')[0];
+    if (i === index) {
+    showLoading(); // Show loading animation
+    iframe.src = videoDatabase[i].url + "?autoplay=1";
+    iframe.addEventListener('load', () => {
+    scrollToVideo(videoFrames[i]); // Scroll to the video frame
+    });
+    } else {
+    iframe.src = videoDatabase[i].url;
+    }
+    }
+    }
+    
+    function scrollToVideo(videoFrame) {
+    videoFrame.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    
+    function displayAllVideos() {
+    const videoContainer = document.getElementById('videoContainer');
+    videoContainer.innerHTML = '';
+    videoDatabase.forEach((video, index) => {
+    const videoFrame = document.createElement('div');
+    videoFrame.className = 'video-frame';
+    const iframe = document.createElement('iframe');
+    iframe.src = video.url;
+    iframe.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture";
+    iframe.allowfullscreen = true;
+    iframe.setAttribute('data-index', index); // Add data-index attribute
+    iframe.addEventListener('ended', playNextVideo);
+    videoFrame.appendChild(iframe);
+    videoContainer.appendChild(videoFrame);
+    });
+    }
+    
+    function playNextVideo(event) {
+    const currentIndex = parseInt(event.target.getAttribute('data-index'));
+    const nextIndex = (currentIndex + 1) % videoDatabase.length;
+    playVideo(nextIndex);
+    }
+    
+    function searchMenu() {
+    const searchTerm = document.getElementById('searchBar').value.toLowerCase();
+    const menuItems = document.querySelectorAll('.side-menu a');
+    const videoContainer = document.getElementById('videoContainer');
+    videoContainer.innerHTML = '';
+    
+    menuItems.forEach((item, index) => {
+    const text = item.innerText.toLowerCase();
+    if (text.includes(searchTerm)) {
+    item.style.display = '';
+    const videoFrame = document.createElement('div');
+    videoFrame.className = 'video-frame';
+    const iframe = document.createElement('iframe');
+    iframe.src = videoDatabase[index].url;
+    iframe.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture";
+    iframe.allowfullscreen = true;
+    iframe.setAttribute('data-index', index); // Add data-index attribute
+    iframe.addEventListener('ended', playNextVideo);
+    videoFrame.appendChild(iframe);
+    videoContainer.appendChild(videoFrame);
+    } else {
+    item.style.display = 'none';
+    }
+    });
+    }
+    
+    // Function to show the loading animation
+    function showLoading() {
+    document.getElementById('loading').classList.remove('hidden');
+    }
+    
+    // Function to hide the loading animation
+    function hideLoading() {
+    document.getElementById('loading').classList.add('hidden');
+    }
+    
+    // Initial display of all videos
+    window.onload = function() {
+    displayMenuItems();
+    displayAllVideos();
+    };
+    </script>
+</body>
+</html>
