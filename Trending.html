@@ -14,6 +14,7 @@
   body, h1, h2, h3, p, ul, li {
     margin: 0;
     padding: 0;
+    font-family: Areal;
   }
   
   /* Basic styling */
@@ -21,6 +22,7 @@
     font-family: Arial, sans-serif;
     background-color: rgb(0, 0, 0);
     color: #333;
+    font-family: Areal;
   }
 
   .h-logo {
@@ -57,7 +59,7 @@
 
   main {
     padding: 20px;
-    margin-top: 80px; /* Added margin-top to avoid content being hidden under the fixed header */
+    margin-top: 0px; /* Added margin-top to avoid content being hidden under the fixed header */
   }
 
   .nav {
@@ -498,7 +500,7 @@
     
     
     <div class="hide-audio">
-    <audio id="audioPlayer1" src=""></audio>
+    <audio id="audioPlayer1" src="https://github.com/nadishan2006/premium-Music-mp3/blob/main/Sabrina%20Carpenter%20-%20Espresso%20%28Official%20Video%29.mp3?raw=true"></audio>
     </div>
     </div>
     <br>
@@ -597,57 +599,135 @@
     </p>
     <br>
  <script>
- let currentAudio = null;
- 
- function setupAudioControls(playBtnId, pauseBtnId, audioPlayerId) {
- const playBtn = document.getElementById(playBtnId);
- const pauseBtn = document.getElementById(pauseBtnId);
- const audioPlayer = document.getElementById(audioPlayerId);
- 
- playBtn.addEventListener('click', function() {
- if (currentAudio && currentAudio !== audioPlayer) {
- currentAudio.pause();
- const currentPlayBtn = document.querySelector('.icons-m .fas.fa-play');
- const currentPauseBtn = document.querySelector('.icons-m .fas.fa-pause');
- currentPlayBtn.style.display = 'inline-block';
- currentPauseBtn.style.display = 'none';
- }
- 
- if (audioPlayer.paused) {
- audioPlayer.play();
- playBtn.style.display = 'none';
- pauseBtn.style.display = 'inline-block';
- currentAudio = audioPlayer;
- } else {
- audioPlayer.pause();
- playBtn.style.display = 'inline-block';
- pauseBtn.style.display = 'none';
- currentAudio = null;
- }
- });
- 
- pauseBtn.addEventListener('click', function() {
- audioPlayer.pause();
- playBtn.style.display = 'inline-block';
- pauseBtn.style.display = 'none';
- currentAudio = null;
- });
- 
- audioPlayer.addEventListener('ended', function() {
- playBtn.style.display = 'inline-block';
- pauseBtn.style.display = 'none';
- currentAudio = null;
- });
- }
- 
- setupAudioControls('playBtn1', 'pauseBtn1', 'audioPlayer1');
- 
-  setupAudioControls('playBtn3', 'pauseBtn3', 'audioPlayer3');
-  setupAudioControls('playBtn4', 'pauseBtn4', 'audioPlayer4');
-  setupAudioControls('playBtn5', 'pauseBtn5', 'audioPlayer5');
- </script>
- 
- 
+    let currentAudio = null;
+    
+    function setupAudioControls(playBtnId, pauseBtnId, audioPlayerId) {
+    const playBtn = document.getElementById(playBtnId);
+    const pauseBtn = document.getElementById(pauseBtnId);
+    const audioPlayer = document.getElementById(audioPlayerId);
+    
+    playBtn.addEventListener('click', function() {
+    if (currentAudio && currentAudio !== audioPlayer) {
+    currentAudio.pause();
+    const currentPlayBtn = document.querySelector('.icons-m .fas.fa-play');
+    const currentPauseBtn = document.querySelector('.icons-m .fas.fa-pause');
+    currentPlayBtn.style.display = 'inline-block';
+    currentPauseBtn.style.display = 'none';
+    }
+    
+    if (audioPlayer.paused) {
+    audioPlayer.play();
+    playBtn.style.display = 'none';
+    pauseBtn.style.display = 'inline-block';
+    currentAudio = audioPlayer;
+    } else {
+    audioPlayer.pause();
+    playBtn.style.display = 'inline-block';
+    pauseBtn.style.display = 'none';
+    currentAudio = null;
+    }
+    });
+    
+    pauseBtn.addEventListener('click', function() {
+    audioPlayer.pause();
+    playBtn.style.display = 'inline-block';
+    pauseBtn.style.display = 'none';
+    currentAudio = null;
+    });
+    
+    audioPlayer.addEventListener('ended', function() {
+    playBtn.style.display = 'inline-block';
+    pauseBtn.style.display = 'none';
+    currentAudio = null;
+    });
+    }
+    
+    setupAudioControls('playBtn1', 'pauseBtn1', 'audioPlayer1');
+    setupAudioControls('playBtn2', 'pauseBtn2', 'audioPlayer2');
+    setupAudioControls('playBtn3', 'pauseBtn3', 'audioPlayer3');
+    setupAudioControls('playBtn4', 'pauseBtn4', 'audioPlayer4');
+    setupAudioControls('playBtn5', 'pauseBtn5', 'audioPlayer5');
+    setupAudioControls('playBtn6', 'pauseBtn6', 'audioPlayer6');
+    setupAudioControls('playBtn7', 'pauseBtn7', 'audioPlayer7');
+    setupAudioControls('playBtn8', 'pauseBtn8', 'audioPlayer8');
+    setupAudioControls('playBtn9', 'pauseBtn9', 'audioPlayer9');
+    setupAudioControls('playBtn10', 'pauseBtn10', 'audioPlayer10');
+    setupAudioControls('playBtn11', 'pauseBtn11', 'audioPlayer11');
+    setupAudioControls('playBtn12', 'pauseBtn12', 'audioPlayer12');
+    setupAudioControls('playBtn13', 'pauseBtn13', 'audioPlayer13');
+    setupAudioControls('playBtn14', 'pauseBtn14', 'audioPlayer14');
+    setupAudioControls('playBtn15', 'pauseBtn15', 'audioPlayer15');
+    setupAudioControls('playBtn16', 'pauseBtn16', 'audioPlayer16');
+    setupAudioControls('playBtn17', 'pauseBtn17', 'audioPlayer17');
+    setupAudioControls('playBtn18', 'pauseBtn18', 'audioPlayer18');
+    setupAudioControls('playBtn19', 'pauseBtn19', 'audioPlayer19');
+    setupAudioControls('playBtn20', 'pauseBtn20', 'audioPlayer20');
+    
+    // Add more songs here
+    // setupAudioControls('playBtn3', 'pauseBtn3', 'audioPlayer3');
+    // setupAudioControls('playBtn4', 'pauseBtn4', 'audioPlayer4');
+    </script>
+    
+    
+    </p>
+    
+    <p>
+    
+    <br>
+    
+    <p>
+    
+    <br>
+    
+    <p>
+    
+    </main>
+    <div class="nav">
+    <div class="footer-icons">
+    <div class="icon">
+    <a href="Music.html"><i class="fa-solid fa-music" style="color: rgb(0, 270, 100)"></i>
+    </a><div class="icon-name">Music</div>
+    </div>
+    <div class="icon">
+    <a href="Search.html"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
+    </a><div class="icon-name">Search</div>
+    </div>
+    <div class="icon">
+    <a href="Trending.html"><i class="fa-solid fa-fire-flame-curved" style="color: #ffffff;"></i>
+    </a><div class="icon-name">Trending</div>
+    </div>
+    </div>
+    </div>
+    
+    <script>
+     // Function to save images and audios to localStorage
+     function saveMediaToLocalStorage() {
+     // Select all images and audios on the page
+     const images = document.querySelectorAll('img');
+     const audios = document.querySelectorAll('audio');
+     
+     // Array to store image and audio URLs
+     let mediaUrls = [];
+     
+     // Add image URLs to the array
+     images.forEach(image => {
+     mediaUrls.push(image.src);
+     });
+     
+     // Add audio URLs to the array
+     audios.forEach(audio => {
+     mediaUrls.push(audio.src);
+     });
+     
+     // Save the array to localStorage
+     localStorage.setItem('mediaUrls', JSON.stringify(mediaUrls));
+     }
+     
+     // Call the function to save images and audios to localStorage
+     saveMediaToLocalStorage();
+     
+    </script>
+    
  
  
  

@@ -111,6 +111,12 @@
                 padding: 10px 20px;
             }
         }
+        
+        #link {
+          display: inline; /* or another display value that suits your layout */
+  text-decoration: none; /* removes the underline */
+  color: inherit; /* sets the color to the parent el
+        }
     </style>
 </head>
 <body>
@@ -120,7 +126,7 @@
         <div class="app-name"><b>VIBE - Music App</b></div>
         <div class="app-version">Version 0.0.1</div>
                 <div class="app-version">Released on: 11 July 2024</div>
-        <button class="download-btn" id="downloadBtn" onclick="downloadApp()"><span>Download</span></button>
+        <button class="download-btn" id="downloadBtn" onclick="downloadApp()"><span><a id="link" href="">Download</a></span></button>
     </div>
 
     <script>
