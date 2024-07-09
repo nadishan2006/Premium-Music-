@@ -7,141 +7,149 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="shortcut icon" type="image/jpg" href="https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/Vibe.png">
-   
-   <script>
-   // ask location permission //
- 
-        function getLocation() {
-            if (navigator.geolocation) {
-                document.getElementById('location-status').innerText = "Requesting location...";
-                navigator.geolocation.getCurrentPosition(showPosition, showError);
-            } else {
-                document.getElementById('location-status').innerText = "Geolocation is not supported by this browser.";
-            }
-        }
 
-        function showPosition(position) {
-            document.getElementById('location-status').innerText = "Location obtained successfully!";
-            document.getElementById('latitude').innerText = "Latitude: " + position.coords.latitude;
-            document.getElementById('longitude').innerText = "Longitude: " + position.coords.longitude;
+  <script>
+    // Ask for location permission
+    function getLocation() {
+        if (navigator.geolocation) {
+            document.getElementById('location-status').innerText = "Requesting location...";
+            navigator.geolocation.getCurrentPosition(showPosition, showError);
+        } else {
+            document.getElementById('location-status').innerText = "Geolocation is not supported by this browser.";
         }
+    }
 
-        function showError(error) {
-            switch (error.code) {
-                case error.PERMISSION_DENIED:
-                    document.getElementById('location-status').innerText = "User denied the request for Geolocation.";
-                    break;
-                case error.POSITION_UNAVAILABLE:
-                    document.getElementById('location-status').innerText = "Location information is unavailable.";
-                    break;
-                case error.TIMEOUT:
-                    document.getElementById('location-status').innerText = "The request to get user location timed out.";
-                    break;
-                case error.UNKNOWN_ERROR:
-                    document.getElementById('location-status').innerText = "An unknown error occurred.";
-                    break;
-            }
+    function showPosition(position) {
+        document.getElementById('location-status').innerText = "Location obtained successfully!";
+        document.getElementById('latitude').innerText = "Latitude: " + position.coords.latitude;
+        document.getElementById('longitude').innerText = "Longitude: " + position.coords.longitude;
+    }
+
+    function showError(error) {
+        switch (error.code) {
+            case error.PERMISSION_DENIED:
+                document.getElementById('location-status').innerText = "User denied the request for Geolocation.";
+                break;
+            case error.POSITION_UNAVAILABLE:
+                document.getElementById('location-status').innerText = "Location information is unavailable.";
+                break;
+            case error.TIMEOUT:
+                document.getElementById('location-status').innerText = "The request to get user location timed out.";
+                break;
+            case error.UNKNOWN_ERROR:
+                document.getElementById('location-status').innerText = "An unknown error occurred.";
+                break;
         }
-    </script>
-  
-  
-  
+    }
+
+    // Check if current date and time have passed the target date and time
+    function hasDateTimePassed(targetDateTime) {
+        const now = new Date();
+        const target = new Date(targetDateTime);
+
+        return now >= target;
+    }
+  </script>
+
   <style>
     body {
-  background-color: #000;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100vh;
-  margin: 0;
-  color: #fff;
-  font-family: Arial, sans-serif;
-}
+      background-color: #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100vh;
+      margin: 0;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
 
-.content {
-  display: flex;
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-top: -80px;
-}
+    .content {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin-top: -80px;
+    }
 
-.img-1, .load {
-  display: none;
-}
+    .img-1, .load, .by-text, .update-text {
+      display: none;
+    }
 
-.img-1 img {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-}
+    .img-1 img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+    }
 
-#text {
-  
-}
+    .load {
+      border: 4px solid #000;
+      border-top: 4px solid rgb(0, 227, 100);
+      border-right: 4px solid rgb(0, 227, 100);
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s infinite linear;
+    }
 
- #neuro {
-  
-}
- 
-.load {
-  border: 4px solid #000;
-  border-top: 4px solid rgb(0, 227, 100);
-  border-right: 4px solid rgb(0, 227, 100);
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 1s infinite linear;
-}
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
+    /* For desktop screens */
+    @media (min-width: 1024px) {
+      .content {
+        flex-direction: row;
+      }
 
-/* For desktop screens */
-@media (min-width: 1024px) {
-  .content {
-    flex-direction: row;
-  }
-  
-  .img-1 img {
-    width: 300px;
-    height: 300px;
-  }
-  
-  .load {
-    width: 70px;
-    height: 70px;
-  }
-}
+      .img-1 img {
+        width: 300px;
+        height: 300px;
+      }
 
-/* For Android TV screens */
-@media (min-width: 1280px) and (min-height: 720px) {
-  .content {
-    flex-direction: row;
-  }
-  
-  .img-1 img {
-    width: 400px;
-    height: 400px;
-  }
-  
-  .load {
-    width: 100px;
-    height: 100px;
-  }
-      
+      .load {
+        width: 70px;
+        height: 70px;
+      }
+      .by-text, .update-text {
+        color: #fff;
+        font-size: 39px;
+      }
+    }
+
+    /* For Android TV screens */
+    @media (min-width: 1280px) and (min-height: 720px) {
+      .content {
+        flex-direction: row;
+      }
+
+      .img-1 img {
+        width: 400px;
+        height: 400px;
+      }
+
+      .load {
+        width: 100px;
+        height: 100px;
+      }
+
       #text {
-      font-size: 28px;
-    }
-      
+        font-size: 28px;
+      }
+
       #neuro {
-      width: 20%;
-      height: auto;
+        width: 20%;
+        height: auto;
+      }
+
+      .by-text, .update-text {
+        color: #fff;
+        font-size: 45px;
+      }
+      
+      
     }
-}
 
     .offline {
       display: none;
@@ -150,12 +158,12 @@
       text-align: center;
       margin-top: 75%;
     }
-    
+
     .offline img {
       width: 10%;
       height: 10%;
     }
-    
+
     .footer {
       display: flex;
       justify-content: center;
@@ -177,7 +185,17 @@
       height: auto;
     }
 
-  
+.load {
+  border: 4px solid #000;
+  border-top: 4px solid rgb(0, 227, 100);
+  border-right: 4px solid rgb(0, 227, 100);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s infinite linear;
+}
+
+
   </style>
 </head>
 <body>
@@ -185,7 +203,9 @@
     <div class="img-1">
       <img src="https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/Vibe.png" alt="Logo">
     </div>
+    <div class="by-text">By <b>Nadishan Danthanarayana</b></div>
     <div class="load"></div>
+    <div class="update-text"><b>Update the app</b></div>
     <div class="offline"><b>You're currently offline&nbsp;<img src="no-signal.png"></b></div>
   </div>
 
@@ -196,100 +216,52 @@
 
   <script>
     function getRandomTime() {
-  return Math.floor(Math.random() * 4 + 1) * 1000;
-}
+      return Math.floor(Math.random() * 2 + 1) * 2300;
+    }
 
-function checkOnlineStatus() {
-  if (!navigator.onLine) {
-    document.querySelector('.offline').style.display = 'block';
-    return;
-  }
-
-  document.querySelector('.offline').style.display = 'none';
-  document.querySelector('.img-1').style.display = 'block';
-  setTimeout(() => {
-    document.querySelector('.img-1').style.display = 'none';
-    const loadElement = document.querySelector('.load');
-    loadElement.style.display = 'block';
-    const loadTime = getRandomTime();
-    loadElement.style.animationDuration = `${loadTime}ms`;
-
-    setTimeout(() => {
-      checkIPAndStatus(window.userIP).then(isValidUser => {
-        if (isValidUser) {
-          window.location.href = 'Music.html';
-        } else {
-          window.location.href = 'signup.html';
-        }
-      });
-    }, loadTime);
-  }, getRandomTime());
-}
-
-// Function to get user's IP address
-function getIP(callback) {
-  const script = document.createElement('script');
-  script.src = `https://api.ipify.org?format=jsonp&callback=${callback.name}`;
-  document.body.appendChild(script);
-}
-
-// Function to check IP address and status in the database
-async function checkIPAndStatus(ip) {
-  try {
-    const response = await fetch('https://sheetdb.io/api/v1/633vitwuujta8');
-    const data = await response.json();
-
-    const user = data.find(user => user.ip === ip && user.status === 'Login');
-    return !!user;
-  } catch (error) {
-    console.error('Error fetching user data:', error);
-    return false;
-  }
-}
-
-// Callback function for IP retrieval
-function handleIPResponse(json) {
-  window.userIP = json.ip;  // Store IP in a global variable
-  if (!localStorage.getItem('initialLoad')) {
-    localStorage.setItem('initialLoad', 'true');
-    checkIPAndStatus(window.userIP).then(isValidUser => {
-      if (isValidUser) {
-        window.location.href = 'Music.html';
-      } else {
-        window.location.href = 'signup.html';
+    function checkOnlineStatus() {
+      if (!navigator.onLine) {
+        document.querySelector('.offline').style.display = 'block';
+        return;
       }
-    });
-  } else {
+
+      document.querySelector('.offline').style.display = 'none';
+      document.querySelector('.img-1').style.display = 'block';
+
+      // Customize display time for Vibe logo (in milliseconds)
+      const logoDisplayTime = 3600; // Example: 3 seconds
+      setTimeout(() => {
+        document.querySelector('.img-1').style.display = 'none';
+        const byTextElement = document.querySelector('.by-text');
+        byTextElement.style.display = 'block';
+
+        // Customize display time for "By Nadishan Danthanarayana" text (in milliseconds)
+        const byTextDisplayTime = 2800; // Example: 2 seconds
+        setTimeout(() => {
+          byTextElement.style.display = 'none';
+          const loadElement = document.querySelector('.load');
+          loadElement.style.display = 'block';
+          const loadTime = getRandomTime();
+          loadElement.style.animationDuration = `${loadTime}ms`;
+
+          // Define your target date and time here
+          const targetDateTime = "2024-08-01T00:30:00"; // Example format: "YYYY-MM-DDTHH:MM:SS"
+
+          if (hasDateTimePassed(targetDateTime)) {
+            document.querySelector('.update-text').style.display = 'block';
+          } else {
+            setTimeout(() => {
+              window.location.href = 'Music.html';
+            }, loadTime);
+          }
+        }, byTextDisplayTime);
+      }, logoDisplayTime);
+    }
+
+    window.addEventListener('online', checkOnlineStatus);
+    window.addEventListener('offline', checkOnlineStatus);
+
     checkOnlineStatus();
-  }
-}
-
-// Get user's IP address and handle initial load
-getIP(handleIPResponse);
-
-function signOut() {
-  localStorage.removeItem('isSignedUp');
-  checkOnlineStatus();
-}
-
-window.addEventListener('online', checkOnlineStatus);
-window.addEventListener('offline', checkOnlineStatus);
-
-// Assuming there is a sign out button with class 'signout-btn'
-document.querySelector('.signout-btn').addEventListener('click', signOut);
-
-// To simulate signup action
-function signUp() {
-  localStorage.setItem('isSignedUp', 'true');
-  checkOnlineStatus();
-}
-
-// Assuming there is a signup button with class 'signup-btn'
-document.querySelector('.signup-btn').addEventListener('click', signUp);
-
-// Initial online status check
-checkOnlineStatus();
-
-</script>
+  </script>
 </body>
 </html>

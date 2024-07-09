@@ -331,11 +331,63 @@
     overflow: auto;
     z-index: 99999;
   }
-</style>
+  
+  .num {
+    color: #c1c1c1;
+    font-size: 20px;
+    padding-left: -10px;
+    z-index: 999;
+  }
+#loading {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
 
-<body>
+.loader {
+    border: 5px solid rgba(0, 0, 0, 0.1); /* Light gray border */
+    border-radius: 50%;
+    border-top: 5px solid rgb(0, 227, 100); /* Green border */
+    width: 50px; /* Increased width */
+    height: 50px; /* Increased height */
+    animation: spin 1.2s linear infinite; /* Faster spin */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+    </style>
+    <body>
+      
+   <div id="loading">
+        <div class="loader"></div>
+    </div>
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var links = document.querySelectorAll('.redirect-link');
+            links.forEach(function(link) {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    document.getElementById('loading').style.display = 'block';
+                    window.location.href = this.href;
+                });
+            });
+        });
+
+        window.addEventListener('beforeunload', function() {
+            document.getElementById('loading').style.display = 'block';
+        });
+    </script>
+   <!--
  <div class="h-logo">
  <div class="logo">
+
+   
  <div class="menu-icon" onclick="toggleMenu()">
  <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="35px" fill="#fff">
  <path d="M160-240q-17 0-28.5-11.5T120-280q0-17 11.5-28.5T160-320h640q17 0 28.5 11.5T840-280q0 17-11.5 28.5T800-240H160Zm0-200q-17 0-28.5-11.5T120-480q0-17 11.5-28.5T160-520h640q17 0 28.5 11.5T840-480q0 17-11.5 28.5T800-440H160Zm0-200q-17 0-28.5-11.5T120-680q0-17 11.5-28.5T160-720h640q17 0 28.5 11.5T840-680q0 17-11.5 28.5T800-640H160Z"/>
@@ -419,45 +471,131 @@
  }
  </script>
     
-    
+    -->
     
     <main>
-    <p>
-    <p>
-      
-    </p>
-    <br>
-    <br>
+  
+   
    <div class="tit1">
-   <i class="fa-solid fa-ranking-star"></i> Trending on March
+   <i class="fa-solid fa-ranking-star"></i> Trending on June 
    </div>
    
    <br>  
    <hr>
    <br>
-   <!-- 1-->
-   <!-- 
-   <div class="m-con">
-   <div class="first">
-   <i class="fa-solid fa-award"></i>
-   </div>
-   <div class="m-box">
-   <div class="img">
-   <img src="https://i.ibb.co/GnN8LYy/IMG-20240413-070924.jpg">
-   </div>
-   <div class="text"><b>Alan Walker</b> <p class="text2">Norwegian DJ and music producer</p></div>
-    <p>
+    <div class="m-con">
+     <div class="num">1</div> &nbsp;
+    <div class="m-box">
+    <div class="img">
+    <img src="https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/Espresso.jpeg">
+    </div>
+    <div class="text"><b>Espresso</b> <p class="text2">Song by Sabrina Carpenter</p></div>
     <div class="icons-m">
     <i id="playBtn1" class="icon-m fas fa-play" style="color: #22c55e;"></i>
     <i id="pauseBtn1" class="icon-m fas fa-pause" style="display: none; color: #22c55e;"></i>
     </div>
-   </div> 
- -->
- <div class="hide-audio">
- <audio id="audioPlayer1" src="https://www.cjoint.com/doc/24_04/NDraAt8nWeQ_Rolex-Entry-Bgm--Mr-Jat.in-.mp3"></audio>
- </div>
- </div>
- <br>
+    </div>
+    
+    
+    <div class="hide-audio">
+    <audio id="audioPlayer1" src=""></audio>
+    </div>
+    </div>
+    <br>
+    
+    <!-- 2-->
+    
+    <div class="m-con">
+      <div class="num">2</div> &nbsp;
+    <div class="m-box">
+    <div class="img">
+    <img src="https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/Please%20Please%20Please.jpeg">
+    </div>
+    <div class="text"><b>Please Please Please</b> <p class="text2">Song by Sabrina Carpenter</p></div>
+    <div class="icons-m">
+    <i id="playBtn2" class="icon-m fas fa-play" style="color: #22c55e;"></i>
+    <i id="pauseBtn2" class="icon-m fas fa-pause" style="display: none; color: #22c55e;"></i>
+    </div>
+    </div>
+    
+    <div class="hide-audio">
+    <audio id="audioPlayer2" src="https://github.com/nadishan2006/premium-Music-mp3/blob/main/Sabrina%20Carpenter%20-%20Please%20Please%20Please%20in%20the%20Live%20Lounge.mp3?raw=true"></audio>
+    </div>
+    </div>
+    <br>
+    
+    <!-- 3-->
+    
+    <div class="m-con">
+      <div class="num">3</div> &nbsp;
+    <div class="m-box">
+    <div class="img">
+    <img src="https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/BIRDS%20OF%20A%20FEATHER.jpeg">
+    </div>
+    <div class="text"><b>BIRDS OF A FEATHER</b> <p class="text2">Song by Billie Eilish</p></div>
+    <div class="icons-m">
+    <i id="playBtn3" class="icon-m fas fa-play" style="color: #22c55e;"></i>
+    <i id="pauseBtn3" class="icon-m fas fa-pause" style="display: none; color: #22c55e;"></i>
+    </div>
+    </div>
+    
+    <div class="hide-audio">
+    <audio id="audioPlayer3" src="https://github.com/nadishan2006/premium-Music-mp3/blob/main/Billie%20Eilish%20-%20BIRDS%20OF%20A%20FEATHER%20(Official%20Lyric%20Video).mp3?raw=true"></audio>
+    </div>
+    </div>
+    <br>
+    
+    <!-- 4 -->
+    
+    <div class="m-con">
+      <div class="num">4</div> &nbsp;
+    <div class="m-box">
+    <div class="img">
+    <img src="https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/%20%20Gata%20Only.jpg">
+    </div>
+    <div class="text"><b>Gata Only</b> <p class="text2">Song by Cris MJ and Floyymenor
+</p></div>
+    <div class="icons-m">
+    <i id="playBtn4" class="icon-m fas fa-play" style="color: #22c55e;"></i>
+    <i id="pauseBtn4" class="icon-m fas fa-pause" style="display: none; color: #22c55e;"></i>
+    </div>
+    </div>
+    
+    <div class="hide-audio">
+    <audio id="audioPlayer4" src="https://github.com/nadishan2006/premium-Music-mp3/blob/main/FloyyMenor%20FT%20Cris%20MJ%20-%20GATA%20ONLY%20(Lyrics)%20(Tiktok%20-%20Mami%2C%20te%20siento%20lejo'%2C%20dime%20d%C3%B3nde%20est%C3%A1s).mp3?raw=true"></audio>
+    </div>
+    </div>
+    
+    <br>
+    
+    <!-- 5 -->
+    <div id="JIO-G" class="target-section">
+   </div>
+    <div class="m-con">
+      <div class="num">5</div> &nbsp;
+    <div class="m-box">
+    <div class="img">
+    <img src="https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/Not%20Like%20Us.png">
+    </div>
+    <div class="text"><b>Not Like Us</b> <p class="text2">Song by Kendrick Lamar, Mustard, and Sounwave</p></div>
+    <div class="icons-m">
+    <i id="playBtn5" class="icon-m fas fa-play" style="color: #22c55e;"></i>
+    <i id="pauseBtn5" class="icon-m fas fa-pause" style="display: none; color: #22c55e;"></i>
+    </div>
+    </div>
+    
+
+    
+    <div class="hide-audio">
+    <audio id="audioPlayer5" src="https://github.com/nadishan2006/premium-Music-mp3/blob/main/Not%20Like%20Us.mp3?raw=true"></audio>
+    </div>
+    </div>
+    <br>
+    <br>
+    <p>
+      
+    </p>
+    <br>
  <script>
  let currentAudio = null;
  
@@ -504,9 +642,9 @@
  
  setupAudioControls('playBtn1', 'pauseBtn1', 'audioPlayer1');
  
- // Add more songs here
- // setupAudioControls('playBtn3', 'pauseBtn3', 'audioPlayer3');
- // setupAudioControls('playBtn4', 'pauseBtn4', 'audioPlayer4');
+  setupAudioControls('playBtn3', 'pauseBtn3', 'audioPlayer3');
+  setupAudioControls('playBtn4', 'pauseBtn4', 'audioPlayer4');
+  setupAudioControls('playBtn5', 'pauseBtn5', 'audioPlayer5');
  </script>
  
  

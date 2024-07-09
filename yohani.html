@@ -11,6 +11,52 @@
     <script src="https://kit.fontawesome.com/e7e1ed9392.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" type="image/jpg" href="https://i.ibb.co/kSQN5ZW/Screenshot-2024-0414-204428.jpg">
     <style>
+    #loading {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+.loader {
+    border: 5px solid rgba(0, 0, 0, 0.1); /* Light gray border */
+    border-radius: 50%;
+    border-top: 5px solid rgb(0, 227, 100); /* Green border */
+    width: 50px; /* Increased width */
+    height: 50px; /* Increased height */
+    animation: spin 1.2s linear infinite; /* Faster spin */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+    </style>
+    <body>
+      
+   <div id="loading">
+        <div class="loader"></div>
+    </div>
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var links = document.querySelectorAll('.redirect-link');
+            links.forEach(function(link) {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    document.getElementById('loading').style.display = 'block';
+                    window.location.href = this.href;
+                });
+            });
+        });
+
+        window.addEventListener('beforeunload', function() {
+            document.getElementById('loading').style.display = 'block';
+        });
+    </script>
+    <style>
         body {
             background-color: #000;
             color: #fff;

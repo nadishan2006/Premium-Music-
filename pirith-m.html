@@ -9,6 +9,7 @@
     <script src="https://kit.fontawesome.com/e7e1ed9392.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" type="image/jpg" href="https://i.ibb.co/kSQN5ZW/Screenshot-2024-0414-204428.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
 </head>
 <style>
        body {
@@ -358,8 +359,52 @@
   color: inherit; /* sets the color to the parent element's color */
 }
 
+
+    #loading {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+.loader {
+    border: 5px solid rgba(0, 0, 0, 0.1); /* Light gray border */
+    border-radius: 50%;
+    border-top: 5px solid rgb(0, 227, 100); /* Green border */
+    width: 50px; /* Increased width */
+    height: 50px; /* Increased height */
+    animation: spin 1.2s linear infinite; /* Faster spin */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
     </style>
-<body>
+    <body>
+      
+   <div id="loading">
+        <div class="loader"></div>
+    </div>
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var links = document.querySelectorAll('.redirect-link');
+            links.forEach(function(link) {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    document.getElementById('loading').style.display = 'block';
+                    window.location.href = this.href;
+                });
+            });
+        });
+
+        window.addEventListener('beforeunload', function() {
+            document.getElementById('loading').style.display = 'block';
+        });
+    </script>
 
 <div class="arrow">
   <a id="link" href="Music.html">
@@ -523,25 +568,26 @@ document.addEventListener('DOMContentLoaded', () => {
             "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/pirith%203.jpg"
             },
             
+
+            {
+            "title": "රතන සූත්‍රය",
+            "release_date": "premium-Music",
+            "url": "https://github.com/nadishan2006/premium-Music-mp3/blob/main/Rathana%20Suthraya.mp3?raw=true",
+            "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/pirith.jpg"
+            },
+            {
+            "title": "බුදුගුණ වන්දනා",
+            "release_date": "Premium Music",
+            "url": "https://github.com/nadishan2006/premium-Music-mp3/blob/main/Uthum%20Buduguna%20%E0%B6%B6%E0%B7%94%E0%B6%AF%E0%B7%94%20%E0%B6%9C%E0%B7%94%E0%B6%AB%20%E0%B7%80%E0%B6%B1%E0%B7%8A%E0%B6%AF%E0%B6%B1%E0%B7%8F.mp3?raw=true",
+            "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/rathana%20Suthraya%20.jpg"
+            },
+            {
+            "title": "යශෝදරාවත",
+            "release_date": "Premium Music",
+            "url": "https://github.com/nadishan2006/premium-Music-mp3/blob/main/yasodara.mp3?raw=true",
+            "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/yasodara.jpg"
+            }
             /*
-            {
-            "title": "Arabi Kumari - අරාබි කුමාරී",
-            "release_date": "Sandun Perera",
-            "url": "https://www.cjoint.com/doc/24_06/NFiaed4sNyV_Arabi-Kumari-%E0%B6%85%E0%B6%BB%E0%B7%8F%E0%B6%B6%E0%B7%92-%E0%B6%9A%E0%B7%94%E0%B6%B8%E0%B7%8F%E0%B6%BB%E0%B7%93.mp3",
-            "image": "https://i.ibb.co/jV9mMxK/Arabi-kumari.jpg"
-            },
-            {
-            "title": "Bombe Motai - බොම්බෙ මොටයි ",
-            "release_date": "Anushka Udana",
-            "url": "https://www.cjoint.com/doc/24_06/NFibe2MTiSi_%E0%B6%B6%E0%B7%9C%E0%B6%B8%E0%B7%8A%E0%B6%B6%E0%B7%99-%E0%B6%B8%E0%B7%9C%E0%B6%A7%E0%B6%BA%E0%B7%92-.mp3",
-            "image": "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/gajaman.jpg"
-            },
-            {
-            "title": "Dias-ඩයස්",
-            "release_date": "FREEZE",
-            "url": "https://www.cjoint.com/doc/24_06/NFiafsBihWV_Dias-%E0%B6%A9%E0%B6%BA%E0%B7%83%E0%B7%8A.mp3",
-            "image": "https://i.ibb.co/xgDpWmM/dias.jpg"
-            },
             {
             "title": "Diyawanna - දියවන්නා කුමාරියේ",
             "release_date": "Naada",

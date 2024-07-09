@@ -16,6 +16,7 @@
     margin: 0;
     padding: 0;
     overflow-x: block;
+    font-family: Areal;
     }
     
     /* Basic styling */
@@ -409,10 +410,53 @@
     }
     }
     
+    
+#loading {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+.loader {
+    border: 5px solid rgba(0, 0, 0, 0.1); /* Light gray border */
+    border-radius: 50%;
+    border-top: 5px solid rgb(0, 227, 100); /* Green border */
+    width: 50px; /* Increased width */
+    height: 50px; /* Increased height */
+    animation: spin 1.2s linear infinite; /* Faster spin */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
     </style>
     <body>
       
-   
+   <div id="loading">
+        <div class="loader"></div>
+    </div>
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var links = document.querySelectorAll('.redirect-link');
+            links.forEach(function(link) {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    document.getElementById('loading').style.display = 'block';
+                    window.location.href = this.href;
+                });
+            });
+        });
+
+        window.addEventListener('beforeunload', function() {
+            document.getElementById('loading').style.display = 'block';
+        });
+    </script>
+
    
 <!-- start -->
 
@@ -438,14 +482,14 @@
                             <b></b>
                            
                             <div class="new">
-                                <a href="create your page.html">
+                                <a class="redirect-link" href="create your page.html">
                                     <b><i class="fa-solid fa-folder-plus" style="color: #ffffff;"></i> create your page</a>
                             </div>
                             
                              <hr id="hr-m">
                              
                             <div class="new">
-                                <a href="this version.html">
+                                <a class="redirect-link" href="this version.html">
                                   <b>  <i class="fa fa-android" aria-hidden="true" style="color: #fff;"></i> This Version
                                </b> </a>
                             </div>
@@ -453,7 +497,7 @@
                              <hr id="hr-m">
                              
                             <div class="new">
-                                <a href="update.html">
+                                <a class="redirect-link" href="update.html">
                                     <i class="fa fa-level-up" aria-hidden="true" style="color: #fff;"></i> Update
                                 </a>
                             </div>
@@ -461,7 +505,7 @@
                              <hr id="hr-m">
                              
                             <div class="new">
-                                <a href="about.html">
+                                <a class="redirect-link" href="about.html">
                                     <i class="fa-solid fa-users" style="color: #ffffff;"></i> About us
                                 </a>
                             </div>
@@ -469,7 +513,7 @@
                              <hr id="hr-m">
                              
                             <div class="new">
-                                <a href="ads.html">
+                                <a class="redirect-link" href="ads.html">
                                     <i class="fa-solid fa-rectangle-ad" style="color: #ffffff;"></i> Watch Ads
                                 </a>
                             </div>
@@ -485,39 +529,14 @@
                              <hr id="hr-m">
                              
                             <div class="new">
-                                <a href="t & c.html">
+                                <a class="redirect-link" href="t & c.html">
                                     <i class="fa-solid fa-fingerprint" style="color: #ffffff;"></i> Teams & police</b>
                        </a>
                           </div>
-                          
-                          <hr id="hr-m">
-                          
-                            <div class="new">
-                            <a href="groot.html" style="display: flex; align-items: center;">
-                       <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="24px" fill="#fff">
-                            <path d="M240-160q-33 0-56.5-23.5T160-240q0-33 23.5-56.5T240-320q33 0 56.5 23.5T320-240q0 33-23.5 56.5T240-160Zm320 0q-33 0-56.5-23.5T480-240q0-33 23.5-56.5T560-320q33 0 56.5 23.5T640-240q0 33-23.5 56.5T560-160ZM400-320q-33 0-56.5-23.5T320-400q0-33 23.5-56.5T400-480q33 0 56.5 23.5T480-400q0 33-23.5 56.5T400-320Zm320 0q-33 0-56.5-23.5T640-400q0-33 23.5-56.5T720-480q33 0 56.5 23.5T800-400q0 33-23.5 56.5T720-320ZM240-480q-33 0-56.5-23.5T160-560q0-33 23.5-56.5T240-640q33 0 56.5 23.5T320-560q0 33-23.5 56.5T240-480Zm320 0q-33 0-56.5-23.5T480-560q0-33 23.5-56.5T560-640q33 0 56.5 23.5T640-560q0 33-23.5 56.5T560-480ZM400-640q-33 0-56.5-23.5T320-720q0-33 23.5-56.5T400-800q33 0 56.5 23.5T480-720q0 33-23.5 56.5T400-640Zm320 0q-33 0-56.5-23.5T640-720q0-33 23.5-56.5T720-800q33 0 56.5 23.5T800-720q0 33-23.5 56.5T720-640Z"/>
-                            </svg>
-                            <b style="margin-left: 10px;">Groot AI</b>
-                            </a>
-                            </div>
-                            
-                            <hr id="hr-m">
-                        </div>
-                          
-                          <div class="new">
-                        <a href="logout.html">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z"/></svg> Log out 
-                                </a>
-                            </div>
-                            <br>
-                           
-                           <br>
-                           
-                           <br>
-                           
                     </div>
                 </div>
             </div>
+        </div>
         </div>
         <div class="content-m">
             </div>
@@ -555,7 +574,7 @@
     <p>
     <br>   
     <hr>
-    <a id="link" href="alen.html">
+    <a class="redirect-link" id="link" href="alen.html">
     <div class="box">
     <div class="item">
     <img src="https://i.ibb.co/GnN8LYy/IMG-20240413-070924.jpg">
@@ -563,19 +582,19 @@
     </div>
     </a>
     
-    <a id="link" href="chamara.html">
+    
     <div class="item">
     <img src="https://i.ibb.co/ZcrNKVT/chamara.jpg">
     <div class="text-overlay"><b>Chamara<br>Weerasinghe</b></div>
     </div> </a>
     
-    <a id="link" href="shihan.html">
+    
     <div class="item">
     <img src="https://i.ibb.co/7tpFKWn/shehanjpeg.jpg">
     <div class="text-overlay"><b>Shihan Mihiranga</b></div>
     </div></a>
     
-    <a id="link" href="amal.html">
+    
     <div class="item">
     <img src="https://i.ibb.co/fYfNCz0/amal.jpg">
     <div class="text-overlay"><b>Amal Perera</b></div>
@@ -592,7 +611,7 @@
     <img src="https://i.ibb.co/0JMbvX0/IMG-20240521-190054.jpg">
     <div class="text-overlay"><b>JIO G<svg xmlns='http://www.w3.org/2000/svg' height='22px' viewBox='0 -960 960 960' width='22px' fill='rgb(0, 257, 100)'><path d='m438.62-421.54-71.97-72.23q-5.61-5.23-13.17-5.61-7.56-.39-13.29 5.34-6.38 6.39-6.38 13.42 0 7.04 6.38 13.04l76.93 76.93q9.19 9.57 21.5 9.57 12.3 0 21.88-9.57l159.69-159.7q5.35-5.34 5.68-12.84.32-7.5-5.68-13.62-6.11-5.73-13.29-5.79-7.17-.05-13.28 6.06l-155 155Zm-88.77 280.12-52-86.89-98.62-20.81q-11.31-2.23-18.08-12-6.77-9.76-5.53-21.57l9.46-101-66.2-76.04q-7.84-8.19-7.84-20.27t7.84-20.65l66.2-75.66-9.46-101q-1.24-11.81 5.53-21.57 6.77-9.77 18.08-12.39l98.62-20.42 52-87.27q6.34-10.08 16.71-14 10.36-3.92 21.44.81l92 39.38 92-39.38q11.08-4.73 21.44-.81 10.37 3.92 16.71 14l52 87.27 98.62 20.42q11.31 2.62 18.08 12.39 6.77 9.76 5.53 21.57l-9.46 101 66.58 75.66q7.46 8.57 7.46 20.65 0 12.08-7.46 20.27l-66.58 76.04 9.46 101q1.24 11.81-5.53 21.57-6.77 9.77-18.08 12l-98.62 20.81-52 86.89q-6.34 10.46-16.71 14.38-10.36 3.92-21.44-.81l-92-39.38-92 39.38q-11.08 4.73-21.44.81-10.37-3.92-16.71-14.38Z'/></svg></b></div>
     </div>
-    <a id="link" href="artist-show.html" class="show-more"><b>Show More</b></a>
+    <a class="redirect-link" id="link" href="artist-show.html" class="show-more"><b>Show More</b></a>
     
     </div>
     </a>
@@ -611,7 +630,7 @@
     <hr>
     
     <div class="box">
-      <a id="link" href="pop.html">
+   <a id="link" href="pop.html">
     <div class="item">
     <img src="https://i.ibb.co/dtwvR85/IMG-20240413-095145.jpg">
     <div class="text-overlay"><b>Pop</b></div>
@@ -619,25 +638,25 @@
     
     
     <div class="item">
-       <a id="link" href="rock.html">
+     
     <img src="https://i.ibb.co/7vPNSnM/download-2.png">
     <div class="text-overlay"><b>Rock</b></div> </a>
     </div>
     
     <div class="item">
-       <a id="link" href="hip-hop.html">
+  
     <img src="https://i.ibb.co/6H38V16/images-2.jpg">
     <div class="text-overlay"><b>Hip Hop</b></div></a>
     </div>
     
     <div class="item">
-      <a id="link" href="classic.html">
+   
     <img src="https://i.ibb.co/mFfVVPz/images-3.jpg">
     <div class="text-overlay"><b>Classical</b></div></a>
     </div>
     
     <div class="item">
-      <a id="link" href="rap.html">
+      
     <img src="https://i.ibb.co/ZSG6c6p/images-1.jpg">
     <div class="text-overlay"><b>Rap</b></div></a>
     </div>
@@ -695,49 +714,48 @@
     
     <div class="box">
     <div class="item">
-      <a id="link" href="pirets.html">
     <img src="https://i.ibb.co/JzMZCzK/IMG-20240416-093740.png">
-    <div class="text-overlay"><b>Pirates of the <p>Caribbean</b></div></a>
+    <div class="text-overlay"><b>Pirates of the <br> Caribbean</b></div></a>
+    
     </div>
     
     <div class="item">
-      <a id="link" href="vicram.html">
     <img src="https://i.ibb.co/6rCdhMH/IMG-20240416-093934.jpg">
     <div class="text-overlay"><b>Vikram</b></div></a>
     </div>
     
     <div class="item">
-      <a id="link" href="varisu.html">
+      
     <img src="https://i.ibb.co/wcR9gJF/600x600bf-60.jpg">
     <div class="text-overlay"><b>Varisu</b></div></a>
     </div>
     
     <div class="item">
-      <a id="link" href="sulthan.html">
+      
     <img src="https://i.ibb.co/9t3Fg27/IMG-20240416-094322.jpg">
     <div class="text-overlay"><b>Sulthan</b></div></a>
     </div>
     
     <div class="item">
-      <a id="link" href="leo.html">
+  
     <img src="https://i.ibb.co/zHRJqZW/IMG-20240416-094518.jpg">
     <div class="text-overlay"><b>Leo</b></div></a>
     </div>
     
     <div class="item">
-      <a id="link" href="master.html">
+      
     <img src="https://i.ibb.co/t4t5rHd/IMG-20240416-094707.jpg">
     <div class="text-overlay"><b>Master</b></div></a>
     </div>
     
     <div class="item">
-      <a id="link" href="jailer.html">
+   
     <img src="https://i.ibb.co/5h73zmD/IMG-20240416-094844.jpg">
     <div class="text-overlay"><b>Jailer</b></div></a>
     </div>
     
     <div class="item">
-      <a id="link" href="kgf.html">
+  
     <img src="https://i.ibb.co/3dtLZHd/IMG-20240416-095054.jpg">
     <div class="text-overlay"><b>K.G.F</b></div></a>
     </div>
@@ -772,7 +790,7 @@
     
     
     <div class="box">
-      <a id="link" href="pirith-m.html">
+      <a class="redirect-link" id="link" href="pirith-m.html">
     <div class="item">
     <img src="https://i.ibb.co/S7VmVnB/image.png">
     <div class="text-overlay"><b>පිරිත් සජ්ඣායනා</b></div>
@@ -781,7 +799,7 @@
     
     
     <div class="item">
-       <a id="link" href="sinhala-song.html">
+       <a class="redirect-link" id="link" href="sinhala-song.html">
     <img src="https://i.ibb.co/4745h0r/IMG-20240606-083535.jpg">
     <div class="text-overlay"><b>Sinhala Playlist</b></div> </a>
     </div>
@@ -789,7 +807,7 @@
 
     
     <div class="item">
-       <a id="link" href="sinhala-song-video.html">
+       <a class="redirect-link" id="link" href="sinhala-song-video.html">
     <img src="https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/video-playlist.jpg">
     <div class="text-overlay"><b>Sinhala Songs Video</b></div></a>
     </div>

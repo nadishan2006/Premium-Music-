@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe - Music App</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .app-name {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: rgb(0, 227, 100);
+        }
+
+        .app-version {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .download-btn {
+            background-color: rgb(0, 227, 100);
+            color: #000;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: transform 0.2s ease, background-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+            border-radius: 50%;
+            z-index: 0;
+            transform: translate(-50%, -50%) scale(0.01);
+        }
+
+        .download-btn:hover {
+            background-color: rgb(0, 200, 90);
+        }
+
+        .download-btn:active::before {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 0;
+            transition: none;
+        }
+
+        .download-btn span {
+            position: relative;
+            z-index: 1;
+        }
+        
+        #img {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+        }
+
+        @media (max-width: 768px) {
+            .app-name {
+                font-size: 2rem;
+            }
+
+            .app-version {
+                font-size: 1rem;
+            }
+
+            .download-btn {
+                font-size: 1rem;
+                padding: 12px 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .app-name {
+                font-size: 1.5rem;
+            }
+
+            .app-version {
+                font-size: 0.9rem;
+            }
+
+            .download-btn {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <img id="img" src="https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/Vibe.png">
+      <p></p>
+        <div class="app-name"><b>VIBE - Music App</b></div>
+        <div class="app-version">Version 0.0.1</div>
+                <div class="app-version">Released on: 11 July 2024</div>
+        <button class="download-btn" id="downloadBtn" onclick="downloadApp()"><span>Download</span></button>
+    </div>
+
+    <script>
+        function downloadApp() {
+            const downloadBtn = document.getElementById('downloadBtn');
+            const downloadText = downloadBtn.querySelector('span');
+            
+            downloadText.textContent = 'Downloading...';
+            downloadBtn.disabled = true;
+            downloadBtn.style.backgroundColor = 'rgb(0, 200, 90)';
+
+          }
+    </script>
+</body>
+</html>

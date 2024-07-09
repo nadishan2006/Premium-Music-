@@ -11,6 +11,52 @@
     <script src="https://kit.fontawesome.com/e7e1ed9392.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" type="image/jpg" href="https://i.ibb.co/kSQN5ZW/Screenshot-2024-0414-204428.jpg">
     <style>
+    #loading {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+.loader {
+    border: 5px solid rgba(0, 0, 0, 0.1); /* Light gray border */
+    border-radius: 50%;
+    border-top: 5px solid rgb(0, 227, 100); /* Green border */
+    width: 50px; /* Increased width */
+    height: 50px; /* Increased height */
+    animation: spin 1.2s linear infinite; /* Faster spin */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+    </style>
+    <body>
+      
+   <div id="loading">
+        <div class="loader"></div>
+    </div>
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var links = document.querySelectorAll('.redirect-link');
+            links.forEach(function(link) {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    document.getElementById('loading').style.display = 'block';
+                    window.location.href = this.href;
+                });
+            });
+        });
+
+        window.addEventListener('beforeunload', function() {
+            document.getElementById('loading').style.display = 'block';
+        });
+    </script>
+    <style>
         body {
             background-color: #000;
             color: #fff;
@@ -192,12 +238,14 @@
         title2: "none",
         mp3: "https://www.cjoint.com/doc/24_05/NEvn4xkwmQN_nonasena-jio-g-ft-d-zesar.mp3"
     },
-  /*  {
-        image: "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/amal.jpg",
-        title1: "Lassanai Adare",
-        title2: "12 January 2014",
-        mp3: "https://github.com/nadishan2006/premium-Music-mp3/blob/main/Lassanai%20%20Adare%20-%20Amal%20Perera.mp3?raw=true"
+  {
+        image: "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/jiog.jpg",
+        title1: "Nawam Mahe",
+        title2: "none",
+        mp3: "https://github.com/nadishan2006/premium-Music-mp3/blob/main/NAWAMMAHE%20%20%E0%B6%B1%E0%B7%80%E0%B6%B8%E0%B6%B8%E0%B7%84%20%20%20JEO%20G%20%20ft.%20%20D%20zeSar.mp3?raw=true"
     },
+      /*
+      
     {
         image: "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/amal%201.jpg",
         title1: "Heenayak Wage",
