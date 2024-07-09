@@ -113,32 +113,37 @@
         }
         
         #link {
-          display: inline; /* or another display value that suits your layout */
-  text-decoration: none; /* removes the underline */
-  color: inherit; /* sets the color to the parent el
+          display: inline;
+          text-decoration: none;
+          color: inherit;
         }
     </style>
 </head>
 <body>
     <div class="container">
-      <img id="img" src="https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/Vibe.png">
-      <p></p>
+        <img id="img" src="https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/Vibe.png">
+        <p></p>
         <div class="app-name"><b>VIBE - Music App</b></div>
         <div class="app-version">Version 0.0.1</div>
-                <div class="app-version">Released on: 11 July 2024</div>
-        <button class="download-btn" id="downloadBtn" onclick="downloadApp()"><span><a id="link" href="">Download</a></span></button>
+        <div class="app-version">Released on: 11 July 2024</div>
+        <button class="download-btn" id="downloadBtn" onclick="downloadApp()"><span>Download</span></button>
     </div>
 
     <script>
         function downloadApp() {
+            const downloadLink = document.createElement('a');
+            downloadLink.href = 'https://github.com/nadishan2006/Premium-Music-/raw/main/vibe.apk';
+            downloadLink.download = 'vibe.apk';
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+
             const downloadBtn = document.getElementById('downloadBtn');
             const downloadText = downloadBtn.querySelector('span');
-            
             downloadText.textContent = 'Downloading...';
             downloadBtn.disabled = true;
             downloadBtn.style.backgroundColor = 'rgb(0, 200, 90)';
-
-          }
+        }
     </script>
 </body>
 </html>
