@@ -125,13 +125,18 @@
         }
 
         .form-container input {
-            width: 90%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            font-size: 1rem;
-        }
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #000;
+    font-size: 1rem;
+    outline: none; /* Add this line to hide the border color on focus */
+}
+
+.form-container input:focus {
+    outline: none; /* Ensure the outline is hidden on focus */
+}
 
         .form-container button {
             background-color: rgb(0, 227, 100);
@@ -209,7 +214,7 @@
 
         function downloadApp() {
             const downloadLink = document.createElement('a');
-            downloadLink.href = 'https://github.com/nadishan2006/Premium-Music-/blob/main/VIBE-form-Neuro.apk';
+            downloadLink.href = 'https://github.com/nadishan2006/Premium-Music-/raw/main/VIBE-form-Neuro.apk';
             downloadLink.download = 'vibe.apk';
             document.body.appendChild(downloadLink);
             downloadLink.click();
