@@ -45,6 +45,7 @@
             transition: transform 0.2s ease, background-color 0.3s ease;
             position: relative;
             overflow: hidden;
+            display: none;
         }
 
         .download-btn::before {
@@ -75,11 +76,11 @@
             position: relative;
             z-index: 1;
         }
-        
+
         #img {
-          width: 80px;
-          height: 80px;
-          border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
         }
 
         @media (max-width: 768px) {
@@ -111,28 +112,104 @@
                 padding: 10px 20px;
             }
         }
-        
+
         #link {
-          display: inline;
-          text-decoration: none;
-          color: inherit;
+            display: inline;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .form-container {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .form-container input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+
+        .form-container button {
+            background-color: rgb(0, 227, 100);
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: transform 0.2s ease, background-color 0.3s ease;
+        }
+
+        .form-container button:hover {
+            background-color: rgb(0, 200, 90);
+        }
+
+        .hidden {
+            display: none;
+        }
+        
+        #device {
+           display: none;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <img id="img" src="https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/Vibe.png">
-        <p></p>
-        <div class="app-name"><b>VIBE - Music App</b></div>
-        <div class="app-version">Version 0.0.1</div>
-        <div class="app-version">Released on: 11 July 2024</div>
-        <button class="download-btn" id="downloadBtn" onclick="downloadApp()"><span>Download</span></button>
+        <div id="content" class="hidden">
+            <p></p>
+            <div class="app-name"><b>VIBE - Music App</b></div>
+            <div class="app-version">Version 0.1</div>
+            <div class="app-version">Released on: 11 July 2024</div>
+            <center><button class="download-btn" id="downloadBtn" onclick="downloadApp()"><span>Download</span></button></center>
+        </div>
+        <div class="form-container" id="formContainer">
+            <form id="userForm">
+                <input type="text" id="device" name="device" readonly>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                <input type="text" id="name" name="name" placeholder="Name" required>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@3/dist/fp.min.js"></script>
     <script>
+        const apiUrl = 'https://sheetdb.io/api/v1/p54znnae0pbm4';
+
+        async function checkDeviceId(deviceId) {
+            try {
+                const response = await fetch(`${apiUrl}/search?device=${deviceId}`);
+                const data = await response.json();
+                return data.length > 0;
+            } catch (error) {
+                console.error('Error checking device ID:', error);
+                return false;
+            }
+        }
+
+        async function postData(data) {
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+                return response.json();
+            } catch (error) {
+                console.error('Error posting data:', error);
+            }
+        }
+
         function downloadApp() {
             const downloadLink = document.createElement('a');
-            downloadLink.href = 'https://github.com/nadishan2006/Premium-Music-/raw/main/vibe.apk';
+            downloadLink.href = 'https://github.com/nadishan2006/Premium-Music-/blob/main/VIBE-form-Neuro.apk';
             downloadLink.download = 'vibe.apk';
             document.body.appendChild(downloadLink);
             downloadLink.click();
@@ -144,6 +221,42 @@
             downloadBtn.disabled = true;
             downloadBtn.style.backgroundColor = 'rgb(0, 200, 90)';
         }
+
+        document.getElementById('userForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
+            const deviceId = document.getElementById('device').value;
+            const email = document.getElementById('email').value;
+            const name = document.getElementById('name').value;
+
+            const data = { device: deviceId, email, name };
+            await postData(data);
+
+            document.getElementById('formContainer').style.display = 'none';
+            document.getElementById('content').classList.remove('hidden');
+            document.getElementById('downloadBtn').style.display = 'block';
+        });
+
+        async function initialize() {
+            const fp = await FingerprintJS.load();
+            const result = await fp.get();
+            const deviceId = result.visitorId;
+            
+            // Manually set device ID for testing
+            // Uncomment the next line and set your desired device ID
+            // const deviceId = 'your-device-id-here';
+            
+            document.getElementById('device').value = deviceId;
+
+            const deviceExists = await checkDeviceId(deviceId);
+            if (deviceExists) {
+                document.getElementById('content').classList.remove('hidden');
+                document.getElementById('downloadBtn').style.display = 'block';
+            } else {
+                document.getElementById('formContainer').style.display = 'block';
+            }
+        }
+
+        initialize();
     </script>
 </body>
 </html>
