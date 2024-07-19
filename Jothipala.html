@@ -3,12 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Music</title>
+    <title>H.R Jothipala</title>
     <script src="https://kit.fontawesome.com/e7e1ed9392.js" crossorigin="anonymous"></script>
+    <style>
+    #loading {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+.loader {
+    border: 5px solid rgba(0, 0, 0, 0.1); /* Light gray border */
+    border-radius: 50%;
+    border-top: 5px solid rgb(0, 227, 100); /* Green border */
+    width: 50px; /* Increased width */
+    height: 50px; /* Increased height */
+    animation: spin 1.2s linear infinite; /* Faster spin */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+    </style>
+    <body>
+      
+   <div id="loading">
+        <div class="loader"></div>
+    </div>
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var links = document.querySelectorAll('.redirect-link');
+            links.forEach(function(link) {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    document.getElementById('loading').style.display = 'block';
+                    window.location.href = this.href;
+                });
+            });
+        });
+
+        window.addEventListener('beforeunload', function() {
+            document.getElementById('loading').style.display = 'block';
+        });
+    </script>
+    
     <style>
         body {
             background-color: #000;
             color: #fff;
+            font-family: Areal;
         }
         
         .box {
@@ -71,7 +119,7 @@
         }
         
         .music-box.playing {
-            background-color: rgb(0, 255, 100);
+            background-color: rgb(0, 219, 100);
         }
         
         .music-box img {
@@ -87,7 +135,7 @@
         }
         
         .text-b1 {
-    font-size: 14px;
+    font-size: 13px;
     padding-right: 50px;
     font-weight: bold; /* Makes the text bold */
 }
@@ -145,8 +193,6 @@
   color: inherit; /* sets the color to the parent element's color */
 }
 
-  
-
 .arrow {
     font-size: 1.5rem;
     padding-top: 10px;
@@ -156,29 +202,6 @@
     top: 0;
     left: 0;
 }
-
-.more {
-  background-color: #fff;
-  color: #000;
-  font-size: 16px;
-  margin-right: 0px;
-  width: 70%; /* Adjust width to account for margin */
-  padding: 30px;
-  border-radius: 20px;
-}
-
-#video-container {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-            aspect-ratio: 16/9;
-        }
-        #video {
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
-       
     </style>
 </head>
 <body>
@@ -191,77 +214,75 @@
 
     <br>
     <div class="box">
-        <img id="yt" src="vibe-profile.jpg" allowfullscreen></iframe>
+        <img id="yt" src="thumb.jpg" allowfullscreen></iframe>
     </div>
     <div class="box1">
-        <img src="https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/Vibe.png" alt="Hidden Image" onclick="revealImage()">
+        <img src="https://github.com/nadishan2006/Premium-Music-image-s-/blob/main/jothi%2006.jpeg?raw=true" alt="Hidden Image" onclick="revealImage()">
     </div>
     <div class="text-1">
-        <b>VIBE</b>
+        <b>H.R Jothipala</b>
     </div>
     <br>
     <br>
-    <!--
     <div class="container" id="results"></div>
     <audio id="audio"></audio>
-       <center>
-    <div class="container" id="results"></div>
-    <audio id="audio"></audio>
-    -->
     
-    <center>
-       <div id="video-container">
-    <video id="video" src="https://github.com/nadishan2006/Premium-Music-/blob/main/vibe.mp4?raw=true" controlsList="nodownload" controls="true" poster="thumb.jpg"></video>
-</div>
-
-    
-    
-    <br>
-    
-     <br>
-    <div class="more">
-     <b> More content will be add soon...</b>
-    </div>
-   </center>
     <script>
         const data = [
     {
-        image: "https://i.ibb.co/kSQN5ZW/Screenshot-2024-0414-204428.jpg",
-        title1: "Premium Chord",
-        title2: "29 June 2024",
-        mp3: "https://github.com/nadishan2006/premium-Music-mp3/blob/main/Premium%20chords%20.mp3?raw=true"
+        image: "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/jothi%2004.jpeg",
+        title1: "ආශා රොනින් පිරුණු",
+        title2: "",
+        mp3: ""
+    },
+    {
+        image: "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/jothi%2001.jpeg",
+        title1: "මේ ජීවනයේ",
+        title2: "",
+        mp3: ""
+    },
+    {
+        image: "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/jothi%2002.jpeg",
+        title1: "පිස්සු විකාරේ දාගෙන",
+        title2: "",
+        mp3: ""
+    },
+    {
+        image: "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/Jothipala%20(1).jpg",
+        title1: "පුංචිදෝණි තරහා වෙලා",
+        title2: "",
+        mp3: "https://www.cjoint.com/doc/24_06/NFia7JRaGGi_%E0%B6%B4%E0%B7%94%E0%B6%82%E0%B6%A0%E0%B7%92-%E0%B6%AF%E0%B7%9D%E0%B6%AB%E0%B7%92-%E0%B6%AD%E0%B6%BB%E0%B7%84-%E0%B7%80%E0%B7%99%E0%B6%BD%E0%B7%8F.mp3"
+    },
+    {
+        image: "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/jothi%20pruthu.jpg",
+        title1: "පෘතුගීසි කාරයා රටවල්",
+        title2: "",
+        mp3: ""
+    },
+    {
+        image: "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/jothipala.jpg",
+        title1: "රත්තරං පෙම්පුරානේ",
+        title2: "",
+        mp3: "https://www.cjoint.com/doc/24_06/NFibheBDUYi_%E0%B6%BB%E0%B6%AD%E0%B7%8A%E0%B6%AD%E0%B6%BB%E0%B6%82-%E0%B6%B4%E0%B7%99%E0%B6%B8%E0%B7%8A%E0%B6%B4%E0%B7%94%E0%B6%BB%E0%B7%8F%E0%B6%B1%E0%B7%9A.mp3"
+    },
+    {
+        image: "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/jothi%20sarasade.jpeg",
+        title1: "සරා සදේ සිනාසේ",
+        title2: "",
+        mp3: ""
+    },
+    {
+        image: "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/jothi%2003.jpeg",
+        title1: "සමන් මල් පියල්ලේ",
+        title2: "",
+        mp3: ""
+    },
+    {
+        image: "https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/jothi%20siriyame.jpeg",
+        title1: "සිරියමෙ සාරා",
+        title2: "",
+        mp3: ""
     }
-    /*
-    {
-        image: "https://i.ibb.co/w4s2Wby/279912798-554688012687989-7371472378482916394-n-e1651905549299-696x522.jpg",
-        title1: "On My Way",
-        title2: "21 March 2019",
-        mp3: "https://www.cjoint.com/doc/24_05/NEchFcWY1cj_Alan-Walker-Sabrina-Carpenter-Farruko---On-My-Way.mp3"
-    },
-    {
-        image: "https://i.ibb.co/FbmMmsM/unity.jpg",
-        title1: "Unity",
-        title2: "15 July 2019",
-        mp3: "https://www.cjoint.com/doc/24_05/NEdlvoym16T_Alan-x-Walkers---Unity.mp3"
-    },
-    {
-        image: "https://i.ibb.co/HHp4Mvb/IMG-20240502-052949.jpg",
-        title1: "The Spectre",
-        title2: "15 September 2017",
-        mp3: "https://www.cjoint.com/doc/24_05/NEdlK0vGPhj_Alan-Walker---The-Spectre.mp3"
-    },
-    {
-        image: "https://i.ibb.co/yNw9p2q/faded.jpg",
-        title1: "Faded",
-        title2: "17 August 2015",
-        mp3: "https://www.cjoint.com/doc/24_05/NEdmcEayu6T_Alan-Walker---Faded.mp3"
-    },
-    {
-        image: "https://i.ibb.co/SmKCmbp/sing-me-to-sleep.jpg",
-        title1: "Sing Me to Sleep",
-        title2: "03 June 2016",
-        mp3: "https://www.cjoint.com/doc/24_05/NEdmbSjdhFT_Alan-Walker---Sing-Me-To-Sleep.mp3"
-    } */
 ];
 
 const resultsDiv = document.getElementById('results');

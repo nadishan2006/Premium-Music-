@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube in VIBE Music</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://kit.fontawesome.com/e7e1ed9392.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" type="image/jpg" href="https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/Vibe.png">
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        background-color: #000; /* Black background */
+        color: #fff; /* White text color */
+        margin: 0;
+        padding: 0;
+        }
+        
+        .youtube-container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .search-bar {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        }
+        
+        .search-bar input {
+        width: 70%;
+        padding: 10px;
+        border: 1px solid #444; /* Dark gray border */
+        border-radius: 4px 0 0 4px;
+        background-color: #333; /* Dark background */
+        color: #fff; /* White text color */
+        }
+        
+        .search-bar input:focus {
+  outline: none; /* This removes the default outline */
+  border: none; /* This removes any border */
+}
+        
+        .search-bar button {
+        padding: 10px;
+        border: none; /* Dark gray border */
+        border-left: 0;
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
+        background-color: #f40b0b; /* Darker background */
+        color: #fff; /* White text color */
+        }
+        
+        .results-container, .samples {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        }
+        
+        .video-item {
+        width: 100%;
+        max-width: 300px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        border-radius: 4px;
+        overflow: hidden;
+        cursor: pointer;
+        background-color: #222; /* Dark background */
+        }
+        
+        .video-item img {
+        width: 100%;
+        }
+        
+        .video-item h3 {
+        padding: 10px;
+        font-size: 16px;
+        color: #fff; /* White text color */
+        }
+        
+        .video-item p {
+        padding: 0 10px 10px;
+        font-size: 14px;
+        color: #bbb; /* Light gray text color */
+        }
+        
+        #load-more-btn {
+          background-color: #000;
+          color: #f40b0b;
+          border: none;
+          align-items: center;
+          justify-content: center;
+          display: flex;
+        }
+        
+        .loading {
+        display: none; /* Hide initially */
+        width: 100%;
+        height: 5px;
+        background-color: none;
+        position: relative;
+        overflow: hidden;
+        }
+        
+        .loading::before {
+        content: '';
+        position: absolute;
+        width: 0%;
+        height: 100%;
+        background-color: red;
+        animation: loading 6s linear forwards;
+        }
+        
+        @keyframes loading {
+        0% {
+        left: 0;
+        width: 0%;
+        }
+        50% {
+        left: 0;
+        width: 100%;
+        }
+        100% {
+        left: 100%;
+        width: 0%;
+        }
+        }
+        
+        .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+        }
+        
+        .modal-content {
+        position: relative;
+        width: 80%;
+        max-width: 800px;
+        background-color: #000; /* Black background */
+        border-radius: 4px;
+        overflow: hidden;
+        }
+        
+        .modal-content iframe {
+        width: 100%;
+        height: 450px;
+        }
+        
+        .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #ff0000;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        font-size: 18px;
+        line-height: 30px;
+        text-align: center;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+        .video-item {
+        max-width: 100%;
+        }
+        }
+        
+        @media (min-width: 769px) and (max-width: 1200px) {
+        .video-item {
+        max-width: 45%;
+        }
+        }
+        
+        @media (min-width: 1201px) and (max-width: 1920px) {
+          .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+        }
+        
+        .modal-content {
+        position: relative;
+        width: 90%;
+        background-color: #000; /* Black background */
+        border-radius: 4px;
+        overflow: hidden;
+        }
+        
+        .modal-content iframe {
+        width: 100%;
+        height: 450px;
+        }
+        
+        .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #ff0000;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        font-size: 18px;
+        line-height: 30px;
+        text-align: center;
+        }
+        
+        .video-item {
+        max-width: 30%;
+        }
+        }
+        
+        @media (min-width: 1921px) {
+        .video-item {
+        max-width: 25%;
+        }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="youtube-container">
+        <header>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search YouTube">
+                <button class="search-btn" onclick="searchYouTube()">search</button>
+            </div>
+        </header>
+        <main>
+            <div class="samples" id="samples">
+                <!-- Initial popular videos will be displayed here -->
+            </div>
+            <div class="loading" id="loading"></div>
+            <div class="results-container" id="results-container"></div>
+        </main>
+        <footer>
+            <button id="load-more-btn"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#f40b0b"><path d="M485-440h163q26 0 44-18t18-44q0-26-18-44.5T648-565h-2q-5-32-29-53.5T560-640q-26 0-47 13.5T481-590q-30 2-50.5 23.5T410-515q0 30 21.5 52.5T485-440ZM120-120q-33 0-56.5-23.5T40-200v-480q0-17 11.5-28.5T80-720q17 0 28.5 11.5T120-680v480h640q17 0 28.5 11.5T800-160q0 17-11.5 28.5T760-120H120Zm160-160q-33 0-56.5-23.5T200-360v-440q0-33 23.5-56.5T280-880h167q16 0 30.5 6t25.5 17l57 57h280q33 0 56.5 23.5T920-720v360q0 33-23.5 56.5T840-280H280Z"/></svg> <b>Load More</b></button>
+        </footer>
+    </div>
+    
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">×</button>
+            <iframe id="modal-video" src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <script>
+        const apiKey = 'AIzaSyAZSKsmYpKuzSxonRm8tteRog2qwaC80DU';
+        let nextPageToken = '';
+        let currentQuery = '';
+        
+        document.addEventListener('DOMContentLoaded', () => {
+        displaySavedSearchResults();
+        document.getElementById('load-more-btn').addEventListener('click', loadMoreContent);
+        document.getElementById('search-input').addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+        searchYouTube();
+        }
+        });
+        });
+        
+        async function getPopularVideos(pageToken = '') {
+        const url = `https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=US&maxResults=10&key=${apiKey}&pageToken=${pageToken}`;
+        try {
+        const response = await fetch(url);
+        const data = await response.json();
+        nextPageToken = data.nextPageToken || '';
+        return data.items;
+        } catch (error) {
+        console.error('Error fetching popular videos:', error);
+        return [];
+        }
+        }
+        
+        async function searchYouTube() {
+        const query = document.getElementById('search-input').value.trim();
+        if (!query) return;
+        
+        currentQuery = query;
+        saveSearchQuery(query);
+        
+        const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=10&q=${query}&key=${apiKey}`;
+        const resultsContainer = document.getElementById('results-container');
+        const loading = document.getElementById('loading');
+        const samples = document.getElementById('samples');
+        
+        // Show loading animation and hide results
+        loading.style.display = 'block';
+        resultsContainer.style.display = 'none';
+        samples.style.display = 'none';
+        
+        try {
+        const response = await fetch(url);
+        const data = await response.json();
+        nextPageToken = data.nextPageToken || '';
+        displayVideos(data.items, 'results-container');
+        } catch (error) {
+        console.error('Error searching YouTube:', error);
+        } finally {
+        // Hide loading animation and show results
+        loading.style.display = 'none';
+        resultsContainer.style.display = 'flex';
+        samples.style.display = 'none';
+        }
+        }
+        
+        function displayVideos(videos, containerId) {
+        const container = document.getElementById(containerId);
+        if (containerId === 'results-container') {
+        // Clear previous content only for 'results-container'
+        container.innerHTML = '';
+        }
+        videos.forEach(video => {
+        const videoId = video.id.videoId || video.id;
+        const videoTitle = video.snippet.title;
+        const videoThumbnail = video.snippet.thumbnails.medium.url;
+        const videoDate = new Date(video.snippet.publishedAt).toLocaleDateString();
+        
+        const videoItem = document.createElement('div');
+        videoItem.classList.add('video-item');
+        videoItem.innerHTML = `
+        <img src="${videoThumbnail}" alt="${videoTitle}">
+        <h3>${videoTitle}</h3>
+        <p>${videoDate}</p>
+        `;
+        videoItem.addEventListener('click', () => {
+        openModal(videoId);
+        });
+        
+        container.appendChild(videoItem);
+        });
+        }
+        
+        function saveSearchQuery(query) {
+        let searches = JSON.parse(localStorage.getItem('searches')) || [];
+        searches.unshift(query);
+        searches = searches.slice(0, 10); // Keep only the last 10 searches
+        localStorage.setItem('searches', JSON.stringify(searches));
+        }
+        
+        async function displaySavedSearchResults() {
+        const searches = JSON.parse(localStorage.getItem('searches')) || [];
+        if (searches.length > 0) {
+        const query = searches[0]; // Display only the latest search
+        currentQuery = query;
+        try {
+        const searchResults = await getVideosByQuery(query);
+        displayVideos(searchResults, 'samples');
+        } catch (error) {
+        console.error(`Error displaying search results for query: ${query}`, error);
+        }
+        } else {
+        try {
+        const popularVideos = await getPopularVideos();
+        displayVideos(popularVideos, 'samples');
+        } catch (error) {
+        console.error('Error displaying popular videos:', error);
+        }
+        }
+        }
+        
+        async function getVideosByQuery(query, pageToken = '') {
+        const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=10&q=${query}&key=${apiKey}&pageToken=${pageToken}`;
+        try {
+        const response = await fetch(url);
+        const data = await response.json();
+        nextPageToken = data.nextPageToken || '';
+        return data.items;
+        } catch (error) {
+        console.error('Error fetching videos:', error);
+        return [];
+        }
+        }
+        
+        async function loadMoreContent() {
+        if (nextPageToken) {
+        const videos = await getVideosByQuery(currentQuery, nextPageToken);
+        displayVideos(videos, 'results-container');
+        }
+        }
+        
+        function openModal(videoId) {
+        const modal = document.getElementById('modal');
+        const modalVideo = document.getElementById('modal-video');
+        modalVideo.src = `https://www.youtube.com/embed/${videoId}`;
+        modal.style.display = 'flex';
+        }
+        
+        function closeModal() {
+        const modal = document.getElementById('modal');
+        const modalVideo = document.getElementById('modal-video');
+        modalVideo.src = '';
+        modal.style.display = 'none';
+        }
+        
+        
+    </script>
+</body>
+</html>

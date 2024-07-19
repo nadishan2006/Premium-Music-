@@ -417,6 +417,22 @@
     
         /* Media query for Android TV and desktop */
     @media (min-width: 1024px) {
+    .logo img {
+    justify-content: flex-start;
+    padding-left: 200px;
+    }
+    }
+    
+    .logo-text {
+    color: #fff;
+    font-size: 30px;
+    margin-top: 16px;
+    margin-left: -9px; /* Add margin instead of negative margin */
+    }
+    
+    main {
+    padding: 20px;
+    }
     
     .nav {
     background-color: rgba(0, 0, 0, 0.8); /* Transparent black (50% opacity) */
@@ -588,7 +604,10 @@
     
     @media (max-width: 768px) {
     /* Existing styles */
-    
+    .side-menu {
+    width: 0; /* Set initial width to 0 */
+    /* Other styles */
+    }
     
     .content-m {
     margin-left: 0; /* Set initial margin to 0 */

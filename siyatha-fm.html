@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="https://kit.fontawesome.com/e7e1ed9392.js" crossorigin="anonymous"></script>
+  <link rel="shortcut icon" type="image/jpg" href="https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/Vibe.png">
+    <style>
+    #loading {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+.loader {
+    border: 5px solid rgba(0, 0, 0, 0); /* Light gray border */
+    border-radius: 50%;
+    border-top: 5px solid rgb(0, 227, 100); /* Green border */
+    width: 50px; /* Increased width */
+    height: 50px; /* Increased height */
+    animation: spin 1.2s linear infinite; /* Faster spin */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+    </style>
+    <body>
+      
+   <div id="loading">
+        <div class="loader"></div>
+    </div>
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var links = document.querySelectorAll('.redirect-link');
+            links.forEach(function(link) {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    document.getElementById('loading').style.display = 'block';
+                    window.location.href = this.href;
+                });
+            });
+        });
+
+        window.addEventListener('beforeunload', function() {
+            document.getElementById('loading').style.display = 'block';
+        });
+    </script>
+  <title>සියත FM</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #5e5eee, #870707);
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100vh;
+      position: relative;
+    }
+    
+    .title {
+      background-color: none;
+      color: #fff;
+      width: 82%;
+      position: absolute;
+      top: 10px;
+      right: 0;
+      display: flex;
+      justify-content: flex-start; /* Align text to the left */
+      align-items: center;
+      z-index: 9999;
+      overflow: hidden; /* Hide overflow */
+    }
+
+    .title-text {
+      display: inline-block;
+      animation: moveText 21s linear infinite;
+      white-space: nowrap; /* Prevent text from wrapping */
+      font-size: 20px;
+    }
+
+    @keyframes moveText {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+    
+    .law-color {
+      background-color: rgba(0, 0, 0, 0.6);
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+    }
+    
+    #circle-img {
+      width: 80%;
+      height: auto;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      z-index: 2;
+      position: relative;
+      top: 13vh;
+    }
+
+    .time {
+      position: absolute;
+      bottom: 30%;
+      width: 100%;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      z-index: 999;
+    }
+    
+    .time-line {
+      width: 80%;
+      height: 2px;
+      background-color: #fff;
+      margin: 10px auto;
+      position: relative;
+    }
+    
+    .time-line .current-time, .time-line .end-time {
+      position: absolute;
+      top: -20px;
+      display: block;
+      width: auto;
+      text-align: center;
+      font-size: 14px;
+    }
+    
+    .time-line .current-time {
+      left: 0;
+    }
+    
+    .time-line .end-time {
+      right: 0;
+    }
+    
+    .control {
+      position: absolute;
+      bottom: 15%;
+      width: 100%;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      z-index: 999;
+    }
+
+    .hidden {
+      display: none;
+    }
+    
+    .control svg {
+      cursor: pointer;
+    }
+
+    #play, #pause {
+      margin: 0 40px;
+    }
+
+   .arrow {
+    font-size: 2rem;
+    padding-top: 10px;
+    padding-left: 20px;
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+  
+    #link {
+  display: inline; /* or another display value that suits your layout */
+  text-decoration: none; /* removes the underline */
+  color: inherit; /* sets the color to the parent element's color */
+}
+
+#fireworksButton {
+    background-color: none;
+    position: absolute;
+    bottom: 25px;
+    right: 20px;
+    z-index: 10;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    }
+    
+    .fireworks {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0; 
+    }
+    
+    @keyframes firework {
+    0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    }
+    100% {
+    transform: translateY(-200px) scale(0);
+    opacity: 0;
+    }
+    }
+    
+    .music-symbol {
+    position: absolute;
+    color: #ff0;
+    font-size: 25px;
+    animation: firework 15s linear forwards;
+    }
+  @media (min-width: 1280px) and (min-height: 720px) {
+  footer {
+    padding: 26px;
+    border-radius: 15px;
+    margin-bottom: 110px;
+  }
+  }
+  
+    .timeline-dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border-radius: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+/* Desktop screens */
+@media (min-width: 1024px) {
+  .title-text {
+    font-size: 25px;
+    /* Add any other styles specific to desktop screens */
+  }
+  
+  #circle-img {
+      width: 25%;
+      height: auto;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      z-index: 2;
+      position: relative;
+      top: 13vh;
+  }
+  
+  .time-line .current-time, .time-line .end-time {
+      position: absolute;
+      top: -20px;
+      display: block;
+      width: auto;
+      text-align: center;
+      font-size: 20px;
+  }
+}
+  </style>
+</head>
+<body>
+ 
+<div id="link" class="arrow">
+  <a id="link" href="Music.html"><svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#FFFFFF"><path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"/></svg></a></div>
+<div class="title">
+  <span class="title-text" id="title-text"><b>සියත FM &nbsp; -  &nbsp;Siyatha FM &nbsp;- &nbsp;By Nadishan Danthanarayana.</b></span>
+</div>
+
+  <div class="law-color"></div>
+  <img id="circle-img" src="https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/siyatha.png">
+  
+  <div class="time">
+    <div class="time-line">
+      <span class="current-time">0:00</span>
+      <span class="end-time">3:45</span> <!-- Adjust end time as needed -->
+    </div>
+  </div>
+  
+  <div class="control">
+      
+     <a href="hiru-fm.html">
+    <svg id="previous" xmlns="http://www.w3.org/2000/svg" height="50px" viewBox="0 -960 960 960" width="50px" fill="#FFFFFF"><path d="M798-281 550-447q-9-6-13.5-14.5T532-480q0-10 4.5-18.5T550-513l248-166q5-4 11-5t11-1q16 0 28 11t12 29v330q0 18-12 29t-28 11q-5 0-11-1t-11-5Zm-400 0L150-447q-9-6-13.5-14.5T132-480q0-10 4.5-18.5T150-513l248-166q5-4 11-5t11-1q16 0 28 11t12 29v330q0 18-12 29t-28 11q-5 0-11-1t-11-5Z"/></svg></a>
+  
+    <svg id="play" class="play-pause" xmlns="http://www.w3.org/2000/svg" height="60px" viewBox="0 -960 960 960" width="60px" fill="#FFFFFF"><path d="m426-330 195-125q14-9 14-25t-14-25L426-630q-15-10-30.5-1.5T380-605v250q0 18 15.5 26.5T426-330Zm54 250q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg>
+    
+    <svg id="pause" class="play-pause hidden" xmlns="http://www.w3.org/2000/svg" height="60px" viewBox="0 -960 960 960" width="60px" fill="#FFFFFF"><path d="M400-320q17 0 28.5-11.5T440-360v-240q0-17-11.5-28.5T400-640q-17 0-28.5 11.5T360-600v240q0 17 11.5 28.5T400-320Zm160 0q17 0 28.5-11.5T600-360v-240q0-17-11.5-28.5T560-640q-17 0-28.5 11.5T520-600v240q0 17 11.5 28.5T560-320ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg>
+     
+ <a href="neth-fm.html">
+    <svg id="next" xmlns="http://www.w3.org/2000/svg" height="50px" viewBox="0 -960 960 960" width="50px" fill="#FFFFFF"><path d="M100-315v-330q0-18 12-29t28-11q5 0 11 1t11 5l248 166q9 6 13.5 14.5T428-480q0 10-4.5 18.5T410-447L162-281q-5 4-11 5t-11 1q-16 0-28-11t-12-29Zm400 0v-330q0-18 12-29t28-11q5 0 11 1t11 5l248 166q9 6 13.5 14.5T828-480q0 10-4.5 18.5T810-447L562-281q-5 4-11 5t-11 1q-16 0-28-11t-12-29Z"/></svg></a>
+  </div>
+
+  <audio id="audio" class="hidden">
+    <source src="https://srv01.onlineradio.voaplus.com/siyathafm" type="audio/ogg">
+
+    Your browser does not support the audio element.
+  </audio>
+  
+ 
+<div id="fireworksButton">
+  
+   <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#FFFFFF"><path d="M480-280q83 0 141.5-58.5T680-480q0-83-58.5-141.5T480-680q-83 0-141.5 58.5T280-480q0 83 58.5 141.5T480-280Zm0 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg> </div>
+ <div class="fireworks"></div>
+ 
+ <script>
+    // Add your JavaScript here
+    document.getElementById('fireworksButton').addEventListener('click', function() {
+    const fireworksContainer = document.querySelector('.fireworks');
+    for (let i = 0; i < 20; i++) {
+    const symbol = document.createElement('div');
+    symbol.className = 'music-symbol';
+    symbol.style.left = `${Math.random() * 100}%`;
+    symbol.style.top = `${Math.random() * 100}%`;
+    
+    // Choose random music symbols
+    const symbols = ['<svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="rgb(0,227,100)"><path d="M400-120q-66 0-113-47t-47-113q0-66 47-113t113-47q23 0 42.5 5.5T480-418v-422h240v160H560v400q0 66-47 113t-113 47Z"/></svg>', '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#EA3323"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Z"/></svg>', '<i class="fa-solid fa-headphones" style="color: #ffffff;"></i>', '<i class="fa-solid fa-music" style="color: #FFD43B;"></i>']; // Custom icons from Material Symbols and Font Awesome
+    symbol.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+    
+    fireworksContainer.appendChild(symbol);
+    
+    setTimeout(() => {
+    symbol.remove();
+    }, 15000);
+    }
+    });
+    
+  </script>
+</body>
+<script>
+  const audio = document.getElementById('audio');
+  const playButton = document.getElementById('play');
+  const pauseButton = document.getElementById('pause');
+  const currentTimeDisplay = document.querySelector('.current-time');
+  const endTimeDisplay = document.querySelector('.end-time');
+  const timeLine = document.querySelector('.time-line');
+
+  playButton.addEventListener('click', () => {
+    audio.play();
+    playButton.classList.add('hidden');
+    pauseButton.classList.remove('hidden');
+  });
+
+  pauseButton.addEventListener('click', () => {
+    audio.pause();
+    pauseButton.classList.add('hidden');
+    playButton.classList.remove('hidden');
+  });
+
+  audio.addEventListener('timeupdate', () => {
+    const currentTime = audio.currentTime;
+    const duration = audio.duration;
+    const progress = (currentTime / duration) * 100;
+    
+    currentTimeDisplay.textContent = formatTime(currentTime);
+    timeLine.style.background = `linear-gradient(to right, #fff ${progress}%, rgba(255, 255, 255, 0.3) ${progress}%)`;
+  });
+
+  function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+  }
+
+  audio.addEventListener('loadedmetadata', () => {
+    endTimeDisplay.textContent = formatTime(audio.duration);
+  });
+</script>
+</html>
