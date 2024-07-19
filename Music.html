@@ -1,8 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
+      <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+      <style>
+    #loading {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+.loader {
+    border: 5px solid rgba(0, 0, 0, 0.1); /* Light gray border */
+    border-radius: 50%;
+    border-top: 5px solid rgb(0, 227, 100); /* Green border */
+    width: 50px; /* Increased width */
+    height: 50px; /* Increased height */
+    animation: spin 1.2s linear infinite; /* Faster spin */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+    </style>
+    <body>
+      
+   <div id="loading">
+        <div class="loader"></div>
+    </div>
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var links = document.querySelectorAll('.redirect-link');
+            links.forEach(function(link) {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    document.getElementById('loading').style.display = 'block';
+                    window.location.href = this.href;
+                });
+            });
+        });
+
+        window.addEventListener('beforeunload', function() {
+            document.getElementById('loading').style.display = 'block';
+        });
+    </script>
   <style>
     body {
       background-color: black; /* Set background to black */
@@ -377,18 +426,7 @@
     transition: margin-left 0.5s;
     }
     
-    @media (max-width: 768px) {
-    /* Existing styles */
-    .side-menu {
-    width: 0; /* Set initial width to 0 */
-    /* Other styles */
-    }
-    
-    .content-m {
-    margin-left: 0; /* Set initial margin to 0 */
-    /* Other styles */
-    }
-    }
+  
     
     .menu-itm {
     padding-left: 10px;
@@ -457,49 +495,7 @@
     background-color: transparent;
     }
     
-    .item {
-    display: inline-block;
-    width: 135px;
-    max-width: 500px;
-    height: 45%;
-    background-color: transparent;
-    margin-right: 10px;
-    position: relative;
-    }
     
-    .item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px; /* Add border radius */
-    }
-    
-    .text-overlay {
-    position: absolute;
-    bottom: 4px;
-    left: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    border-radius: 10px;
-    color: white;
-    text-align: 10px;
-    padding: 10px;
-    box-sizing: border-box;
-    font-size: 13px;
-    }
-    
-    .tit1 {
-    color: #fff;
-    font-weight: bold; /* Add bold style */
-    font-size: 24px; /* Adjust the size as needed */
-    }
-    
-    .show-more {
-    color: rgb(0, 270, 100);
-    font-size:15px;
-    top: 100px;
-    margin-right: -400px;
-    }
     
     .m-con {
     display: flex;
@@ -705,14 +701,62 @@
 <br>
   <br>
      <br>
+     
+     
+     <div class="main-tit">
+     <b>Artists</b> 
+     </div>
+     <hr class="hr-item">
+     <br>
+     
+     <div class="non-box">
+     <a id="link" href="premium-music.html">
+     <div class="non-item">
+     <img src="https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/Vibe.png">
+     <div class="non-text-overlay"><b>VIBE Music</b></div>
+     </div> </a>
+     
+      <a id="link" href="youtube.html">
+     <div class="non-item">
+     <img src="https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/YouTube.jpg">
+     <div class="non-text-overlay"><b>You Tube</b></div> </a>
+     </div>
+     
+      <a id="link" href="alen.html">
+     <div class="non-item">
+     <img src="https://i.ibb.co/GnN8LYy/IMG-20240413-070924.jpg">
+     <div class="non-text-overlay"><b>Alan Walker</b></div></a>
+     </div>
+     
+      <a id="link" href="anushka-wasthi.html">
+     <div class="non-item">
+     <img src="https://raw.githubusercontent.com/nadishan2006/Premium-Music-image-s-/main/anushka-udana-wasthi-rzYV_bkagXu-vWkNnTzeKVA.1400x1400.jpg">
+     <div class="non-text-overlay"><b>Anushka Udana</b></div></a>
+     </div>
+     
+      <a id="link" href="503.html">
+     <div class="non-item">
+     <img src="https://i.ibb.co/ZcrNKVT/chamara.jpg">
+     <div class="non-text-overlay"><b>Chamara <br> Weerasinghe</b></div></a>
+     </div>
+      <div class="more">
+ <span class="more"><a id="link" href="artist-show.html"><svg class="more" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#FFFFFF"><path d="M507-480 384-357l56 57 180-180-180-180-56 57 123 123ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg></a></span>
+ </div>
+     </div>
+     </div>
+     </div>
+     
+     <!--
 <div class="main-tit">
  <b>Artists</b> 
 </div>
 <hr class="hr-item">
 <br>
   <div class="scroll-hr" id="container">
-    <!-- Content will be dynamically loaded here -->
   </div>
+  
+  
+  
 
 <script>
  async function fetchData() {
@@ -809,6 +853,7 @@
  
  startRandomDisplay();
  </script>
+-->
 
 <div class="main-tit">
  <b>Song Category's</b> 
