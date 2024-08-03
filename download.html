@@ -21,6 +21,11 @@
             max-width: 800px;
             padding: 20px;
         }
+        
+        .container2 {
+            max-width: 800px;
+            padding: 70px;
+        }
 
         .app-name {
             font-size: 2.5rem;
@@ -47,8 +52,22 @@
             overflow: hidden;
             display: none;
         }
+        
+        .download-btn2 {
+            background-color: rgb(0, 227, 100);
+            color: #000;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: transform 0.2s ease, background-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: none;
+        }
 
-        .download-btn::before {
+        .download-btn::before, .download-btn2::before {
             content: '';
             position: absolute;
             top: 50%;
@@ -62,17 +81,17 @@
             transform: translate(-50%, -50%) scale(0.01);
         }
 
-        .download-btn:hover {
+        .download-btn:hover, .download-btn2:hover {
             background-color: rgb(0, 200, 90);
         }
 
-        .download-btn:active::before {
+        .download-btn:active::before, .download-btn2:active::before {
             transform: translate(-50%, -50%) scale(1);
             opacity: 0;
             transition: none;
         }
 
-        .download-btn span {
+        .download-btn span, .download-btn2 span {
             position: relative;
             z-index: 1;
         }
@@ -92,7 +111,7 @@
                 font-size: 1rem;
             }
 
-            .download-btn {
+            .download-btn, .download-btn2 {
                 font-size: 1rem;
                 padding: 12px 24px;
             }
@@ -107,7 +126,7 @@
                 font-size: 0.9rem;
             }
 
-            .download-btn {
+            .download-btn, .download-btn2 {
                 font-size: 0.9rem;
                 padding: 10px 20px;
             }
@@ -125,18 +144,18 @@
         }
 
         .form-container input {
-    width: 90%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: 1px solid #000;
-    font-size: 1rem;
-    outline: none; /* Add this line to hide the border color on focus */
-}
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #000;
+            font-size: 1rem;
+            outline: none;
+        }
 
-.form-container input:focus {
-    outline: none; /* Ensure the outline is hidden on focus */
-}
+        .form-container input:focus {
+            outline: none;
+        }
 
         .form-container button {
             background-color: rgb(0, 227, 100);
@@ -172,96 +191,121 @@
             <div class="app-version">Released on: 11 July 2024</div>
             <center><button class="download-btn" id="downloadBtn" onclick="downloadApp()"><span>Download</span></button></center>
         </div>
-        <div class="form-container" id="formContainer">
-            <form id="userForm">
-                <input type="text" id="device" name="device" readonly>
-                <input type="email" id="email" name="email" placeholder="Email" required>
-                <input type="text" id="name" name="name" placeholder="Name" required>
-                <button type="submit">Submit</button>
-            </form>
-        </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@3/dist/fp.min.js"></script>
-    <script>
-        const apiUrl = 'https://sheetdb.io/api/v1/p54znnae0pbm4';
+    <div class="container2">
+        <img id="img" src="beats-black.png">
+        <div class="app-name"><b>Beats for Android TV</b></div>
+        <div class="app-version">Version 1.1</div>
+        <div class="app-version">Released on: 01 August 2024</div>
+        <center><button class="download-btn2" id="downloadBtn2" onclick="downloadApp2()"><span>Download</span></button></center>
+    </div>
 
-        async function checkDeviceId(deviceId) {
-            try {
-                const response = await fetch(`${apiUrl}/search?device=${deviceId}`);
-                const data = await response.json();
-                return data.length > 0;
-            } catch (error) {
-                console.error('Error checking device ID:', error);
-                return false;
-            }
+    <div class="form-container" id="formContainer">
+        <form id="userForm">
+            <input type="text" id="device" name="device" readonly>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+            <input type="text" id="name" name="name" placeholder="Name" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@3/dist/fp.min.js"></script>
+<script>
+    const apiUrl = 'https://sheetdb.io/api/v1/p54znnae0pbm4';
+
+    async function checkDeviceId(deviceId) {
+        try {
+            const response = await fetch(`${apiUrl}/search?device=${deviceId}`);
+            const data = await response.json();
+            return data.length > 0;
+        } catch (error) {
+            console.error('Error checking device ID:', error);
+            return false;
         }
+    }
 
-        async function postData(data) {
-            try {
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data),
-                });
-                return response.json();
-            } catch (error) {
-                console.error('Error posting data:', error);
-            }
+    async function postData(data) {
+        try {
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+            return response.json();
+        } catch (error) {
+            console.error('Error posting data:', error);
         }
+    }
 
-        function downloadApp() {
-            const downloadLink = document.createElement('a');
-            downloadLink.href = 'https://github.com/nadishan2006/Premium-Music-/raw/main/VIBE-form-Neuro.apk';
-            downloadLink.download = 'vibe.apk';
-            document.body.appendChild(downloadLink);
-            downloadLink.click();
-            document.body.removeChild(downloadLink);
+    function downloadApp() {
+        const downloadLink = document.createElement('a');
+        downloadLink.href = 'https://github.com/nadishan2006/Premium-Music-/raw/main/VIBE-form-Neuro.apk';
+        downloadLink.download = 'vibe.apk';
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
 
-            const downloadBtn = document.getElementById('downloadBtn');
-            const downloadText = downloadBtn.querySelector('span');
-            downloadText.textContent = 'Downloading...';
-            downloadBtn.disabled = true;
-            downloadBtn.style.backgroundColor = 'rgb(0, 200, 90)';
-        }
+        const downloadBtn = document.getElementById('downloadBtn');
+        const downloadText = downloadBtn.querySelector('span');
+        downloadText.textContent = 'Downloading...';
+        downloadBtn.disabled = true;
+        downloadBtn.style.backgroundColor = 'rgb(0, 200, 90)';
+    }
 
-        document.getElementById('userForm').addEventListener('submit', async function (event) {
-            event.preventDefault();
-            const deviceId = document.getElementById('device').value;
-            const email = document.getElementById('email').value;
-            const name = document.getElementById('name').value;
+    function downloadApp2() {
+        const downloadLink = document.createElement('a');
+        downloadLink.href = 'https://github.com/nadishan2006/Premium-Music-/raw/main/beats%20for%20Android%20tv%20v%201.1.apk';
+        downloadLink.download = 'beats-for-android-tv.apk';
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
 
-            const data = { device: deviceId, email, name };
-            await postData(data);
+        const downloadBtn2 = document.getElementById('downloadBtn2');
+        const downloadText2 = downloadBtn2.querySelector('span');
+        downloadText2.textContent = 'Downloading...';
+        downloadBtn2.disabled = true;
+        downloadBtn2.style.backgroundColor = 'rgb(0, 200, 90)';
+    }
 
-            document.getElementById('formContainer').style.display = 'none';
+    document.getElementById('userForm').addEventListener('submit', async function (event) {
+        event.preventDefault();
+        const deviceId = document.getElementById('device').value;
+        const email = document.getElementById('email').value;
+        const name = document.getElementById('name').value;
+
+        const data = { device: deviceId, email, name };
+        await postData(data);
+
+        document.getElementById('formContainer').style.display = 'none';
+        document.getElementById('content').classList.remove('hidden');
+        document.getElementById('downloadBtn').style.display = 'block';
+    });
+
+    async function initialize() {
+        const fp = await FingerprintJS.load();
+        const result = await fp.get();
+        const deviceId = result.visitorId;
+        
+        // Manually set device ID for testing
+        // Uncomment the next line and set your desired device ID
+        // const deviceId = 'your-device-id-here';
+        
+        document.getElementById('device').value = deviceId;
+
+        const deviceExists = await checkDeviceId(deviceId);
+        if (deviceExists) {
             document.getElementById('content').classList.remove('hidden');
             document.getElementById('downloadBtn').style.display = 'block';
-        });
-
-        async function initialize() {
-            const fp = await FingerprintJS.load();
-            const result = await fp.get();
-            const deviceId = result.visitorId;
-            
-            // Manually set device ID for testing
-            // Uncomment the next line and set your desired device ID
-            // const deviceId = 'your-device-id-here';
-            
-            document.getElementById('device').value = deviceId;
-
-            const deviceExists = await checkDeviceId(deviceId);
-            if (deviceExists) {
-                document.getElementById('content').classList.remove('hidden');
-                document.getElementById('downloadBtn').style.display = 'block';
-            } else {
-                document.getElementById('formContainer').style.display = 'block';
-            }
+            document.getElementById('downloadBtn2').style.display = 'block';
+        } else {
+            document.getElementById('formContainer').style.display = 'block';
         }
+    }
 
-        initialize();
-    </script>
+    initialize();
+</script>
 </body>
 </html>
